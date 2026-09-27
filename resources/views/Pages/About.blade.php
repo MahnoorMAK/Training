@@ -1,10 +1,10 @@
-{{-- resources/views/Pages/About.blade.php --}}
 @extends('Layout.app')
 
 @section('title', 'About Us - Apexbooks')
 
 @section('styles')
     {{-- About page styles --}}
+    
     <link rel="stylesheet" href="{{ asset('css/about.css') }}">
 @endsection
 
