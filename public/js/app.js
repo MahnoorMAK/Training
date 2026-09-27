@@ -37,3 +37,61 @@
         }
     });
 })();
+/* ============================================================
+   THREE-DOT NAV MENU
+   ============================================================ */
+(function () {
+    'use strict';
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const menu = document.getElementById('navDotsMenu');
+        const toggle = document.getElementById('navDotsToggle');
+        const themeToggleBtn = document.getElementById('themeToggleFromMenu');
+
+        if (!menu || !toggle) return;
+
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            menu.classList.toggle('open');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!menu.contains(e.target)) menu.classList.remove('open');
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') menu.classList.remove('open');
+        });
+
+        window.addEventListener('pageshow', function () {
+            menu.classList.remove('open');
+        });
+
+        if (themeToggleBtn) {
+            const moonIcon = themeToggleBtn.querySelector('.dots-icon-moon');
+            const sunIcon  = themeToggleBtn.querySelector('.dots-icon-sun');
+
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    moonIcon.style.display = 'none';
+                    sunIcon.style.display = 'block';
+                } else {
+                    moonIcon.style.display = 'block';
+                    sunIcon.style.display = 'none';
+                }
+            }
+
+            updateIcon(document.documentElement.getAttribute('data-theme') || 'light');
+
+            themeToggleBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const current = document.documentElement.getAttribute('data-theme') || 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('apexbooks-theme', next);
+                updateIcon(next);
+            });
+        }
+    });
+})();
