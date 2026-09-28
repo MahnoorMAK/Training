@@ -3,6 +3,7 @@
 @section('title', 'Apexbooks - Financial Clarity for Every Role')
 
 @section('styles')
+
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @endsection
 
@@ -67,6 +68,9 @@
         </div>
 
     </div>
+
+@include('Component.Slider3D')
+
 @endsection
 
 @section('scripts')
