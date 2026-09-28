@@ -18,6 +18,7 @@ Route::get('/About', function () { return view('Pages.About');})->name('About');
 Route::get('/2', function () { return view('Pages.2');})->name('2');
 Route::get('/3', function () { return view('Pages.3');})->name('3');
 Route::get('/register', function () {return view('Pages.register');})->name('register');
+Route::get('/Slider3D', function () {return view('Pages.Slider3D');})->name('Slider3D');
 
 
 Route::post('/register', function (\Illuminate\Http\Request $request) {
