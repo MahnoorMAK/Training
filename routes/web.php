@@ -20,6 +20,7 @@ Route::get('/3', function () { return view('Pages.3');})->name('3');
 Route::get('/register', function () {return view('Pages.register');})->name('register');
 Route::get('/Slider3D', function () {return view('Pages.Slider3D');})->name('Slider3D');
 Route::get('/StatsBar', function () {return view('Component.StatsBar');})->name('StatsBar');
+Route::get('/WhyAccordion', function () {return view('Component.WhyAccordion');})->name('WhyAccordion');
 
 
 Route::post('/register', function (\Illuminate\Http\Request $request) {
