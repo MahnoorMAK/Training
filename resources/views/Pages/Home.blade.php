@@ -70,6 +70,7 @@
     </div>
 @include('Component.StatsBar')
 @include('Component.FeaturesGrid')
+@include('Component.WhyAccordion')
 @include('Component.Slider3D')
 
 @endsection
