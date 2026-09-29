@@ -68,7 +68,8 @@
         </div>
 
     </div>
-
+@include('Component.StatsBar')
+@include('Component.FeaturesGrid')
 @include('Component.Slider3D')
 
 @endsection
