@@ -4,9 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-// ============================================
-// Existing Routes (unchanged)
-// ============================================
 Route::get('/', function () { return view('Pages.Home');})->name('Home');
 Route::get('/Contact', function () { return view('Pages.Contact');})->name('Contact');
 Route::get('/Login2', function () { return view('Pages.Login2');})->name('Login2');
@@ -21,6 +18,8 @@ Route::get('/register', function () {return view('Pages.register');})->name('reg
 Route::get('/Slider3D', function () {return view('Pages.Slider3D');})->name('Slider3D');
 Route::get('/StatsBar', function () {return view('Component.StatsBar');})->name('StatsBar');
 Route::get('/WhyAccordion', function () {return view('Component.WhyAccordion');})->name('WhyAccordion');
+Route::get('/ModulesTabs', function () {return view('Component.ModulesTabs');})->name('ModulesTabs');
+Route::get('/TopClients', function () {return view('Component.TopClients');})->name('TopClients');
 
 
 Route::post('/register', function (\Illuminate\Http\Request $request) {

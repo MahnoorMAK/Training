@@ -19,8 +19,8 @@
 
     <!-- Custom CSS -->
    
-    <Script src="{{asset('js/Sign2.config.js')}}"></Script>
-    <link rel="stylesheet" href="{{asset('css/Sign2.css')}}">
+    <Script src="{{asset('js/Login2.config.js')}}"></Script>
+    <link rel="stylesheet" href="{{asset('css/Login2.css')}}">
 
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
 
@@ -199,7 +199,7 @@
     </div>
 
     <script src="script.js"></script>
-    <script src="{{asset('js/Sign2.js')}}"></script>
+    <script src="{{asset('js/Login2.js')}}"></script>
     <script src="{{ asset('js/theme.js') }}"></script>
 </body>
 </html>

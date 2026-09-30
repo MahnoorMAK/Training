@@ -5,6 +5,7 @@
 
 @section('styles')
     {{-- Service page styles --}}
+    
     <link rel="stylesheet" href="{{ asset('css/service.css') }}">
 @endsection
 
