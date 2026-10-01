@@ -563,3 +563,12 @@ footer {
         justify-content: center;
     }
 }
+
+/* Navbar hides when scrolling down, reappears when scrolling up */
+nav {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+nav.is-hidden {
+    transform: translateY(-100%);
+}
