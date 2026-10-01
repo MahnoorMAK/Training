@@ -95,3 +95,20 @@
         }
     });
 })();
+
+/* Navbar hide/show on scroll */
+(function () {
+    let lastY = 0;
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+
+    window.addEventListener('scroll', function () {
+        const y = window.scrollY;
+        if (y > 200 && y > lastY) {
+            nav.classList.add('is-hidden');
+        } else {
+            nav.classList.remove('is-hidden');
+        }
+        lastY = y;
+    }, { passive: true });
+})();
