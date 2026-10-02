@@ -1,0 +1,351 @@
+/* ============================================================
+   LEDGEINVO — FLOATING CTA CARD
+   ============================================================ */
+.fcta-section {
+    position: relative;
+    width: 100%;
+    padding: 100px 64px;
+    background: var(--bg-color, #F8F9FC);
+}
+
+/* ---------- The floating card ---------- */
+.fcta-card {
+    position: relative;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    border-radius: 28px;
+    overflow: hidden;
+
+    background: var(--white, #ffffff);
+    border: 1px solid var(--border-color, #E2E8F0);
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.04),
+        0 24px 60px -30px rgba(15, 23, 42, 0.15),
+        0 40px 100px -40px rgba(126, 107, 181, 0.25);
+
+    /* Entrance state */
+    opacity: 0;
+    transform: translateY(50px) scale(0.98);
+    transition:
+        opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.5s ease;
+}
+
+.fcta-section.is-visible .fcta-card {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.fcta-card:hover {
+    box-shadow:
+        0 6px 16px rgba(15, 23, 42, 0.06),
+        0 32px 70px -30px rgba(15, 23, 42, 0.2),
+        0 50px 120px -40px rgba(126, 107, 181, 0.35);
+}
+
+/* ---------- Left: image ---------- */
+.fcta-image {
+    position: relative;
+    min-height: 460px;
+    overflow: hidden;
+    background: #1a1520;
+}
+
+.fcta-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.02);
+    transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fcta-card:hover .fcta-image img {
+    transform: scale(1.08);
+}
+
+/* Subtle gradient overlay on the image */
+.fcta-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(30, 24, 48, 0.15) 0%,
+        transparent 40%,
+        transparent 70%,
+        rgba(30, 24, 48, 0.15) 100%
+    );
+    pointer-events: none;
+}
+
+/* ---------- Right: content ---------- */
+.fcta-content {
+    display: flex;
+    align-items: center;
+    padding: 72px 72px 72px 80px;
+    background: var(--white, #ffffff);
+}
+
+.fcta-inner {
+    max-width: 520px;
+}
+
+/* Eyebrow */
+.fcta-eyebrow {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent-color, #7E6BB5);
+    margin-bottom: 20px;
+
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.fcta-section.is-visible .fcta-eyebrow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Title */
+.fcta-title {
+    font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif !important;
+    font-size: clamp(1.85rem, 3.4vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-main, #1E293B);
+    margin: 0 0 24px;
+
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s,
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+}
+
+.fcta-section.is-visible .fcta-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Description */
+.fcta-desc {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted, #64748B);
+    margin: 0 0 40px;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s,
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+}
+
+.fcta-section.is-visible .fcta-desc {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button */
+.fcta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 30px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: #1a1520;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow:
+        0 8px 20px -8px rgba(15, 23, 42, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.08);
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.75s,
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.fcta-section.is-visible .fcta-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fcta-btn:hover {
+    background: #0f0a1a;
+    transform: translateY(-3px);
+    box-shadow:
+        0 18px 36px -10px rgba(15, 23, 42, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.fcta-btn:active {
+    transform: translateY(-1px);
+}
+
+.fcta-btn svg {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fcta-btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+[data-theme="dark"] .fcta-section {
+    background: #121212;
+}
+
+[data-theme="dark"] .fcta-card {
+    background: #1a1a1a;
+    border-color: #2d2d2d;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        0 24px 60px -30px rgba(0, 0, 0, 0.5),
+        0 40px 100px -40px rgba(139, 92, 246, 0.2);
+}
+
+[data-theme="dark"] .fcta-card:hover {
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.4),
+        0 32px 70px -30px rgba(0, 0, 0, 0.5),
+        0 50px 120px -40px rgba(139, 92, 246, 0.3);
+}
+
+[data-theme="dark"] .fcta-content {
+    background: #1a1a1a;
+}
+
+[data-theme="dark"] .fcta-eyebrow {
+    color: #a78bfa;
+}
+
+[data-theme="dark"] .fcta-title {
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .fcta-desc {
+    color: #9ca3af;
+}
+
+[data-theme="dark"] .fcta-btn {
+    background: #f9fafb;
+    color: #1a1520;
+    box-shadow:
+        0 8px 20px -8px rgba(249, 250, 251, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .fcta-btn:hover {
+    background: #ffffff;
+    box-shadow:
+        0 18px 36px -10px rgba(249, 250, 251, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+    .fcta-section {
+        padding: 80px 40px;
+    }
+    .fcta-content {
+        padding: 56px 48px 56px 56px;
+    }
+    .fcta-image {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 900px) {
+    .fcta-section {
+        padding: 64px 32px;
+    }
+    .fcta-card {
+        grid-template-columns: 1fr;
+    }
+    .fcta-image {
+        min-height: 320px;
+        order: -1;
+    }
+    .fcta-content {
+        padding: 48px 36px;
+    }
+    .fcta-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .fcta-section {
+        padding: 48px 20px;
+    }
+    .fcta-card {
+        border-radius: 20px;
+    }
+    .fcta-image {
+        min-height: 240px;
+    }
+    .fcta-content {
+        padding: 40px 28px;
+    }
+    .fcta-eyebrow {
+        font-size: 0.7rem;
+        margin-bottom: 16px;
+    }
+    .fcta-title {
+        font-size: 1.5rem;
+        margin-bottom: 18px;
+    }
+    .fcta-desc {
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+    }
+    .fcta-btn {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .fcta-card,
+    .fcta-eyebrow,
+    .fcta-title,
+    .fcta-desc,
+    .fcta-btn,
+    .fcta-image img {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
