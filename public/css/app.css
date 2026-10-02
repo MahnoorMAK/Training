@@ -15,10 +15,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    
 }
 
 body {
+    font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-main);
     min-height: 100vh;
@@ -564,11 +565,19 @@ footer {
     }
 }
 
-/* Navbar hides when scrolling down, reappears when scrolling up */
+/* Navbar base — sticky and smoothly animated */
 nav {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition:
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 0.4s ease,
+        box-shadow 0.4s ease;
+    will-change: transform;
 }
 
+/* Hidden state — slides up and out slowly */
 nav.is-hidden {
     transform: translateY(-100%);
 }
