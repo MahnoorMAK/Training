@@ -1,0 +1,108 @@
+/* ============================================================
+   APEXBOOKS — SCROLL HIGHLIGHT HEADING
+   ============================================================ */
+.scroll-highlight-section {
+    position: relative;
+    width: 100%;
+    padding: 140px 64px 120px;
+    background: #F4EBE1; /* warm cream like Zeneth */
+}
+
+.scroll-highlight-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.scroll-highlight-eyebrow {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-muted, #8a6f5a);
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-highlight-section.is-visible .scroll-highlight-eyebrow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Heading ---------- */
+.scroll-highlight-heading {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: clamp(2rem, 4.5vw, 3.75rem);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: #1E293B;
+    margin: 0;
+    /* Disable word-break inside words for cleaner line breaks */
+    word-spacing: 0.05em;
+}
+
+/* Each word starts gray/faded, becomes dark when .is-active */
+.sh-word {
+    display: inline-block;
+    color: #c2b3a0; /* warm light gray */
+    transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: color;
+}
+
+.sh-word.is-active {
+    color: #1E293B;
+}
+
+/* ------------------ Dark mode ------------------ */
+[data-theme="dark"] .scroll-highlight-section {
+    background: #121212;
+}
+
+[data-theme="dark"] .scroll-highlight-eyebrow {
+    color: #9ca3af;
+}
+
+[data-theme="dark"] .scroll-highlight-heading {
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .sh-word {
+    color: #4b5563;
+}
+
+[data-theme="dark"] .sh-word.is-active {
+    color: #f9fafb;
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 900px) {
+    .scroll-highlight-section { padding: 100px 32px 80px; }
+    .scroll-highlight-heading { font-size: 1.75rem; }
+}
+
+@media (max-width: 560px) {
+    .scroll-highlight-section { padding: 80px 20px 64px; }
+    .scroll-highlight-heading { font-size: 1.4rem; }
+    .scroll-highlight-eyebrow { font-size: 0.7rem; margin-bottom: 24px; }
+}
+
+/* ------------------ Reduced motion ------------------ */
+@media (prefers-reduced-motion: reduce) {
+    .sh-word {
+        color: #1E293B !important;
+        transition: none !important;
+    }
+    [data-theme="dark"] .sh-word {
+        color: #f9fafb !important;
+    }
+    .scroll-highlight-eyebrow {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
