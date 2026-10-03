@@ -1,7 +1,4 @@
-{{-- ============================================================
-     APEXBOOKS — WHY ACCORDION
-     Expandable FAQ-style list of product reasons
-     ============================================================ --}}
+
 <section class="why-section" id="whySection">
 
     <div class="why-header">
