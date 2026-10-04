@@ -3,9 +3,7 @@
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-/* ============================================================
-   BRIGHT GLASSMORPHISM CARD
-   ============================================================ */
+
 .glass-card {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(24px);
