@@ -1,0 +1,525 @@
+/* ============================================
+   SUPPORT HOURS & RESPONSE TIMES
+   ============================================ */
+
+.sup {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 100px 32px 120px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.sup__head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 64px;
+}
+
+.sup__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(126, 107, 181, 0.1);
+    border: 1px solid rgba(126, 107, 181, 0.2);
+    color: #7E6BB5;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.sup__eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #7E6BB5;
+    box-shadow: 0 0 10px rgba(126, 107, 181, 0.8);
+    animation: supDot 2.2s ease-in-out infinite;
+}
+
+@keyframes supDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.5; transform: scale(0.7); }
+}
+
+.sup__title {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    color: #0F172A;
+    margin: 0 0 18px;
+}
+
+.sup__title-accent {
+    background: linear-gradient(115deg, #8E7AC7 0%, #7E6BB5 50%, #6A589D 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.sup__subtitle {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #64748B;
+    margin: 0;
+}
+
+/* ============================================
+   GRID
+   ============================================ */
+.sup__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.sup__card {
+    position: relative;
+    padding: 32px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.04),
+        0 20px 40px -20px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.4s ease,
+        border-color 0.3s ease;
+
+    /* Reveal */
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.sup__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease,
+        border-color 0.3s ease;
+}
+
+.sup__card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, 0.06),
+        0 32px 60px -24px rgba(126, 107, 181, 0.28);
+    border-color: rgba(126, 107, 181, 0.3);
+}
+
+/* Urgent card gets a subtle accent */
+.sup__card--urgent {
+    background: linear-gradient(180deg, #FBF9FE 0%, #FFFFFF 40%);
+    border-color: rgba(126, 107, 181, 0.2);
+}
+
+.sup__card--urgent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #A855F7 0%, #E879F9 100%);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+}
+
+/* ============================================
+   CARD ICON
+   ============================================ */
+.sup__card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+    box-shadow:
+        0 8px 18px rgba(126, 107, 181, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.sup__card-icon::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 50%;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+    pointer-events: none;
+}
+
+.sup__card-icon svg { position: relative; z-index: 1; }
+
+.sup__card-icon--clock    { background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 100%); }
+.sup__card-icon--bolt     { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); }
+.sup__card-icon--calendar { background: linear-gradient(135deg, #10B981 0%, #059669 100%); }
+.sup__card-icon--shield   { background: linear-gradient(135deg, #A855F7 0%, #7C3AED 100%); }
+
+/* ============================================
+   CARD CONTENT
+   ============================================ */
+.sup__card-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0F172A;
+    letter-spacing: -0.015em;
+    margin: 0 0 6px;
+}
+
+.sup__card-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #64748B;
+    margin: 0 0 22px;
+}
+
+/* ---------- Business hours list ---------- */
+.sup__hours {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sup__hours li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(15, 23, 42, 0.08);
+    font-size: 0.9rem;
+}
+
+.sup__hours li:last-child { border-bottom: none; }
+
+.sup__hours-day {
+    font-weight: 600;
+    color: #0F172A;
+}
+
+.sup__hours-time {
+    color: #64748B;
+    font-variant-numeric: tabular-nums;
+}
+
+.sup__hours-closed .sup__hours-time {
+    color: #EF4444;
+    font-weight: 500;
+}
+
+.sup__tz {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(126, 107, 181, 0.08);
+    color: #7E6BB5;
+    font-size: 0.775rem;
+    font-weight: 500;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.sup__tz svg { flex-shrink: 0; opacity: 0.85; }
+.sup__tz strong { font-weight: 700; }
+
+/* ---------- Response times ---------- */
+.sup__resp {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sup__resp li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.025);
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.sup__resp li:hover {
+    background: rgba(126, 107, 181, 0.08);
+    transform: translateX(3px);
+}
+
+.sup__resp-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.sup__resp-dot--green  { background: #10B981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.7); }
+.sup__resp-dot--blue   { background: #3B82F6; box-shadow: 0 0 8px rgba(59, 130, 246, 0.7); }
+.sup__resp-dot--amber  { background: #F59E0B; box-shadow: 0 0 8px rgba(245, 158, 11, 0.7); }
+.sup__resp-dot--purple { background: #A855F7; box-shadow: 0 0 8px rgba(168, 85, 247, 0.7); }
+
+.sup__resp-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #0F172A;
+    flex: 1;
+}
+
+.sup__resp-time {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #7E6BB5;
+    white-space: nowrap;
+}
+
+/* ---------- Holidays list ---------- */
+.sup__holidays {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sup__holidays li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 0;
+    border-bottom: 1px dashed rgba(15, 23, 42, 0.08);
+    font-size: 0.875rem;
+}
+
+.sup__holidays li:last-child { border-bottom: none; }
+
+.sup__holiday-date {
+    flex-shrink: 0;
+    min-width: 76px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+}
+
+.sup__holiday-name {
+    color: #64748B;
+}
+
+/* ---------- Urgent CTA ---------- */
+.sup__urgent-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    color: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow:
+        0 10px 24px -10px rgba(124, 58, 237, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s ease;
+    margin-bottom: 16px;
+}
+
+.sup__urgent-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 16px 32px -12px rgba(124, 58, 237, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.sup__urgent-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+}
+
+.sup__urgent-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+    z-index: 3;
+}
+
+.sup__urgent-label strong {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.sup__urgent-label small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.sup__urgent-flash {
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(100deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 70%,
+        transparent 100%);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    z-index: 2;
+    animation: supFlash 3.5s ease-in-out infinite;
+}
+
+@keyframes supFlash {
+    0%        { left: -120%; }
+    45%, 100% { left: 140%; }
+}
+
+.sup__urgent-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(245, 158, 11, 0.06);
+    border: 1px solid rgba(245, 158, 11, 0.15);
+    color: #92400E;
+    font-size: 0.775rem;
+    line-height: 1.55;
+}
+
+.sup__urgent-note svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #D97706;
+}
+
+/* ============================================
+   REVEAL
+   ============================================ */
+[data-sup-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-sup-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+    .sup {
+        padding: 80px 24px 100px;
+    }
+
+    .sup__grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .sup__card {
+        padding: 26px 24px;
+    }
+
+    .sup__head {
+        margin-bottom: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sup__card {
+        padding: 22px 20px;
+    }
+
+    .sup__hours li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+    }
+
+    .sup__holidays li {
+        align-items: flex-start;
+    }
+
+    .sup__holiday-date {
+        min-width: 60px;
+        font-size: 0.7rem;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .sup__eyebrow-dot,
+    .sup__urgent-flash {
+        animation: none !important;
+    }
+
+    [data-sup-reveal],
+    .sup__card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .sup__card:hover,
+    .sup__resp li:hover,
+    .sup__urgent-btn:hover {
+        transform: none;
+    }
+}
