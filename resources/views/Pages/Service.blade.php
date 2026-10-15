@@ -1,5 +1,5 @@
 {{-- resources/views/Pages/Service.blade.php --}}
-@extends('Layout.app')
+@extends('Layout.app1')
 
 @section('title', 'Our Services - Apexbooks')
 
@@ -11,34 +11,9 @@
 
 @section('content')
 
-{{-- ============================================
-     HERO
-     ============================================ --}}
-<section class="service-hero">
-    {{-- 3D floating cubes --}}
-    <div class="hero-scene" aria-hidden="true">
-        <div class="cube c1"></div>
-        <div class="cube c2"></div>
-        <div class="cube c3"></div>
-        <div class="cube c4"></div>
-        <div class="cube c5"></div>
-    </div>
 
-    <div class="hero-inner">
-        <span class="hero-eyebrow">
-            <i class="fa-solid fa-layer-group"></i>
-            Our Services
-        </span>
-        <h1 class="hero-title">
-            Financial tools built for <br>
-            <span class="accent">every role in your business.</span>
-        </h1>
-        <p class="hero-subtitle">
-            From automated bookkeeping to real-time analytics, Apexbooks gives your team
-            the clarity to make confident decisions — without the spreadsheets.
-        </p>
-    </div>
-</section>
+
+@include('Component.service-hero')
 
 {{-- ============================================
      SERVICES GRID
