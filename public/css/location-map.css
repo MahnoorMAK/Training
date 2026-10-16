@@ -1,5 +1,6 @@
 /* ============================================
    LOCATION & MAP
+   Light + Dark theme aware
    ============================================ */
 
 .loc {
@@ -80,7 +81,7 @@
     display: grid;
     grid-template-columns: 1.15fr 1fr;
     gap: 28px;
-    align-items: start;
+    align-items: stretch;
 }
 
 /* ============================================
@@ -89,6 +90,7 @@
 .loc__map-wrap {
     position: sticky;
     top: 100px;
+    height: 100%;
 }
 
 .loc__map {
@@ -186,7 +188,9 @@
 .loc__branches {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 16px;
+    height: 100%;
 }
 
 .loc__branch {
@@ -391,6 +395,119 @@
 [data-loc-reveal].is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ============================================
+   DARK THEME OVERRIDES
+   ============================================ */
+[data-theme="dark"] .loc__title {
+    color: #F1F5F9;
+}
+
+[data-theme="dark"] .loc__subtitle {
+    color: #94A3B8;
+}
+
+/* Map container — keep the map visible but soften it */
+[data-theme="dark"] .loc__map {
+    background: #252642;
+    border-color: rgba(168, 85, 247, 0.2);
+    box-shadow:
+        0 20px 50px -20px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(168, 85, 247, 0.1);
+}
+
+[data-theme="dark"] .loc__map-iframe {
+    filter: saturate(0.5) brightness(0.75) contrast(1.05);
+}
+
+[data-theme="dark"] .loc__map-tint {
+    background: linear-gradient(180deg,
+        rgba(168, 85, 247, 0.15) 0%,
+        rgba(168, 85, 247, 0.05) 40%,
+        rgba(168, 85, 247, 0.2) 100%);
+    mix-blend-mode: screen;
+}
+
+/* Floating badge on map */
+[data-theme="dark"] .loc__map-badge {
+    background: rgba(26, 27, 46, 0.92);
+    border-color: rgba(168, 85, 247, 0.25);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .loc__map-badge-text strong {
+    color: #F1F5F9;
+}
+
+[data-theme="dark"] .loc__map-badge-text small {
+    color: #94A3B8;
+}
+
+/* Branch cards */
+[data-theme="dark"] .loc__branch {
+    background: #1A1B2E;
+    border-color: rgba(168, 85, 247, 0.2);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25),
+        0 20px 40px -20px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .loc__branch:hover {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.3),
+        0 32px 60px -24px rgba(168, 85, 247, 0.35);
+}
+
+[data-theme="dark"] .loc__branch-name {
+    color: #F1F5F9;
+}
+
+[data-theme="dark"] .loc__branch-address {
+    color: #94A3B8;
+}
+
+[data-theme="dark"] .loc__branch-status {
+    color: #94A3B8;
+}
+
+[data-theme="dark"] .loc__branch-link {
+    color: #C4B5FD;
+}
+
+[data-theme="dark"] .loc__branch-link:hover {
+    color: #A855F7;
+}
+
+/* Directions button */
+[data-theme="dark"] .loc__branch-directions {
+    background: rgba(168, 85, 247, 0.15);
+    color: #C4B5FD;
+}
+
+[data-theme="dark"] .loc__branch-directions:hover {
+    background: rgba(168, 85, 247, 0.25);
+    color: #A855F7;
+    box-shadow: 0 6px 16px -6px rgba(168, 85, 247, 0.5);
+}
+
+/* Branch tags */
+[data-theme="dark"] .loc__branch-tag {
+    background: rgba(168, 85, 247, 0.18);
+    color: #C4B5FD;
+}
+
+[data-theme="dark"] .loc__branch-tag--alt {
+    background: rgba(59, 130, 246, 0.18);
+    color: #93C5FD;
+}
+
+[data-theme="dark"] .loc__branch-tag--alt2 {
+    background: rgba(16, 185, 129, 0.18);
+    color: #6EE7B7;
 }
 
 /* ============================================
