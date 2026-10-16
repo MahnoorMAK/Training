@@ -139,20 +139,6 @@
                 </div>
 
                 <div class="ctb__group">
-                    <label for="subject">Subject <span class="required">*</span></label>
-                    <div class="ctb__select-wrap">
-                        <select id="subject" name="subject" class="ctb__input" required>
-                            <option value="" disabled selected>Choose a topic…</option>
-                            <option value="sales">Sales &amp; Pricing</option>
-                            <option value="onboarding">Onboarding &amp; Setup</option>
-                            <option value="integrations">Integrations &amp; API</option>
-                            <option value="support">Technical Support</option>
-                            <option value="other">Something Else</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="ctb__group">
                     <label for="message">Message <span class="required">*</span></label>
                     <textarea id="message" name="message" class="ctb__input"
                               placeholder="Tell us a bit about what you need…" required></textarea>
