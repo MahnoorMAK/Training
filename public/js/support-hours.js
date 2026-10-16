@@ -1,6 +1,7 @@
 /**
- * Support Hours component
- * - Staggered reveal-on-scroll
+ * Support Hours
+ * - Staggered reveal-on-scroll with 3D card entry
+ * - Header reveals first, cards follow one by one
  * - Respects prefers-reduced-motion
  */
 
@@ -16,30 +17,61 @@
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ==========================================================
-       REVEAL — header, then cards one by one
+       REVEAL
+       - Header gets its own observer (fires immediately when
+         ~40% visible)
+       - Each card gets a staggered delay so they rise up one
+         by one
        ========================================================== */
-    var revealEls = section.querySelectorAll('[data-sup-reveal]');
 
-    if (!reduced && 'IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry, i) {
-                if (entry.isIntersecting) {
-                    // Stagger each child after the first reveal
-                    var delay = Array.prototype.indexOf.call(revealEls, entry.target) * 180;
-                    setTimeout(function () {
+    var header       = section.querySelector('.sup__head');
+    var cards        = section.querySelectorAll('.sup__card');
+    var headerReveal = section.querySelector('.sup__head[data-sup-reveal]');
+
+    // -------- Header --------
+    if (headerReveal) {
+        if (!reduced && 'IntersectionObserver' in window) {
+            var headerIO = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                    }, delay);
+                        headerIO.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.35,
+                rootMargin: '0px 0px -60px 0px'
+            });
+            headerIO.observe(headerReveal);
+        } else {
+            headerReveal.classList.add('is-visible');
+        }
+    }
 
-                    io.unobserve(entry.target);
-                }
+    // -------- Cards --------
+    if (!reduced && 'IntersectionObserver' in window) {
+        // Reveal an entire card as soon as it enters
+        var cardIO = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+
+                var card  = entry.target;
+                var index = Array.prototype.indexOf.call(cards, card);
+
+                // stagger each card by 240ms
+                setTimeout(function () {
+                    card.classList.add('is-visible');
+                }, index * 240);
+
+                cardIO.unobserve(card);
             });
         }, {
-            threshold: 0.12,
-            rootMargin: '0px 0px -80px 0px'
+            threshold: 0.2,
+            rootMargin: '0px 0px -70px 0px'
         });
 
-        revealEls.forEach(function (el) { io.observe(el); });
+        cards.forEach(function (card) { cardIO.observe(card); });
     } else {
-        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+        cards.forEach(function (card) { card.classList.add('is-visible'); });
     }
 })();
