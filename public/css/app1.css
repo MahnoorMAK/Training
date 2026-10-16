@@ -1,5 +1,5 @@
 /* ============================================================================
-   APP.CSS — Global Layout Styles
+   APP1.CSS — Global Layout Styles
    Contains: reset · full-bleed · header · footer
    ============================================================================ */
 
@@ -53,18 +53,18 @@ main > section {
     left: 0;
     right: 0;
     background: #0A0612;
-    
 }
 
 /* ============================================================================
    2. HEADER — GLASS NAVBAR (purple theme)
    ============================================================================ */
-/* Fixed floating pill */
+/* Fixed floating pill — supports hiding on scroll */
 .hdr {
     position: fixed;
     top: 20px;
     left: 50%;
-    transform: translateX(-50%) translateZ(0);
+    /* Combined: centers + baseline for hide/show */
+    transform: translateX(-50%) translateY(0) translateZ(0);
     width: calc(100% - 32px);
     max-width: 1320px;
     z-index: 100;
@@ -83,9 +83,11 @@ main > section {
 
     transition:
         top 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
         background 0.35s ease,
         border-color 0.35s ease,
-        box-shadow 0.35s ease;
+        box-shadow 0.35s ease,
+        opacity 0.35s ease;
 }
 
 .hdr.is-scrolled {
@@ -96,6 +98,13 @@ main > section {
         0 12px 40px rgba(10, 6, 18, 0.6),
         0 0 40px rgba(124, 58, 237, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Hidden state — slides up and out of view when scrolling down */
+.hdr.is-hidden {
+    transform: translateX(-50%) translateY(-140%) translateZ(0);
+    opacity: 0.9;
+    pointer-events: none;
 }
 
 /* Layout */
@@ -231,7 +240,7 @@ main > section {
     flex-shrink: 0;
 }
 
-/* Login dropdown */
+/* ---------- Login dropdown ---------- */
 .hdr__dropdown {
     position: relative;
 }
@@ -257,6 +266,12 @@ main > section {
     background: rgba(255, 255, 255, 0.06);
 }
 
+/* When dropdown is open — highlight the button */
+.hdr__dropdown.is-open .hdr__login {
+    color: #fff;
+    background: rgba(168, 85, 247, 0.12);
+}
+
 .hdr__caret {
     transition: transform 0.25s ease;
 }
@@ -265,11 +280,12 @@ main > section {
     transform: rotate(180deg);
 }
 
+/* Dropdown menu (Login 1 / Login 2) */
 .hdr__dropdown-menu {
     position: absolute;
     top: calc(100% + 12px);
     right: 0;
-    min-width: 180px;
+    min-width: 200px;
     padding: 8px;
     border-radius: 16px;
     background: rgba(10, 6, 18, 0.92);
@@ -315,7 +331,7 @@ main > section {
     flex-shrink: 0;
 }
 
-/* CTA */
+/* ---------- CTA ---------- */
 .hdr__cta {
     display: inline-flex;
     align-items: center;
@@ -475,6 +491,10 @@ main > section {
     .hdr__caret {
         transition: none !important;
         animation: none !important;
+    }
+
+    .hdr.is-hidden {
+        transform: translateX(-50%) translateY(-140%) translateZ(0);
     }
 }
 
