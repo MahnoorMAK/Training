@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: 1fr 1.35fr;
     gap: 40px;
-    align-items: start;
+    align-items: stretch;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     perspective: 1600px;
 }
@@ -21,7 +21,10 @@
 .ctb__info {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;   /* ← spread cards to fill height */
     gap: 20px;
+    height: 100%;                     /* ← fill the grid cell */
+    min-height: 100%;                 /* ← belt + suspenders */
 }
 
 .ctb__card {
@@ -146,6 +149,9 @@
 .ctb__form-wrap {
     opacity: 0;
     transform: translateY(30px);
+    height: 100%;                     /* ← fill the grid cell */
+    display: flex;                    /* ← makes the card inside stretch */
+    flex-direction: column;
     transition:
         opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
         transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -157,6 +163,7 @@
 }
 
 .ctb__form-card {
+    flex:1;
     position: relative;
     background: #fff;
     border: 1px solid rgba(15, 23, 42, 0.08);
@@ -404,4 +411,96 @@ textarea.ctb__input {
         opacity: 1 !important;
         transform: none !important;
     }
+}
+
+/* ============================================
+   CONTACT BLOCK — Dark theme overrides
+   ============================================ */
+
+/* ---------- Card backgrounds ---------- */
+[data-theme="dark"] .ctb__card,
+[data-theme="dark"] .ctb__form-card {
+    background: #1A1B2E !important;
+    border-color: rgba(168, 85, 247, 0.2) !important;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25),
+        0 20px 40px -20px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ---------- Text colors ---------- */
+[data-theme="dark"] .ctb__card-body h4,
+[data-theme="dark"] .ctb__form-title {
+    color: #F1F5F9 !important;
+}
+
+[data-theme="dark"] .ctb__card-body p,
+[data-theme="dark"] .ctb__form-subtitle {
+    color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .ctb__card-body a {
+    color: #C4B5FD !important;
+}
+
+[data-theme="dark"] .ctb__card-body a:hover {
+    color: #A855F7 !important;
+}
+
+/* ---------- Form labels ---------- */
+[data-theme="dark"] .ctb__group label {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .ctb__group label .required {
+    color: #A855F7 !important;
+}
+
+/* ---------- Form inputs ---------- */
+[data-theme="dark"] .ctb__input {
+    background: #252642 !important;
+    border-color: rgba(168, 85, 247, 0.2) !important;
+    color: #F1F5F9 !important;
+}
+
+[data-theme="dark"] .ctb__input::placeholder {
+    color: #64748B !important;
+}
+
+[data-theme="dark"] .ctb__input:hover {
+    background: #2D2E52 !important;
+}
+
+[data-theme="dark"] .ctb__input:focus {
+    background: #1A1B2E !important;
+    border-color: #A855F7 !important;
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.2) !important;
+}
+
+/* Select dropdown arrow */
+[data-theme="dark"] .ctb__select-wrap::after {
+    border-color: #64748B !important;
+}
+
+/* Select dropdown options */
+[data-theme="dark"] .ctb__input option {
+    background: #1A1B2E;
+    color: #F1F5F9;
+}
+
+/* ---------- Card icons (keep purple gradient) ---------- */
+[data-theme="dark"] .ctb__card-icon {
+    /* Same purple gradient — no change needed, but keep the shadow visible */
+    box-shadow:
+        0 8px 18px rgba(126, 107, 181, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ---------- Submit button ---------- */
+[data-theme="dark"] .ctb__submit {
+    background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 100%) !important;
+    box-shadow: 0 10px 24px -10px rgba(168, 85, 247, 0.7) !important;
+}
+
+[data-theme="dark"] .ctb__submit:hover {
+    background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%) !important;
 }
