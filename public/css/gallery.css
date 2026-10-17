@@ -1,0 +1,306 @@
+/* ============================================
+   GALLERY — "LEDGEINVO" letter-shaped images
+   Light mode: light background, images with a soft light tint
+   Dark mode:  dark background, images with a soft dark tint
+   ============================================ */
+
+.gallery-section {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    /* Light theme: matches the rest of the page */
+    background: var(--bg-color, #F8F9FC);
+    padding: 60px 2vw;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: background 0.4s ease;
+    isolation: isolate;
+}
+
+[data-theme="dark"] .gallery-section {
+    background: #0B0B0D;
+}
+
+/* ============================================
+   AMBIENT GLOW — different intensity per theme
+   ============================================ */
+
+.gallery-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140vw;
+    height: 100vh;
+    background: radial-gradient(
+        ellipse 45% 32% at center,
+        rgba(139, 92, 246, 0.14) 0%,       /* softer in light mode */
+        rgba(126, 107, 181, 0.06) 40%,
+        transparent 70%
+    );
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+    animation: glowPulse 9s ease-in-out infinite;
+}
+
+[data-theme="dark"] .gallery-section::before {
+    background: radial-gradient(
+        ellipse 45% 32% at center,
+        rgba(139, 92, 246, 0.30) 0%,       /* brighter in dark mode */
+        rgba(126, 107, 181, 0.14) 40%,
+        transparent 70%
+    );
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.06); }
+}
+
+.gallery-wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 2vw;
+}
+
+/* ============================================
+   ROW
+   ============================================ */
+.gallery-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    flex-wrap: nowrap;
+    height: 14rem;
+    padding: 0;
+    width: 100%;
+}
+
+/* ============================================
+   ITEM
+   ============================================ */
+.gallery-item {
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 5rem;
+
+    transition:
+        width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.4s ease;
+}
+
+.gallery-item:nth-child(1) { width: 8vw; }
+.gallery-item:nth-child(2) { width: 7.2vw; }
+.gallery-item:nth-child(3) { width: 9vw; }
+.gallery-item:nth-child(4) { width: 9.5vw; }
+.gallery-item:nth-child(5) { width: 7.2vw; }
+.gallery-item:nth-child(6) { width: 3.2vw; }
+.gallery-item:nth-child(7) { width: 9vw; }
+.gallery-item:nth-child(8) { width: 9vw; }
+.gallery-item:nth-child(9) { width: 9.5vw; }
+
+/* ============================================
+   CLIP WRAP — mask container + theme-aware glow
+   ============================================ */
+.gallery-clip-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center center;
+    mask-position: center center;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+
+    /* Light mode glow — subtle purple, moderate spread */
+    filter: drop-shadow(0 6px 18px rgba(126, 107, 181, 0.35));
+
+    transition:
+        -webkit-mask-size 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+        mask-size 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.4s ease,
+        filter 0.4s ease;
+}
+
+[data-theme="dark"] .gallery-clip-wrap {
+    /* Dark mode glow — brighter neon purple */
+    filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.5));
+}
+
+/* ============================================
+   LETTER MASKS
+   ============================================ */
+
+.gallery-item:nth-child(1) .gallery-clip-wrap {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 92 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>L</text></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 92 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>L</text></svg>");
+}
+
+.gallery-item:nth-child(2) .gallery-clip-wrap {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 82 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>E</text></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 82 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>E</text></svg>");
+}
+
+.gallery-item:nth-child(3) .gallery-clip-wrap {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>D</text></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>D</text></svg>");
+}
+
+.gallery-item:nth-child(4) .gallery-clip-wrap {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>G</text></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>G</text></svg>");
+}
+
+.gallery-item:nth-child(5) .gallery-clip-wrap {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 82 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>E</text></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 82 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>E</text></svg>");
+}
+
+.gallery-item:nth-child(6) .gallery-clip-wrap {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>I</text></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>I</text></svg>");
+}
+
+.gallery-item:nth-child(7) .gallery-clip-wrap {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>N</text></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>N</text></svg>");
+}
+
+.gallery-item:nth-child(8) .gallery-clip-wrap {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>V</text></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>V</text></svg>");
+}
+
+.gallery-item:nth-child(9) .gallery-clip-wrap {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 115 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>O</text></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 115 130' preserveAspectRatio='xMidYMid meet'><text x='0' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='140' font-weight='800' fill='black'>O</text></svg>");
+}
+
+/* ============================================
+   IMAGE — brightness/saturation tuned per theme
+   ============================================ */
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+
+    /* Light mode: slightly dimmed and desaturated so the letters
+       read as dark shapes against the light background */
+    filter: brightness(0.85) saturate(1.05) contrast(1.05);
+
+    transition:
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.4s ease;
+}
+
+[data-theme="dark"] .gallery-img {
+    /* Dark mode: bright and saturated so the letters glow */
+    filter: brightness(1.08) saturate(1.15);
+}
+
+/* ============================================
+   HOVER
+   ============================================ */
+.gallery-item:hover {
+    width: 32vw !important;
+    transform: translateY(-6px);
+    z-index: 10;
+}
+
+.gallery-item:hover .gallery-clip-wrap {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    border-radius: 1.5rem;
+    filter: drop-shadow(0 12px 34px rgba(126, 107, 181, 0.4));
+    box-shadow:
+        0 24px 52px rgba(126, 107, 181, 0.25),
+        0 0 0 1px rgba(126, 107, 181, 0.15);
+}
+
+[data-theme="dark"] .gallery-item:hover .gallery-clip-wrap {
+    filter: drop-shadow(0 0 34px rgba(139, 92, 246, 0.65));
+    box-shadow:
+        0 24px 52px rgba(0, 0, 0, 0.5),
+        0 0 48px rgba(168, 85, 247, 0.35);
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.04);
+    filter: brightness(1) saturate(1.15);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1200px) {
+    .gallery-row { height: 12rem; }
+    .gallery-item:nth-child(1) { width: 8vw; }
+    .gallery-item:nth-child(2) { width: 7vw; }
+    .gallery-item:nth-child(3) { width: 9vw; }
+    .gallery-item:nth-child(4) { width: 9.5vw; }
+    .gallery-item:nth-child(5) { width: 7vw; }
+    .gallery-item:nth-child(6) { width: 3vw; }
+    .gallery-item:nth-child(7) { width: 9vw; }
+    .gallery-item:nth-child(8) { width: 9vw; }
+    .gallery-item:nth-child(9) { width: 9.5vw; }
+    .gallery-item:hover { width: 30vw !important; }
+}
+
+@media (max-width: 900px) {
+    .gallery-section { padding: 60px 16px; }
+    .gallery-row { flex-wrap: wrap; height: auto; gap: 1rem; }
+    .gallery-item,
+    .gallery-item:hover {
+        width: 28% !important;
+        height: 9rem;
+        transform: none;
+    }
+    .gallery-item .gallery-clip-wrap,
+    .gallery-item:hover .gallery-clip-wrap {
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+        border-radius: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .gallery-section { padding: 48px 12px; }
+    .gallery-item,
+    .gallery-item:hover {
+        width: 44% !important;
+        height: 7.5rem;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .gallery-section::before { animation: none !important; }
+    .gallery-item,
+    .gallery-clip-wrap,
+    .gallery-img { transition: none !important; }
+}
