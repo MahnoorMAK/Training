@@ -1,43 +1,54 @@
 {{-- ============================================================
-     APEXBOOKS — STATS BAR
-     Animated, scroll-triggered stat strip
+     APEXBOOKS — ANIMATED STATS NAVBAR
+     Vertical block on the right → expands left block-by-block
      ============================================================ --}}
-<section class="stats-bar" id="statsBar">
-    <div class="shimmer-top"></div>
-    <div class="stats-bar-inner">
+<section class="stats-nav-section" id="statsBar">
+    
+    {{-- Background ambient glows --}}
+    <div class="stats-nav-glow glow-1"></div>
+    <div class="stats-nav-glow glow-2"></div>
 
-        <div class="stats-bar-item" data-target="10000" data-suffix="+">
-            <div class="stats-bar-value">
-                <span class="stats-bar-number">0</span><span class="stats-bar-suffix">+</span>
+    {{-- The expanding block --}}
+    <div class="stats-nav-block">
+        
+        <div class="stats-nav-inner">
+
+            {{-- Item 1 --}}
+            <div class="stats-nav-item" data-target="10000" data-suffix="+">
+                <div class="stats-nav-value">
+                    <span class="stats-nav-number">0</span><span class="stats-nav-suffix">+</span>
+                </div>
+                <div class="stats-nav-label">Businesses</div>
             </div>
-            <div class="stats-bar-label">Businesses Trust Us</div>
-        </div>
 
-        <div class="stats-bar-item" data-target="99.9" data-suffix="%" data-decimals="1">
-            <div class="stats-bar-value">
-                <span class="stats-bar-number">0</span><span class="stats-bar-suffix">%</span>
+            {{-- Item 2 --}}
+            <div class="stats-nav-item" data-target="99.9" data-suffix="%" data-decimals="1">
+                <div class="stats-nav-value">
+                    <span class="stats-nav-number">0</span><span class="stats-nav-suffix">%</span>
+                </div>
+                <div class="stats-nav-label">Uptime</div>
             </div>
-            <div class="stats-bar-label">Uptime Guarantee</div>
-        </div>
 
-        <div class="stats-bar-item" data-target="24" data-suffix="/7">
-            <div class="stats-bar-value">
-                <span class="stats-bar-number">0</span><span class="stats-bar-suffix">/7</span>
+            {{-- Item 3 --}}
+            <div class="stats-nav-item" data-target="24" data-suffix="/7">
+                <div class="stats-nav-value">
+                    <span class="stats-nav-number">0</span><span class="stats-nav-suffix">/7</span>
+                </div>
+                <div class="stats-nav-label">Support</div>
             </div>
-            <div class="stats-bar-label">Customer Support</div>
-        </div>
 
-        <div class="stats-bar-item" data-target="50" data-suffix="+">
-            <div class="stats-bar-value">
-                <span class="stats-bar-number">0</span><span class="stats-bar-suffix">+</span>
+            {{-- Item 4 --}}
+            <div class="stats-nav-item" data-target="50" data-suffix="+">
+                <div class="stats-nav-value">
+                    <span class="stats-nav-number">0</span><span class="stats-nav-suffix">+</span>
+                </div>
+                <div class="stats-nav-label">Countries</div>
             </div>
-            <div class="stats-bar-label">Countries Worldwide</div>
-        </div>
 
+        </div>
     </div>
 </section>
 
-{{-- Load once --}}
 @once
     @push('styles')
         <link rel="stylesheet" href="{{ asset('css/statsbar.css') }}">
