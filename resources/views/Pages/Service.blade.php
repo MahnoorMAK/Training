@@ -16,7 +16,9 @@
 @include('Component.service-hero')
 @include('Component.pricing')
 @include('Component.services-grid')
+@include('Component.Grid')
 @include('Component.accounts-gallery')
+@include('Component.gallery')
 
 {{-- ============================================
      FEATURED SHOWCASE BANNER (3D)
