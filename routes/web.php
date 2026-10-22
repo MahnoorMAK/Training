@@ -20,7 +20,9 @@ Route::get('/StatsBar', function () {return view('Component.StatsBar');})->name(
 Route::get('/WhyAccordion', function () {return view('Component.WhyAccordion');})->name('WhyAccordion');
 Route::get('/ModulesTabs', function () {return view('Component.ModulesTabs');})->name('ModulesTabs');
 Route::get('/TopClients', function () {return view('Component.TopClients');})->name('TopClients');
-
+Route::get('/Settings', function () {return view('Pages.Settings.Settings');})->name('Settings');
+Route::get('/dashboard', function () {return view('Layout.dashboard');})->name('dashboard');
+Route::get('/Sidebar', function () {return view('Layout.Sidebar');})->name('Sidebar');
 
 Route::post('/register', function (\Illuminate\Http\Request $request) {
     $data = $request->validate([
