@@ -1,21 +1,20 @@
-/**
- * Gallery — "LEDGEINVO" letter-shaped images
- * Pure CSS hover expand. JS handles nothing but the entrance reveal.
- */
 (function () {
     'use strict';
 
     var section = document.getElementById('gallery');
     if (!section) return;
 
-    if (section.dataset.galleryInit === '1') return;
-    section.dataset.galleryInit = '1';
-
-    /* Optional entrance fade */
-    var wrap = section.querySelector('.gallery-wrap');
-    if (wrap) {
-        requestAnimationFrame(function () {
-            wrap.style.opacity = '1';
-        });
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    section.classList.add('is-visible');
+                    observer.unobserve(section);
+                }
+            });
+        }, { threshold: 0.2 });
+        observer.observe(section);
+    } else {
+        section.classList.add('is-visible');
     }
 })();
