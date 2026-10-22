@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 @endsection
 
+@section('sidebar')
+    @include('Layout.Sidebar') 
+@endsection
+
 @section('content')
 
 {{-- ============================================
@@ -39,7 +43,7 @@
 @include('Component.support-hours')
 @include('Component.contact-block')
 @include('Component.location-map')
-
+@include('Component.email-cta')
 
 
 
