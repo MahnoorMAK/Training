@@ -1,0 +1,445 @@
+/* public/css/Settings/settings.css */
+
+/* --- Global Page Styles --- */
+.settings-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.settings-text {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+/* --- Layout Grid --- */
+.settings-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    align-items: start;
+    width: 100%;
+}
+
+/* ============================================================
+   3D CARD EFFECT
+   ============================================================ */
+.settings-menu, 
+.settings-card {
+    background: var(--white);
+    border: 2px solid var(--border-color); 
+    border-radius: 16px;
+    box-shadow: 
+        0 10px 25px -5px rgba(0, 0, 0, 0.08), 
+        0 8px 10px -6px rgba(0, 0, 0, 0.04),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+
+.settings-card:hover,
+.settings-menu:hover {
+    box-shadow: 
+        0 15px 30px -5px rgba(0, 0, 0, 0.1), 
+        0 10px 15px -5px rgba(0, 0, 0, 0.05),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.settings-card { padding: 36px; }
+.settings-menu { padding: 20px; }
+
+/* --- Left Sidebar Menu --- */
+.settings-group {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin: 20px 10px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.settings-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.settings-link svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-muted);
+    transition: stroke 0.2s ease;
+}
+
+.settings-link:hover {
+    background: var(--bg-color);
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+}
+
+.settings-link.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.settings-link.active svg {
+    stroke: var(--primary);
+}
+
+/* --- Content Sections --- */
+.section { display: none; }
+.section.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.settings-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.settings-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.settings-small {
+    font-size: 15px;
+    color: var(--text-muted);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.save-btn {
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.2), 
+        0 2px 4px -1px rgba(0, 0, 0, 0.1),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.save-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   TABS
+   ============================================================ */
+.tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    background: var(--bg-color);
+    padding: 6px;
+    border-radius: 12px;
+    width: fit-content;
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: var(--text-main);
+}
+
+.tab-btn.active {
+    background: var(--white);
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ============================================================
+   FORM INPUTS
+   ============================================================ */
+.two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.text-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 15px;
+    background: var(--bg-color);
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.text-input:focus {
+    border-color: var(--primary);
+    background: var(--white);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+/* ============================================================
+   FONT & COLOR BOXES
+   ============================================================ */
+.font-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.font-btn {
+    padding: 12px 24px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text-main);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.font-btn:hover {
+    border-color: var(--text-muted);
+}
+
+.font-btn.active {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.color-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.color-box:hover {
+    border-color: var(--text-muted);
+}
+
+.color-box.active {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+/* RESTORED: The color circles */
+.color-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2), 0 1px 2px rgba(255,255,255,0.5);
+}
+
+.color-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* ============================================================
+   DARK MODE SPECIFIC FIXES
+   ============================================================ */
+[data-theme="dark"] .color-box {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .color-box.active {
+    background: var(--primary-light);
+    border-color: var(--primary);
+}
+
+/* Text fix for Dark Mode */
+[data-theme="dark"] .color-box .color-name {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .color-box.active .color-name {
+    color: var(--primary);
+}
+
+/* ============================================================
+   LOGO TAB
+   ============================================================ */
+.logo-preview-box {
+    width: 100%;
+    height: 150px;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.logo-empty-text {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-secondary {
+    background: var(--bg-color);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+/* ============================================================
+   RESTORE COLOR DOTS
+   ============================================================ */
+.dot-purple  { background-color: #7E6BB5; }
+.dot-ocean   { background-color: #3B82F6; }
+.dot-emerald { background-color: #10B981; }
+.dot-sunset  { background-color: #F59E0B; }
+.dot-rose    { background-color: #F43F5E; }
+.dot-sky     { background-color: #0EA5E9; }
+
+
+/* ============================================================
+   FONT BUTTONS (Isolated)
+   ============================================================ */
+.font-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.font-btn {
+    padding: 12px 24px;
+    border: 2px solid var(--border-color, #E2E8F0);
+    border-radius: 10px;
+    background: var(--white, #ffffff);
+    color: var(--text-main, #1E293B);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.font-btn:hover {
+    border-color: var(--primary);
+}
+
+/* Active state for fonts */
+.font-btn.active {
+    border-color: var(--primary) !important;
+    background: var(--primary-light) !important;
+    color: var(--primary) !important;
+    font-weight: 700;
+}
+
+/* ============================================================
+   GLOBAL DARK MODE FIX FOR ALL ACTIVE HIGHLIGHTS
+   ============================================================ */
+
+/* For the left sidebar active items */
+[data-theme="dark"] .settings-link.active {
+    /* Uses 15% opacity of your primary color on a dark background */
+    background-color: color-mix(in srgb, var(--primary) 15%, transparent) !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+/* For the active tab (Font, Text, Theme, Logo) */
+[data-theme="dark"] .tab-btn.active {
+    background-color: color-mix(in srgb, var(--primary) 15%, transparent) !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+/* For the active Theme Color box (Purple, Ocean, etc.) */
+[data-theme="dark"] .color-box.active {
+    background-color: color-mix(in srgb, var(--primary) 15%, transparent) !important;
+    border-color: var(--primary) !important;
+}
+[data-theme="dark"] .color-box.active .color-name {
+    color: var(--primary) !important;
+}
+
+/* For the active Font button */
+[data-theme="dark"] .font-btn.active {
+    background-color: color-mix(in srgb, var(--primary) 15%, transparent) !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+}
