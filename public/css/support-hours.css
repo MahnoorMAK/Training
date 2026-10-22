@@ -12,6 +12,9 @@
     padding: 100px 32px 120px;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     perspective: 1600px;
+    
+    /* FIX: Prevents the horizontal scrollbar caused by the 3D scatter */
+    overflow-x: hidden;
 }
 
 /* ============================================
@@ -87,7 +90,7 @@
 }
 
 /* ============================================
-   CARD — reveal state (unchanged)
+   CARD — 3D Scatter Reveal
    ============================================ */
 .sup__card {
     position: relative;
@@ -101,36 +104,54 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transform-origin: 50% 100%;
+    transform-origin: center center;
     will-change: transform, opacity, filter;
     backface-visibility: hidden;
 
+    /* --- Scattered initial state --- */
     opacity: 0;
-    transform:
-        translateY(50px)
-        rotateX(-14deg)
-        scale(0.96);
-    filter: blur(4px);
-
+    filter: blur(8px);
     transition:
-        opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 1.15s cubic-bezier(0.16, 1, 0.3, 1),
-        filter 1s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.2s cubic-bezier(0.16, 1, 0.3, 1),
         box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
         border-color 0.3s ease;
 }
 
-.sup__card.is-visible {
-    opacity: 1;
-    transform: translateY(0) rotateX(0) scale(1);
-    filter: blur(0);
+/* Card 1: Flies in from Bottom-Left */
+.sup__card:nth-child(1) {
+    transform: translateY(80px) translateX(-60px) rotateZ(-4deg) rotateX(-10deg) scale(0.9);
 }
 
+/* Card 2: Flies in from Bottom-Right */
+.sup__card:nth-child(2) {
+    transform: translateY(80px) translateX(60px) rotateZ(4deg) rotateX(-10deg) scale(0.9);
+}
+
+/* Card 3: Flies in from Top-Left */
+.sup__card:nth-child(3) {
+    transform: translateY(-60px) translateX(-60px) rotateZ(3deg) rotateX(10deg) scale(0.9);
+}
+
+/* Card 4: Flies in from Top-Right */
+.sup__card:nth-child(4) {
+    transform: translateY(-60px) translateX(60px) rotateZ(-3deg) rotateX(10deg) scale(0.9);
+}
+
+/* --- Settled State --- */
+.sup__card.is-visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) translateX(0) rotateZ(0) rotateX(0) scale(1);
+}
+
+/* Hover interaction */
 .sup__card.is-visible:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px) scale(1.01);
     box-shadow:
         0 8px 20px rgba(15, 23, 42, 0.06),
-        0 32px 60px -24px rgba(126, 107, 181, 0.28);
+        0 32px 60px -24px rgba(126, 107, 181, 0.35);
     border-color: rgba(126, 107, 181, 0.3);
     transition:
         transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
@@ -156,10 +177,6 @@
 
 /* ============================================
    CONTENT STAGGER — VERY SLOW
-   ============================================
-   Fade duration: 2.4s (was 1.6s)
-   Delays: stretched so the last element
-   finishes around 5s after the card lands.
    ============================================ */
 .sup__card-icon,
 .sup__card-title,
@@ -177,22 +194,17 @@
         transform 2.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ---------- Per-element delays (much longer) ---------- */
-
-/* Card 1 — Business Hours */
+/* ---------- Per-element delays ---------- */
 .sup__card.is-visible .sup__card-icon  { opacity: 1; transform: translateY(0); transition-delay: 0.8s;  }
 .sup__card.is-visible .sup__card-title { opacity: 1; transform: translateY(0); transition-delay: 1.3s;  }
 .sup__card.is-visible .sup__card-desc  { opacity: 1; transform: translateY(0); transition-delay: 1.8s;  }
 .sup__card.is-visible .sup__hours      { opacity: 1; transform: translateY(0); transition-delay: 2.3s;  }
 .sup__card.is-visible .sup__tz         { opacity: 1; transform: translateY(0); transition-delay: 3.2s;  }
 
-/* Card 2 — Response Times */
 .sup__card.is-visible .sup__resp       { opacity: 1; transform: translateY(0); transition-delay: 2.3s;  }
 
-/* Card 3 — Holidays */
 .sup__card.is-visible .sup__holidays   { opacity: 1; transform: translateY(0); transition-delay: 2.3s;  }
 
-/* Card 4 — Urgent CTA */
 .sup__card.is-visible .sup__urgent-btn { opacity: 1; transform: translateY(0); transition-delay: 2.3s;  }
 .sup__card.is-visible .sup__urgent-note{ opacity: 1; transform: translateY(0); transition-delay: 3.2s;  }
 
@@ -236,7 +248,7 @@
 .sup__card-icon--shield   { background: linear-gradient(135deg, #A855F7 0%, #7C3AED 100%); }
 
 .sup__card.is-visible:hover .sup__card-icon {
-    transform: translateY(0) scale(1.06) rotate(-4deg);
+    transform: translateY(0) scale(1.1) rotate(-6deg);
 }
 
 /* ============================================
@@ -332,7 +344,7 @@
 
 .sup__resp li:hover {
     background: rgba(126, 107, 181, 0.08);
-    transform: translateX(3px);
+    transform: translateX(6px);
 }
 
 .sup__resp-dot {
@@ -423,7 +435,7 @@
 }
 
 .sup__urgent-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
     box-shadow:
         0 16px 32px -12px rgba(124, 58, 237, 0.75),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -509,12 +521,12 @@
    ============================================ */
 [data-sup-reveal] {
     opacity: 0;
-    transform: translateY(24px);
-    filter: blur(3px);
+    transform: translateY(30px);
+    filter: blur(4px);
     transition:
-        opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 1s cubic-bezier(0.22, 1, 0.36, 1);
+        opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 [data-sup-reveal].is-visible {
@@ -596,6 +608,12 @@
     .sup__grid { grid-template-columns: 1fr; gap: 18px; }
     .sup__card { padding: 26px 24px; }
     .sup__head { margin-bottom: 48px; }
+    
+    /* On mobile, simplify the 3D scatter to avoid horizontal overflow */
+    .sup__card:nth-child(1) { transform: translateY(40px) scale(0.95); }
+    .sup__card:nth-child(2) { transform: translateY(40px) scale(0.95); }
+    .sup__card:nth-child(3) { transform: translateY(40px) scale(0.95); }
+    .sup__card:nth-child(4) { transform: translateY(40px) scale(0.95); }
 }
 
 @media (max-width: 480px) {
