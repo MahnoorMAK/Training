@@ -9,8 +9,13 @@
 
 @section('content')
 
-    {{-- ✅ Hero Slider (full-screen image carousel) --}}
-    @include('Component.Hero', ['sliderId' => 'hero-home'])
+   {{-- ✅ Hero Slider (full-screen image carousel) --}}
+   @include('Component.cloud-shader-hero')
+
+    {{-- ✅ Hero Section (text, CTA, and abstract dashboard mockup) --}}
+
+    {{-- ✅ Cloud Shader Hero Section --}}
+    @include('Component.Hero', ['sliderId' => 'hero-home']) 
 
     <!-- Main Hero Section -->
     <div class="hero-container">
