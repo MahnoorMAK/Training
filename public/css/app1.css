@@ -1,5 +1,5 @@
 /* ============================================================================
-   APP1.CSS — Global Layout Styles
+   APP1.CSS — Global Layout Styles (Theme Adapted)
    Contains: reset · full-bleed · header · footer
    ============================================================================ */
 
@@ -9,7 +9,8 @@
 html {
     margin: 0;
     padding: 0;
-    background: #0A0612;
+    /* CHANGED: Uses theme background */
+    background: var(--bg-color, #0A0612);
     scroll-behavior: smooth;
     /* DO NOT add overflow-x: hidden here — it breaks position: sticky */
 }
@@ -18,9 +19,9 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    background: #0A0612;
-    /* overflow-x: clip prevents horizontal scroll WITHOUT breaking sticky.
-       DO NOT change to "hidden" — it will break the hero scrub effect. */
+    /* CHANGED: Uses theme background */
+    background: var(--bg-color, #0A0612);
+    /* overflow-x: clip prevents horizontal scroll WITHOUT breaking sticky. */
     overflow-x: clip;
 }
 
@@ -52,27 +53,26 @@ main > section {
     position: relative;
     left: 0;
     right: 0;
-    background: #0A0612;
+    background: var(--bg-color, #0A0612);
 }
 
 /* ============================================================================
-   2. HEADER — GLASS NAVBAR (purple theme)
+   2. HEADER — GLASS NAVBAR
    ============================================================================ */
-/* Fixed floating pill — supports hiding on scroll */
 .hdr {
     position: fixed;
     top: 20px;
     left: 50%;
-    /* Combined: centers + baseline for hide/show */
     transform: translateX(-50%) translateY(0) translateZ(0);
     width: calc(100% - 32px);
     max-width: 1320px;
     z-index: 100;
     border-radius: 999px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* CHANGED: Uses theme font */
+    font-family: var(--app-font, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
     backface-visibility: hidden;
 
-    /* Glass base */
+    /* Glass base — Dark mode default assumption here, can be overridden */
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
@@ -93,14 +93,14 @@ main > section {
 .hdr.is-scrolled {
     top: 12px;
     background: rgba(10, 6, 18, 0.7);
-    border-color: rgba(168, 85, 247, 0.25);
+    /* CHANGED: Uses theme primary for border glow */
+    border-color: var(--primary, rgba(168, 85, 247, 0.25));
     box-shadow:
         0 12px 40px rgba(10, 6, 18, 0.6),
-        0 0 40px rgba(124, 58, 237, 0.15),
+        0 0 40px var(--primary-light, rgba(124, 58, 237, 0.15)),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-/* Hidden state — slides up and out of view when scrolling down */
 .hdr.is-hidden {
     transform: translateX(-50%) translateY(-140%) translateZ(0);
     opacity: 0.9;
@@ -136,12 +136,13 @@ main > section {
     width: 38px;
     height: 38px;
     border-radius: 11px;
-    background: linear-gradient(135deg, #A855F7 0%, #7C3AED 50%, #6D28D9 100%);
+    /* CHANGED: Uses theme primary gradient */
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-hover) 100%);
     color: #fff;
     flex-shrink: 0;
     box-shadow:
-        0 0 12px rgba(168, 85, 247, 0.6),
-        0 0 32px rgba(124, 58, 237, 0.35),
+        0 0 12px var(--primary-light, rgba(168, 85, 247, 0.6)),
+        0 0 32px var(--primary-light, rgba(124, 58, 237, 0.35)),
         inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
@@ -151,7 +152,7 @@ main > section {
     font-size: 17px;
     font-weight: 700;
     letter-spacing: -0.01em;
-    background: linear-gradient(120deg, #fff 30%, #C4B5FD 100%);
+    background: linear-gradient(120deg, #fff 30%, var(--primary-light) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -183,12 +184,12 @@ main > section {
 
 .hdr__links a:hover {
     color: #fff;
-    background: rgba(168, 85, 247, 0.1);
+    background: var(--primary-light, rgba(168, 85, 247, 0.1));
 }
 
 .hdr__links a.is-active {
     color: #fff;
-    background: rgba(168, 85, 247, 0.15);
+    background: var(--primary-light, rgba(168, 85, 247, 0.15));
 }
 
 .hdr__links a.is-active::after {
@@ -200,8 +201,9 @@ main > section {
     width: 14px;
     height: 2px;
     border-radius: 2px;
-    background: linear-gradient(90deg, #A855F7, #E879F9);
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.9);
+    /* CHANGED: Uses theme primary */
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    box-shadow: 0 0 10px var(--primary, rgba(168, 85, 247, 0.9));
 }
 
 /* ---------- Theme toggle ---------- */
@@ -223,8 +225,8 @@ main > section {
 }
 
 .hdr__theme-toggle:hover {
-    background: rgba(168, 85, 247, 0.12);
-    border-color: rgba(168, 85, 247, 0.35);
+    background: var(--primary-light, rgba(168, 85, 247, 0.12));
+    border-color: var(--primary, rgba(168, 85, 247, 0.35));
     color: #fff;
 }
 
@@ -266,10 +268,9 @@ main > section {
     background: rgba(255, 255, 255, 0.06);
 }
 
-/* When dropdown is open — highlight the button */
 .hdr__dropdown.is-open .hdr__login {
     color: #fff;
-    background: rgba(168, 85, 247, 0.12);
+    background: var(--primary-light, rgba(168, 85, 247, 0.12));
 }
 
 .hdr__caret {
@@ -280,7 +281,7 @@ main > section {
     transform: rotate(180deg);
 }
 
-/* Dropdown menu (Login 1 / Login 2) */
+/* Dropdown menu */
 .hdr__dropdown-menu {
     position: absolute;
     top: calc(100% + 12px);
@@ -294,7 +295,7 @@ main > section {
     border: 1px solid rgba(196, 181, 253, 0.18);
     box-shadow:
         0 20px 60px rgba(10, 6, 18, 0.7),
-        0 0 40px rgba(124, 58, 237, 0.2);
+        0 0 40px var(--primary-light, rgba(124, 58, 237, 0.2));
     opacity: 0;
     visibility: hidden;
     transform: translateY(-6px);
@@ -322,12 +323,12 @@ main > section {
 }
 
 .hdr__dropdown-menu a:hover {
-    background: rgba(168, 85, 247, 0.15);
+    background: var(--primary-light, rgba(168, 85, 247, 0.15));
     color: #fff;
 }
 
 .hdr__dropdown-menu a svg {
-    color: #C4B5FD;
+    color: var(--primary-light, #C4B5FD);
     flex-shrink: 0;
 }
 
@@ -337,14 +338,15 @@ main > section {
     align-items: center;
     padding: 11px 24px;
     border-radius: 999px;
-    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 60%, #9333EA 100%);
+    /* CHANGED: Uses theme primary gradient */
+    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 60%, var(--primary-hover) 100%);
     color: #fff;
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
     box-shadow:
-        0 0 10px rgba(168, 85, 247, 0.55),
-        0 0 24px rgba(124, 58, 237, 0.35),
+        0 0 10px var(--primary-light, rgba(168, 85, 247, 0.55)),
+        0 0 24px var(--primary-light, rgba(124, 58, 237, 0.35)),
         0 4px 16px rgba(10, 6, 18, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.25);
     transition: transform 0.25s ease, box-shadow 0.35s ease;
@@ -353,9 +355,9 @@ main > section {
 .hdr__cta:hover {
     transform: translateY(-1px);
     box-shadow:
-        0 0 14px #A855F7,
-        0 0 32px #A855F7,
-        0 0 64px rgba(168, 85, 247, 0.5),
+        0 0 14px var(--primary, #A855F7),
+        0 0 32px var(--primary, #A855F7),
+        0 0 64px var(--primary-light, rgba(168, 85, 247, 0.5)),
         0 6px 20px rgba(10, 6, 18, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
@@ -371,15 +373,15 @@ main > section {
     height: 42px;
     padding: 0;
     border-radius: 999px;
-    background: rgba(168, 85, 247, 0.1);
+    background: var(--primary-light, rgba(168, 85, 247, 0.1));
     border: 1px solid rgba(196, 181, 253, 0.2);
     cursor: pointer;
     transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .hdr__burger:hover {
-    background: rgba(168, 85, 247, 0.2);
-    border-color: rgba(196, 181, 253, 0.4);
+    background: var(--primary-light, rgba(168, 85, 247, 0.2));
+    border-color: var(--primary, rgba(196, 181, 253, 0.4));
 }
 
 .hdr__burger span {
@@ -409,7 +411,7 @@ main > section {
     border: 1px solid rgba(196, 181, 253, 0.18);
     box-shadow:
         0 20px 60px rgba(10, 6, 18, 0.7),
-        0 0 40px rgba(124, 58, 237, 0.2);
+        0 0 40px var(--primary-light, rgba(124, 58, 237, 0.2));
 }
 
 .hdr__mobile-links {
@@ -433,7 +435,7 @@ main > section {
 }
 
 .hdr__mobile-links a:hover {
-    background: rgba(168, 85, 247, 0.12);
+    background: var(--primary-light, rgba(168, 85, 247, 0.12));
     color: #fff;
 }
 
@@ -442,13 +444,14 @@ main > section {
     padding: 14px 20px;
     border-radius: 12px;
     text-align: center;
-    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    /* CHANGED: Uses theme primary gradient */
+    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
     color: #fff;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
     box-shadow:
-        0 0 16px rgba(168, 85, 247, 0.5),
+        0 0 16px var(--primary-light, rgba(168, 85, 247, 0.5)),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
@@ -499,20 +502,20 @@ main > section {
 }
 
 /* ============================================================================
-   FOOTER — scoped under .site-footer so nothing else on the page conflicts
+   FOOTER
    ============================================================================ */
 .site-footer {
     position: relative;
     width: 100%;
-    background: #07030E;
+    /* CHANGED: Uses dark theme background, or keeps fallback */
+    background: var(--bg-primary, #07030E);
     color: #fff;
     overflow: hidden;
     margin-top: 0;
     padding: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--app-font, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
 }
 
-/* Purple top accent line */
 .site-footer::before {
     content: '';
     position: absolute;
@@ -520,17 +523,18 @@ main > section {
     left: 0;
     right: 0;
     height: 1px;
+    /* CHANGED: Uses theme primary for accent line */
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(168, 85, 247, 0.6) 50%,
+        var(--primary, rgba(168, 85, 247, 0.6)) 50%,
         transparent 100%
     );
     pointer-events: none;
     z-index: 2;
 }
 
-/* ---------- TOP GRID (4 columns) ---------- */
+/* ---------- TOP GRID ---------- */
 .site-footer .footer-container {
     max-width: 1320px;
     margin: 0 auto;
@@ -542,7 +546,6 @@ main > section {
     z-index: 1;
 }
 
-/* ---------- BOTTOM BAR — different rules on same class ---------- */
 .site-footer .footer-bottom .footer-container {
     display: flex;
     align-items: center;
@@ -553,7 +556,6 @@ main > section {
     max-width: 1320px;
 }
 
-/* ---------- Columns ---------- */
 .site-footer .footer-col {
     display: flex;
     flex-direction: column;
@@ -579,10 +581,11 @@ main > section {
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #A855F7 0%, #7C3AED 50%, #6D28D9 100%);
+    /* CHANGED: Uses theme gradient */
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-hover) 100%);
     flex-shrink: 0;
     box-shadow:
-        0 0 12px rgba(168, 85, 247, 0.55),
+        0 0 12px var(--primary-light, rgba(168, 85, 247, 0.55)),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -615,7 +618,7 @@ main > section {
 
 .site-footer .footer-contact li svg {
     flex-shrink: 0;
-    color: #C4B5FD;
+    color: var(--primary-light, #C4B5FD);
     opacity: 0.85;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -648,9 +651,10 @@ main > section {
     bottom: 0;
     width: 32px;
     height: 2px;
-    background: linear-gradient(90deg, #A855F7 0%, #E879F9 100%);
+    /* CHANGED: Uses theme primary gradient */
+    background: linear-gradient(90deg, var(--primary, #A855F7) 0%, var(--primary-light, #E879F9) 100%);
     border-radius: 2px;
-    box-shadow: 0 0 12px rgba(168, 85, 247, 0.7);
+    box-shadow: 0 0 12px var(--primary-light, rgba(168, 85, 247, 0.7));
 }
 
 /* ---------- Link lists ---------- */
@@ -684,13 +688,14 @@ main > section {
     top: 50%;
     width: 0;
     height: 1px;
-    background: #A855F7;
+    /* CHANGED: Uses theme primary */
+    background: var(--primary, #A855F7);
     transform: translateY(-50%);
     transition: width 0.25s ease;
 }
 
 .site-footer .footer-links-list a:hover {
-    color: #C4B5FD;
+    color: var(--primary-light, #C4B5FD);
     padding-left: 14px;
 }
 
@@ -734,17 +739,19 @@ main > section {
 }
 
 .site-footer .footer-form input:focus {
-    border-color: #A855F7;
+    /* CHANGED: Uses theme primary */
+    border-color: var(--primary, #A855F7);
     background: rgba(255, 255, 255, 0.06);
     box-shadow:
-        0 0 0 3px rgba(168, 85, 247, 0.15),
-        0 0 16px rgba(168, 85, 247, 0.25);
+        0 0 0 3px var(--primary-light, rgba(168, 85, 247, 0.15)),
+        0 0 16px var(--primary-light, rgba(168, 85, 247, 0.25));
 }
 
 .site-footer .footer-form button {
     padding: 12px 22px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    /* CHANGED: Uses theme gradient */
+    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
     color: #fff;
     font-size: 14px;
     font-weight: 600;
@@ -754,17 +761,17 @@ main > section {
     flex-shrink: 0;
     transition: transform 0.25s ease, box-shadow 0.35s ease;
     box-shadow:
-        0 0 10px rgba(168, 85, 247, 0.5),
-        0 0 22px rgba(124, 58, 237, 0.3),
+        0 0 10px var(--primary-light, rgba(168, 85, 247, 0.5)),
+        0 0 22px var(--primary-light, rgba(124, 58, 237, 0.3)),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .site-footer .footer-form button:hover {
     transform: translateY(-1px);
     box-shadow:
-        0 0 14px #A855F7,
-        0 0 30px #A855F7,
-        0 0 60px rgba(168, 85, 247, 0.5),
+        0 0 14px var(--primary, #A855F7),
+        0 0 30px var(--primary, #A855F7),
+        0 0 60px var(--primary-light, rgba(168, 85, 247, 0.5)),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -787,11 +794,11 @@ main > section {
         90deg,
         transparent 0%,
         rgba(196, 181, 253, 0.15) 20%,
-        rgba(168, 85, 247, 0.5) 50%,
+        var(--primary-light, rgba(168, 85, 247, 0.5)) 50%,
         rgba(196, 181, 253, 0.15) 80%,
         transparent 100%
     );
-    box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 12px var(--primary-light, rgba(168, 85, 247, 0.2));
 }
 
 .site-footer .footer-copy {
@@ -816,8 +823,8 @@ main > section {
 }
 
 .site-footer .footer-legal a:hover {
-    color: #C4B5FD;
-    text-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+    color: var(--primary-light, #C4B5FD);
+    text-shadow: 0 0 12px var(--primary-light, rgba(168, 85, 247, 0.5));
 }
 
 /* ============================================================================
