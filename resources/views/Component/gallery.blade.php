@@ -1,8 +1,6 @@
 {{-- ============================================================
      resources/views/Component/gallery.blade.php
-     "LEDGEINVO" — images form the word via SVG text mask
-     Hover any letter to expand it into a full image card.
-     Usage: @include('Component.gallery')
+     "LEDGEINVO" — Viewport-triggered reveal
      ============================================================ --}}
 
 @once
@@ -12,6 +10,7 @@
 @endonce
 
 @php
+    // Correct order: L is first, O is last.
     $letters = [
         ['char' => 'L', 'src' => 'Assets/img6.jpeg',  'alt' => 'Financial planning session'],
         ['char' => 'E', 'src' => 'Assets/img7.jpeg',  'alt' => 'Tax documents review'],
@@ -25,30 +24,17 @@
     ];
 @endphp
 
-<section class="gallery-section" id="gallery" data-gallery>
+<section class="gallery-section" id="gallery">
     <div class="gallery-wrap">
-
         <div class="gallery-row">
             @foreach ($letters as $index => $item)
-                <div
-                    class="gallery-item"
-                    data-gallery-item
-                    data-gallery-index="{{ $index }}"
-                    role="button"
-                    tabindex="0"
-                    aria-label="View image: {{ $item['alt'] }}">
-
+                <div class="gallery-item" role="button" tabindex="0" aria-label="View image: {{ $item['alt'] }}">
                     <div class="gallery-clip-wrap">
-                        <img
-                            src="{{ asset($item['src']) }}"
-                            alt="{{ $item['alt'] }}"
-                            class="gallery-img"
-                            loading="lazy">
+                        <img src="{{ asset($item['src']) }}" alt="{{ $item['alt'] }}" class="gallery-img" loading="lazy">
                     </div>
                 </div>
             @endforeach
         </div>
-
     </div>
 </section>
 
