@@ -26,9 +26,9 @@
     gap: 9px;
     padding: 8px 16px;
     border-radius: 999px;
-    background: rgba(126, 107, 181, 0.1);
-    border: 1px solid rgba(126, 107, 181, 0.2);
-    color: #7E6BB5;
+    background: var(--primary-light); /* Dynamic Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
+    color: var(--primary); /* Dynamic Text */
     font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -40,8 +40,8 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #7E6BB5;
-    box-shadow: 0 0 10px rgba(126, 107, 181, 0.8);
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
     animation: selfDot 2.2s ease-in-out infinite;
 }
 
@@ -55,12 +55,13 @@
     font-weight: 700;
     letter-spacing: -0.025em;
     line-height: 1.15;
-    color: #0F172A;
+    color: var(--text-main); /* Dynamic Text */
     margin: 0 0 18px;
 }
 
 .self__title-accent {
-    background: linear-gradient(115deg, #8E7AC7 0%, #7E6BB5 50%, #6A589D 100%);
+    /* Dynamic Gradient Text */
+    background: linear-gradient(115deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-hover) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -69,7 +70,7 @@
 .self__subtitle {
     font-size: 1rem;
     line-height: 1.7;
-    color: #64748B;
+    color: var(--text-muted); /* Dynamic Muted Text */
     margin: 0;
 }
 
@@ -93,11 +94,11 @@
     gap: 18px;
     padding: 28px;
     border-radius: 18px;
-    background: #fff;
-    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: var(--white); /* Dynamic Card Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
     box-shadow:
-        0 4px 12px rgba(15, 23, 42, 0.04),
-        0 20px 40px -20px rgba(15, 23, 42, 0.08);
+        0 4px 12px var(--shadow-color),
+        0 20px 40px -20px var(--shadow-color);
     text-decoration: none;
     color: inherit;
     overflow: hidden;
@@ -125,12 +126,12 @@
 .self__card:hover {
     transform: translateY(-5px);
     box-shadow:
-        0 8px 20px rgba(15, 23, 42, 0.06),
-        0 32px 60px -24px rgba(126, 107, 181, 0.3);
-    border-color: rgba(126, 107, 181, 0.3);
+        0 8px 20px var(--shadow-color),
+        0 32px 60px -24px var(--shadow-color);
+    border-color: var(--primary); /* Dynamic Border Hover */
 }
 
-/* Light sweep on hover */
+/* Dynamic Light sweep on hover */
 .self__card-shine {
     position: absolute;
     top: 0;
@@ -139,10 +140,11 @@
     height: 100%;
     background: linear-gradient(100deg,
         transparent 0%,
-        rgba(126, 107, 181, 0) 30%,
-        rgba(126, 107, 181, 0.08) 50%,
-        rgba(126, 107, 181, 0) 70%,
+        transparent 30%,
+        var(--primary-light) 50%,
+        transparent 70%,
         transparent 100%);
+    opacity: 0.4;
     transform: skewX(-20deg);
     pointer-events: none;
     z-index: 2;
@@ -168,7 +170,7 @@
     position: relative;
     overflow: hidden;
     box-shadow:
-        0 8px 18px rgba(126, 107, 181, 0.3),
+        0 8px 18px var(--shadow-color),
         inset 0 1px 1px rgba(255, 255, 255, 0.3);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -189,7 +191,9 @@
 .self__card-icon svg { position: relative; z-index: 1; }
 
 /* Icon variants */
-.self__card-icon--faq    { background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 100%); }
+/* Dynamic Primary Icon */
+.self__card-icon--faq    { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%); }
+/* Semantic Icons (Kept for UX meaning) */
 .self__card-icon--help   { background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); }
 .self__card-icon--track  { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); }
 .self__card-icon--login  { background: linear-gradient(135deg, #10B981 0%, #059669 100%); }
@@ -207,7 +211,7 @@
 .self__card-title {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #0F172A;
+    color: var(--text-main); /* Dynamic Text */
     letter-spacing: -0.015em;
     margin: 0 0 6px;
 }
@@ -215,7 +219,7 @@
 .self__card-desc {
     font-size: 0.875rem;
     line-height: 1.6;
-    color: #64748B;
+    color: var(--text-muted); /* Dynamic Muted Text */
     margin: 0 0 14px;
 }
 
@@ -225,7 +229,7 @@
     gap: 6px;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #7E6BB5;
+    color: var(--primary); /* Dynamic Theme Color */
     transition: color 0.25s ease, gap 0.3s ease;
 }
 
@@ -234,7 +238,7 @@
 }
 
 .self__card:hover .self__card-cta {
-    color: #5F4A96;
+    color: var(--primary-hover);
     gap: 10px;
 }
 
@@ -246,8 +250,9 @@
    LOGIN CARD — slightly different feel
    ============================================ */
 .self__card--login {
-    background: linear-gradient(180deg, #FBF9FE 0%, #FFFFFF 60%);
-    border-color: rgba(126, 107, 181, 0.15);
+    /* Dynamic Featured Background */
+    background: linear-gradient(180deg, var(--primary-light) 0%, var(--white) 60%);
+    border-color: var(--border-color);
 }
 
 .self__card--login::before {
@@ -257,6 +262,7 @@
     left: 0;
     right: 0;
     height: 3px;
+    /* Semantic Green Accent */
     background: linear-gradient(90deg, #10B981 0%, #34D399 100%);
     box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
 }
@@ -275,13 +281,13 @@
 .self__footer {
     text-align: center;
     font-size: 0.9rem;
-    color: #64748B;
+    color: var(--text-muted);
     margin: 0;
     line-height: 1.7;
 }
 
 .self__footer a {
-    color: #7E6BB5;
+    color: var(--primary);
     font-weight: 600;
     text-decoration: none;
     position: relative;
@@ -302,7 +308,7 @@
 }
 
 .self__footer a:hover {
-    color: #5F4A96;
+    color: var(--primary-hover);
 }
 
 .self__footer a:hover::after {
