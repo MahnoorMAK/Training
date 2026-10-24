@@ -27,9 +27,9 @@
     gap: 9px;
     padding: 8px 16px;
     border-radius: 999px;
-    background: rgba(126, 107, 181, 0.1);
-    border: 1px solid rgba(126, 107, 181, 0.2);
-    color: #7E6BB5;
+    background: var(--primary-light); /* Dynamic Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
+    color: var(--primary); /* Dynamic Text */
     font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -41,8 +41,8 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #7E6BB5;
-    box-shadow: 0 0 10px rgba(126, 107, 181, 0.8);
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
     animation: locDot 2.2s ease-in-out infinite;
 }
 
@@ -56,12 +56,13 @@
     font-weight: 700;
     letter-spacing: -0.025em;
     line-height: 1.15;
-    color: #0F172A;
+    color: var(--text-main); /* Dynamic Text */
     margin: 0 0 18px;
 }
 
 .loc__title-accent {
-    background: linear-gradient(115deg, #8E7AC7 0%, #7E6BB5 50%, #6A589D 100%);
+    /* Dynamic Gradient Text */
+    background: linear-gradient(115deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-hover) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -70,7 +71,7 @@
 .loc__subtitle {
     font-size: 1rem;
     line-height: 1.7;
-    color: #64748B;
+    color: var(--text-muted); /* Dynamic Muted Text */
     margin: 0;
 }
 
@@ -99,11 +100,11 @@
     aspect-ratio: 4 / 5;
     border-radius: 22px;
     overflow: hidden;
-    background: #F1F4F9;
-    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: var(--bg-secondary); /* Dynamic Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
     box-shadow:
-        0 20px 50px -20px rgba(126, 107, 181, 0.25),
-        0 0 0 1px rgba(126, 107, 181, 0.05);
+        0 20px 50px -20px var(--shadow-color),
+        0 0 0 1px var(--border-color);
 }
 
 .loc__map-iframe {
@@ -116,14 +117,15 @@
     filter: saturate(0.75) contrast(1.02);
 }
 
-/* Purple tint overlay for on-brand look */
+/* Dynamic tint overlay for on-brand look */
 .loc__map-tint {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg,
-        rgba(126, 107, 181, 0.08) 0%,
-        rgba(126, 107, 181, 0.02) 40%,
-        rgba(126, 107, 181, 0.1) 100%);
+        var(--primary-light) 0%,
+        transparent 40%,
+        var(--primary-light) 100%);
+    opacity: 0.3;
     pointer-events: none;
     mix-blend-mode: multiply;
 }
@@ -138,12 +140,12 @@
     gap: 12px;
     padding: 12px 18px;
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--white); /* Dynamic Background */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--border-color); /* Dynamic Border */
     box-shadow:
-        0 12px 32px rgba(15, 23, 42, 0.15),
+        0 12px 32px var(--shadow-color),
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
@@ -154,11 +156,12 @@
     width: 34px;
     height: 34px;
     border-radius: 9px;
-    background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 100%);
+    /* Dynamic Icon Gradient */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     color: #fff;
     flex-shrink: 0;
     box-shadow:
-        0 6px 14px rgba(126, 107, 181, 0.35),
+        0 6px 14px var(--shadow-color),
         inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
@@ -171,13 +174,13 @@
 .loc__map-badge-text strong {
     font-size: 13px;
     font-weight: 700;
-    color: #0F172A;
+    color: var(--text-main);
     letter-spacing: -0.01em;
 }
 
 .loc__map-badge-text small {
     font-size: 11px;
-    color: #64748B;
+    color: var(--text-muted);
     font-weight: 500;
     margin-top: 1px;
 }
@@ -197,11 +200,11 @@
     position: relative;
     padding: 24px;
     border-radius: 18px;
-    background: #fff;
-    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: var(--white); /* Dynamic Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
     box-shadow:
-        0 4px 12px rgba(15, 23, 42, 0.04),
-        0 20px 40px -20px rgba(15, 23, 42, 0.08);
+        0 4px 12px var(--shadow-color),
+        0 20px 40px -20px var(--shadow-color);
     transition:
         transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         box-shadow 0.4s ease,
@@ -223,9 +226,9 @@
 .loc__branch:hover {
     transform: translateY(-4px);
     box-shadow:
-        0 8px 20px rgba(15, 23, 42, 0.06),
-        0 32px 60px -24px rgba(126, 107, 181, 0.28);
-    border-color: rgba(126, 107, 181, 0.3);
+        0 8px 20px var(--shadow-color),
+        0 32px 60px -24px var(--shadow-color);
+    border-color: var(--primary); /* Dynamic Border Hover */
 }
 
 /* ---------- Branch top ---------- */
@@ -242,8 +245,8 @@
     align-items: center;
     padding: 4px 10px;
     border-radius: 6px;
-    background: rgba(126, 107, 181, 0.12);
-    color: #7E6BB5;
+    background: var(--primary-light); /* Dynamic Background */
+    color: var(--primary); /* Dynamic Text */
     font-size: 10.5px;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -266,7 +269,7 @@
     gap: 6px;
     font-size: 11.5px;
     font-weight: 600;
-    color: #64748B;
+    color: var(--text-muted);
     letter-spacing: 0.01em;
 }
 
@@ -274,7 +277,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #10B981;
+    background: #10B981; /* Semantic Green */
     box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
     animation: locPulse 2.2s ease-in-out infinite;
 }
@@ -299,7 +302,7 @@
 .loc__branch-name {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #0F172A;
+    color: var(--text-main);
     letter-spacing: -0.015em;
     margin: 0 0 6px;
 }
@@ -307,7 +310,7 @@
 .loc__branch-address {
     font-size: 0.875rem;
     line-height: 1.6;
-    color: #64748B;
+    color: var(--text-muted);
     margin: 0 0 16px;
 }
 
@@ -326,7 +329,7 @@
     gap: 6px;
     font-size: 0.825rem;
     font-weight: 500;
-    color: #7E6BB5;
+    color: var(--primary); /* Dynamic Theme Color */
     text-decoration: none;
     transition: color 0.2s ease, gap 0.25s ease;
 }
@@ -338,7 +341,7 @@
 }
 
 .loc__branch-link:hover {
-    color: #5F4A96;
+    color: var(--primary-hover);
 }
 
 .loc__branch-link:hover svg {
@@ -353,8 +356,8 @@
     gap: 6px;
     padding: 8px 14px;
     border-radius: 10px;
-    background: rgba(126, 107, 181, 0.08);
-    color: #7E6BB5;
+    background: var(--primary-light); /* Dynamic Background */
+    color: var(--primary); /* Dynamic Text */
     font-size: 0.825rem;
     font-weight: 600;
     text-decoration: none;
@@ -371,10 +374,10 @@
 }
 
 .loc__branch-directions:hover {
-    background: rgba(126, 107, 181, 0.15);
-    color: #5F4A96;
+    background: var(--primary); /* Dynamic Hover Background */
+    color: #fff; /* Keep white for contrast */
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px -6px rgba(126, 107, 181, 0.4);
+    box-shadow: 0 6px 16px -6px var(--shadow-color);
 }
 
 .loc__branch-directions:hover svg {
@@ -398,106 +401,15 @@
 }
 
 /* ============================================
-   DARK THEME OVERRIDES
+   DARK THEME SPECIFIC FIXES (Only for Map)
    ============================================ */
-[data-theme="dark"] .loc__title {
-    color: #F1F5F9;
-}
-
-[data-theme="dark"] .loc__subtitle {
-    color: #94A3B8;
-}
-
-/* Map container — keep the map visible but soften it */
-[data-theme="dark"] .loc__map {
-    background: #252642;
-    border-color: rgba(168, 85, 247, 0.2);
-    box-shadow:
-        0 20px 50px -20px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(168, 85, 247, 0.1);
-}
-
 [data-theme="dark"] .loc__map-iframe {
     filter: saturate(0.5) brightness(0.75) contrast(1.05);
 }
 
 [data-theme="dark"] .loc__map-tint {
-    background: linear-gradient(180deg,
-        rgba(168, 85, 247, 0.15) 0%,
-        rgba(168, 85, 247, 0.05) 40%,
-        rgba(168, 85, 247, 0.2) 100%);
     mix-blend-mode: screen;
-}
-
-/* Floating badge on map */
-[data-theme="dark"] .loc__map-badge {
-    background: rgba(26, 27, 46, 0.92);
-    border-color: rgba(168, 85, 247, 0.25);
-    box-shadow:
-        0 12px 32px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-[data-theme="dark"] .loc__map-badge-text strong {
-    color: #F1F5F9;
-}
-
-[data-theme="dark"] .loc__map-badge-text small {
-    color: #94A3B8;
-}
-
-/* Branch cards */
-[data-theme="dark"] .loc__branch {
-    background: #1A1B2E;
-    border-color: rgba(168, 85, 247, 0.2);
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.25),
-        0 20px 40px -20px rgba(0, 0, 0, 0.4);
-}
-
-[data-theme="dark"] .loc__branch:hover {
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.3),
-        0 32px 60px -24px rgba(168, 85, 247, 0.35);
-}
-
-[data-theme="dark"] .loc__branch-name {
-    color: #F1F5F9;
-}
-
-[data-theme="dark"] .loc__branch-address {
-    color: #94A3B8;
-}
-
-[data-theme="dark"] .loc__branch-status {
-    color: #94A3B8;
-}
-
-[data-theme="dark"] .loc__branch-link {
-    color: #C4B5FD;
-}
-
-[data-theme="dark"] .loc__branch-link:hover {
-    color: #A855F7;
-}
-
-/* Directions button */
-[data-theme="dark"] .loc__branch-directions {
-    background: rgba(168, 85, 247, 0.15);
-    color: #C4B5FD;
-}
-
-[data-theme="dark"] .loc__branch-directions:hover {
-    background: rgba(168, 85, 247, 0.25);
-    color: #A855F7;
-    box-shadow: 0 6px 16px -6px rgba(168, 85, 247, 0.5);
-}
-
-/* Branch tags */
-[data-theme="dark"] .loc__branch-tag {
-    background: rgba(168, 85, 247, 0.18);
-    color: #C4B5FD;
+    opacity: 0.2;
 }
 
 [data-theme="dark"] .loc__branch-tag--alt {
