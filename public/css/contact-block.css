@@ -31,19 +31,19 @@
 
 .ctb__card {
     position: relative;
-    /* SOLID WHITE IN LIGHT MODE so it doesn't look like floating text */
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.06);
+    /* Dynamic Card Background */
+    background: var(--white);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 28px;
     display: flex;
     align-items: flex-start;
     gap: 20px;
     
-    /* Soft, elevated shadow */
+    /* Dynamic Shadow */
     box-shadow: 
-        0 4px 6px -1px rgba(0, 0, 0, 0.02),
-        0 12px 24px -8px rgba(15, 23, 42, 0.06);
+        0 4px 6px -1px var(--shadow-color),
+        0 12px 24px -8px var(--shadow-color);
     
     /* Entrance initial state */
     opacity: 0;
@@ -61,30 +61,13 @@
     transform: translateY(0) scale(1);
 }
 
-/* Hover: Lifts slightly, border gets a subtle purple tint */
+/* Hover: Lifts slightly, border gets a subtle theme color tint */
 .ctb__card:hover {
     transform: translateY(-6px);
-    border-color: rgba(126, 107, 181, 0.2);
+    border-color: var(--primary);
     box-shadow: 
-        0 12px 20px -8px rgba(15, 23, 42, 0.08),
-        0 25px 45px -15px rgba(126, 107, 181, 0.15);
-}
-
-/* --- Dark Mode Card Overrides --- */
-[data-theme="dark"] .ctb__card {
-    background: #1A1B2E;
-    border-color: rgba(168, 85, 247, 0.15);
-    box-shadow: 
-        0 4px 12px rgba(0, 0, 0, 0.25),
-        0 20px 40px -20px rgba(0, 0, 0, 0.4);
-}
-
-[data-theme="dark"] .ctb__card:hover {
-    background: #1E1F35;
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 
-        0 8px 20px rgba(0, 0, 0, 0.3),
-        0 32px 60px -24px rgba(168, 85, 247, 0.35);
+        0 12px 20px -8px var(--shadow-color),
+        0 25px 45px -15px var(--shadow-color);
 }
 
 /* ---------- Card icon ---------- */
@@ -93,13 +76,14 @@
     width: 52px;
     height: 52px;
     border-radius: 16px;
-    background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 100%);
+    /* Dynamic Icon Gradient */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     box-shadow: 
-        0 8px 18px rgba(126, 107, 181, 0.3),
+        0 8px 18px var(--shadow-color),
         inset 0 1px 1px rgba(255, 255, 255, 0.3);
     
     /* Smooth entrance */
@@ -113,7 +97,7 @@
 
 .ctb__card:hover .ctb__card-icon {
     transform: scale(1.08) rotate(-4deg);
-    box-shadow: 0 12px 25px rgba(126, 107, 181, 0.45);
+    box-shadow: 0 12px 25px var(--shadow-color);
 }
 
 /* ---------- Card body ---------- */
@@ -125,20 +109,17 @@
 .ctb__card-body h4 {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #0F172A;
+    color: var(--text-main); /* Dynamic Text */
     margin: 0 0 6px;
     letter-spacing: -0.01em;
 }
 
 .ctb__card-body p {
     font-size: 0.925rem;
-    color: #64748B;
+    color: var(--text-muted); /* Dynamic Muted Text */
     line-height: 1.6;
     margin: 0 0 16px;
 }
-
-[data-theme="dark"] .ctb__card-body h4 { color: #F1F5F9; }
-[data-theme="dark"] .ctb__card-body p { color: #94A3B8; }
 
 .ctb__card-body a {
     display: inline-flex;
@@ -146,7 +127,7 @@
     gap: 6px;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #7E6BB5;
+    color: var(--primary); /* Dynamic Theme Color */
     text-decoration: none;
     transition: all 0.3s ease;
     padding-bottom: 2px;
@@ -154,13 +135,10 @@
 }
 
 .ctb__card-body a:hover {
-    color: #5F4A96;
-    border-bottom-color: #5F4A96;
+    color: var(--primary-hover);
+    border-bottom-color: var(--primary-hover);
     gap: 10px;
 }
-
-[data-theme="dark"] .ctb__card-body a { color: #C4B5FD; }
-[data-theme="dark"] .ctb__card-body a:hover { color: #fff; border-bottom-color: #fff; }
 
 /* ============================================
    RIGHT — FORM CARD
@@ -190,15 +168,15 @@
 .ctb__form-card {
     flex: 1;
     position: relative;
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.06);
+    background: var(--white); /* Dynamic Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
     border-radius: 24px;
     padding: 48px;
     
     /* Base Shadow */
     box-shadow: 
-        0 4px 6px -1px rgba(0, 0, 0, 0.02),
-        0 20px 40px -10px rgba(126, 107, 181, 0.1);
+        0 4px 6px -1px var(--shadow-color),
+        0 20px 40px -10px var(--shadow-color);
         
     /* Transition for the border and shadow */
     transition: 
@@ -208,47 +186,27 @@
 
 /* --- Intensify shadow and border when wrapper is hovered --- */
 .ctb__form-wrap:hover .ctb__form-card {
-    border-color: rgba(126, 107, 181, 0.3);
+    border-color: var(--primary);
     box-shadow: 
-        0 12px 20px -8px rgba(15, 23, 42, 0.08),
-        0 35px 60px -15px rgba(126, 107, 181, 0.25);
-}
-
-/* Dark Mode Overrides */
-[data-theme="dark"] .ctb__form-card {
-    background: #1A1B2E;
-    border-color: rgba(168, 85, 247, 0.15);
-    box-shadow: 
-        0 20px 40px -10px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(168, 85, 247, 0.05);
-}
-
-/* --- Dark mode hover state --- */
-[data-theme="dark"] .ctb__form-wrap:hover .ctb__form-card {
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 
-        0 8px 20px rgba(0, 0, 0, 0.3),
-        0 35px 60px -24px rgba(168, 85, 247, 0.35);
+        0 12px 20px -8px var(--shadow-color),
+        0 35px 60px -15px var(--shadow-color);
 }
 
 /* ---------- Titles ---------- */
 .ctb__form-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #0F172A;
+    color: var(--text-main);
     letter-spacing: -0.02em;
     margin: 0 0 8px;
 }
 
 .ctb__form-subtitle {
     font-size: 0.9rem;
-    color: #64748B;
+    color: var(--text-muted);
     margin: 0 0 32px;
     line-height: 1.6;
 }
-
-[data-theme="dark"] .ctb__form-title { color: #F1F5F9; }
-[data-theme="dark"] .ctb__form-subtitle { color: #94A3B8; }
 
 /* ---------- Layout rows ---------- */
 .ctb__row {
@@ -267,15 +225,13 @@
     display: block;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #0F172A;
+    color: var(--text-main);
     margin-bottom: 8px;
     letter-spacing: 0.01em;
 }
 
-[data-theme="dark"] .ctb__group label { color: #E2E8F0; }
-
 .ctb__group label .required {
-    color: #7E6BB5;
+    color: var(--primary);
     margin-left: 2px;
 }
 
@@ -285,44 +241,28 @@
     padding: 14px 16px;
     font-size: 0.95rem;
     font-family: inherit;
-    color: #0F172A;
-    background: #F8F9FC;
-    border: 1.5px solid rgba(15, 23, 42, 0.08);
+    color: var(--text-main);
+    background: var(--bg-color); /* Dynamic Background */
+    border: 1.5px solid var(--border-color); /* Dynamic Border */
     border-radius: 12px;
     outline: none;
     transition: all 0.3s ease;
 }
 
-[data-theme="dark"] .ctb__input {
-    background: #252642;
-    border-color: rgba(168, 85, 247, 0.2);
-    color: #F1F5F9;
-}
-
 .ctb__input::placeholder {
-    color: #94A3B8;
+    color: var(--text-muted);
 }
 
 .ctb__input:hover {
-    background: #F1F4F9;
+    background: var(--bg-secondary); /* Dynamic Hover Background */
 }
 
-[data-theme="dark"] .ctb__input:hover {
-    background: #2D2E52;
-}
-
-/* The Magic Focus: Soft Purple Glow */
+/* The Magic Focus: Dynamic Theme Glow */
 .ctb__input:focus {
-    background: #fff;
-    border-color: #7E6BB5;
-    box-shadow: 0 0 0 4px rgba(126, 107, 181, 0.15);
+    background: var(--white);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-light);
     transform: translateY(-2px);
-}
-
-[data-theme="dark"] .ctb__input:focus {
-    background: #1A1B2E;
-    border-color: #A855F7;
-    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.2);
 }
 
 textarea.ctb__input {
@@ -340,7 +280,8 @@ textarea.ctb__input {
     justify-content: center;
     gap: 12px;
     padding: 16px 24px;
-    background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 100%);
+    /* Dynamic Gradient Button */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     color: #fff;
     font-size: 1rem;
     font-weight: 600;
@@ -349,14 +290,14 @@ textarea.ctb__input {
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 25px -10px rgba(126, 107, 181, 0.6);
+    box-shadow: 0 10px 25px -10px var(--shadow-color);
     margin-top: 12px;
     overflow: hidden;
 }
 
 .ctb__submit:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px -10px rgba(126, 107, 181, 0.8);
+    box-shadow: 0 15px 35px -10px var(--shadow-color);
 }
 
 .ctb__submit:active {
