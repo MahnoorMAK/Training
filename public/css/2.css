@@ -1,53 +1,63 @@
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #F8F7FC; }
-::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-
+/* ============================================================
+   GLASS CARD
+   ============================================================ */
 .glass-card {
-    background: rgba(255, 255, 255, 0.9);
+    /* Dynamic Glass Background */
+    background: color-mix(in srgb, var(--white) 90%, transparent);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 1);
-    box-shadow: 0 25px 50px -12px rgba(123, 104, 178, 0.15),
-                inset 0 1px 0 0 rgba(255, 255, 255, 1);
+    border: 1px solid var(--border-color);
+    box-shadow:
+        0 25px 50px -12px var(--shadow-color),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
 }
 
 /* ============================================================
-   FLOATING LABEL INPUT STYLES (LIGHT THEME)
+   FLOATING LABEL INPUT STYLES
    ============================================================ */
 .input-group input:focus ~ label,
 .input-group input:not(:placeholder-shown) ~ label {
     transform: translateY(-24px) scale(0.85);
-    color: #7B68B2; /* brand-purple */
+    color: var(--primary); /* Dynamic Theme Color */
     font-weight: 600;
 }
 .input-group input:focus {
-    border-bottom-color: #7B68B2;
+    border-bottom-color: var(--primary);
 }
 
 /* ============================================================
    3D ANIMATED CREDIT CARD
    ============================================================ */
 .credit-card {
-    background: linear-gradient(135deg, #7B68B2 0%, #9B8BC4 100%);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2),
-                inset 0 1px 1px rgba(255, 255, 255, 0.4),
-                0 0 30px rgba(123, 104, 178, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Dynamic Gradient Card */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    box-shadow:
+        0 25px 50px -12px var(--shadow-color),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4),
+        0 0 30px var(--primary-light);
+    border: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
 }
 
+/* Dynamic Glows */
 .bg-glow-1 {
-    background: radial-gradient(circle, rgba(123, 104, 178, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
 }
 .bg-glow-2 {
-    background: radial-gradient(circle, rgba(155, 139, 196, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: 0.1;
 }
 
 /* ============================================================
    SHIMMER EFFECT KEYFRAME
-   (referenced by `group-hover:animate-[shimmer_1.5s_infinite]`)
    ============================================================ */
 @keyframes shimmer {
     0%   { transform: translateX(-100%); }
