@@ -11,18 +11,13 @@
     justify-content: center;
     overflow: hidden;
 
-    /* CHANGED: Uses theme bg-color instead of hardcoded #f5f4f3 */
-    background: var(--bg-color, #f5f4f3);
+    /* Dynamic Theme Background */
+    background: var(--bg-color);
     padding: 80px 20px;
 
-    /* CHANGED: Uses theme font */
+    /* Dynamic Theme Font */
     font-family: var(--app-font, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
     transition: background 0.4s ease;
-}
-
-/* Dark theme background */
-[data-theme="dark"] .acc-gallery-section {
-    background: var(--bg-color, #0B0B0D);
 }
 
 .acc-gallery-wrap {
@@ -61,10 +56,10 @@
     border-radius: 1.5rem;
     flex-shrink: 0;
 
-    /* Light theme card outline */
-    background: var(--white, #ffffff);
-    border: 1px solid var(--border-color, rgba(15, 23, 42, 0.06));
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    /* Dynamic Card Background & Border */
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
 
     width: 5rem;
     height: 24rem;
@@ -76,35 +71,14 @@
         background 0.4s ease;
 }
 
-/* Dark theme outline */
-[data-theme="dark"] .acc-gallery-item {
-    background: var(--bg-secondary, #15162A);
-    /* CHANGED: Uses theme primary color for dark border */
-    border-color: rgba(126, 107, 181, 0.15); 
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.25),
-        /* CHANGED: Uses theme primary for dark glow */
-        0 0 24px rgba(126, 107, 181, 0.08);
-}
-
 /* Active state — wider + brighter outline */
 .acc-gallery-item.is-active {
     width: 24rem;
-    /* CHANGED: Uses theme primary for active border */
-    border-color: rgba(126, 107, 181, 0.3);
+    /* Dynamic Primary Border */
+    border-color: var(--primary);
     box-shadow:
-        /* CHANGED: Uses theme primary for active shadow */
-        0 12px 32px rgba(126, 107, 181, 0.2),
-        0 0 0 1px rgba(126, 107, 181, 0.15);
-}
-
-[data-theme="dark"] .acc-gallery-item.is-active {
-    /* CHANGED: Uses theme primary for dark active border */
-    border-color: rgba(126, 107, 181, 0.4);
-    box-shadow:
-        0 12px 32px rgba(0, 0, 0, 0.4),
-        /* CHANGED: Uses theme primary for dark active glow */
-        0 0 40px rgba(126, 107, 181, 0.25);
+        0 12px 32px var(--shadow-color),
+        0 0 0 1px var(--primary);
 }
 
 /* ============================================
