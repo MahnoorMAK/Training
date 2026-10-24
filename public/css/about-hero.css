@@ -8,7 +8,7 @@
     min-height: 640px;
     overflow: hidden;
     isolation: isolate;
-    background: #1a1520; /* Kept dark background so white text remains visible */
+    background: #1a1520; /* Kept dark so white text remains visible */
 }
 
 /* ---------- Fixed background image ---------- */
@@ -38,16 +38,16 @@
     100% { transform: scale(1.12) translateY(-2%); }
 }
 
-/* Warm overlay */
+/* Dynamic Overlay Tinted with Theme Color */
 .about-hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
         100deg,
-        rgba(30, 24, 48, 0.85) 0%,
+        color-mix(in srgb, var(--primary) 20%, rgba(30, 24, 48, 0.85)) 0%,
         rgba(50, 40, 70, 0.55) 45%,
         rgba(30, 24, 48, 0.15) 75%,
-        rgba(30, 24, 48, 0.35) 100%
+        color-mix(in srgb, var(--primary) 15%, rgba(30, 24, 48, 0.35)) 100%
     );
 }
 
@@ -83,8 +83,7 @@
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    /* CHANGED: Uses theme primary light color */
-    color: var(--primary-light, #d4c9f0); 
+    color: var(--primary-light); /* Dynamic Theme Color */
     margin-bottom: 32px;
     padding-bottom: 12px;
     position: relative;
@@ -103,8 +102,7 @@
     left: 0;
     width: 40px;
     height: 1px;
-    /* CHANGED: Uses theme primary light color */
-    background: var(--primary-light, #d4c9f0);
+    background: var(--primary-light); /* Dynamic Theme Color */
     transform-origin: left;
     transform: scaleX(0);
     transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
@@ -118,7 +116,6 @@
     letter-spacing: -0.03em;
     color: #ffffff;
     margin: 0;
-    /* CHANGED: Uses global theme font instead of hardcoded Georgia */
     font-family: var(--app-font, 'Georgia', serif);
 }
 
@@ -238,9 +235,8 @@
 .about-hero + section {
     position: relative;
     z-index: 5;
-    /* CHANGED: Uses theme bg-color */
-    background: var(--bg-color, #F8F9FC);
+    background: var(--bg-color); /* Dynamic Background */
     border-radius: 24px 24px 0 0;
     margin-top: -24px;
-    box-shadow: 0 -20px 40px -20px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 -20px 40px -20px var(--shadow-color);
 }
