@@ -1,4 +1,3 @@
-
 .contact-hero {
     position: relative;
     padding: 80px 32px 60px;
@@ -14,7 +13,8 @@
     transform: translateX(-50%);
     width: 900px;
     height: 900px;
-    background: radial-gradient(circle, rgba(126, 107, 181, 0.18) 0%, transparent 65%);
+    /* Dynamic Theme Glow */
+    background: radial-gradient(circle, var(--primary-light) 0%, transparent 65%);
     pointer-events: none;
     z-index: 0;
 }
@@ -33,7 +33,7 @@
     text-transform: uppercase;
     border-radius: 999px;
     margin-bottom: 24px;
-    border: 1px solid rgba(126, 107, 181, 0.2);
+    border: 1px solid var(--border-color);
 }
 .hero-eyebrow i { font-size: 11px; }
 
@@ -46,7 +46,8 @@
     margin-bottom: 20px;
 }
 .hero-title .accent {
-    background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 60%, #6A589D 100%);
+    /* Dynamic Gradient Text */
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 60%, var(--primary-hover) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -68,10 +69,11 @@
 }
 .cube {
     position: absolute;
-    background: linear-gradient(135deg, rgba(142, 122, 199, 0.35), rgba(126, 107, 181, 0.18));
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    /* Dynamic Cube Gradient */
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    border: 1px solid var(--border-color);
     border-radius: 14px;
-    box-shadow: 0 20px 40px rgba(126, 107, 181, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 40px var(--shadow-color), inset 0 1px 1px rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(6px);
 }
 .cube.c1 { top: 20%; left: 6%;  width: 64px; height: 64px; animation: floatCube 14s ease-in-out infinite; }
@@ -112,25 +114,26 @@
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.3s;
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 6px 20px var(--shadow-color);
 }
 .info-card:hover {
     transform: translateY(-6px) rotateX(2deg);
-    box-shadow: 0 24px 48px -20px rgba(126, 107, 181, 0.35);
-    border-color: rgba(126, 107, 181, 0.3);
+    box-shadow: 0 24px 48px -20px var(--shadow-color);
+    border-color: var(--primary);
 }
 .info-icon {
     flex-shrink: 0;
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 100%);
+    /* Dynamic Icon Gradient */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 18px;
-    box-shadow: 0 8px 18px rgba(126, 107, 181, 0.35),
+    box-shadow: 0 8px 18px var(--shadow-color),
                 inset 0 1px 1px rgba(255,255,255,0.3);
     position: relative;
 }
@@ -169,15 +172,16 @@
     border: 1px solid var(--border-color);
     border-radius: 24px;
     padding: 40px;
-    box-shadow: 0 20px 50px -20px rgba(126, 107, 181, 0.25),
-                0 0 0 1px rgba(126, 107, 181, 0.05);
+    box-shadow: 0 20px 50px -20px var(--shadow-color),
+                0 0 0 1px var(--border-color);
     transform-style: preserve-3d;
 }
 .form-card::before {
     content: '';
     position: absolute;
     top: -1px; left: 32px; right: 32px; height: 4px;
-    background: linear-gradient(90deg, #8E7AC7, #7E6BB5, #6A589D);
+    /* Dynamic Top Accent Line */
+    background: linear-gradient(90deg, var(--primary-light), var(--primary), var(--primary-hover));
     border-radius: 0 0 4px 4px;
 }
 .form-title {
@@ -217,17 +221,17 @@
     font-size: 0.925rem;
     font-family: inherit;
     color: var(--text-main);
-    background: #F8F9FC;
+    background: var(--bg-color); /* Dynamic Background */
     border: 1.5px solid var(--border-color);
     border-radius: 10px;
     transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
     outline: none;
 }
-.form-control::placeholder { color: #94A3B8; }
+.form-control::placeholder { color: var(--text-muted); }
 .form-control:focus {
     border-color: var(--primary);
     background: var(--white);
-    box-shadow: 0 0 0 4px rgba(126, 107, 181, 0.12);
+    box-shadow: 0 0 0 4px var(--primary-light);
 }
 textarea.form-control {
     resize: vertical;
@@ -270,7 +274,7 @@ textarea.form-control {
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 10px 24px -10px rgba(126, 107, 181, 0.6);
+    box-shadow: 0 10px 24px -10px var(--shadow-color);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
@@ -279,7 +283,7 @@ textarea.form-control {
 .btn-submit:hover {
     background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 18px 36px -12px rgba(126, 107, 181, 0.75);
+    box-shadow: 0 18px 36px -12px var(--shadow-color);
 }
 .btn-submit:active { transform: translateY(0); }
 .btn-submit i { transition: transform 0.3s; }
@@ -312,7 +316,7 @@ textarea.form-control {
 }
 .faq-card:hover {
     transform: translateY(-6px) rotateX(2deg);
-    box-shadow: 0 24px 48px -20px rgba(126, 107, 181, 0.3);
+    box-shadow: 0 24px 48px -20px var(--shadow-color);
 }
 .faq-card i {
     color: var(--primary);
@@ -380,4 +384,3 @@ textarea.form-control {
     .bottom-section { padding: 0 20px; margin-bottom: 80px; }
     .cube.c1, .cube.c2 { display: none; }
 }
-
