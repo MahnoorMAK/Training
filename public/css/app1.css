@@ -123,7 +123,6 @@ main > section {
     gap: 12px;
     flex-shrink: 0;
     text-decoration: none;
-    color: #fff;
     transition: opacity 0.2s ease;
 }
 
@@ -136,7 +135,7 @@ main > section {
     width: 38px;
     height: 38px;
     border-radius: 11px;
-    /* CHANGED: Uses theme primary gradient */
+    /* Uses theme primary gradient */
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-hover) 100%);
     color: #fff;
     flex-shrink: 0;
@@ -148,14 +147,13 @@ main > section {
 
 .hdr__logo-mark svg { width: 22px; height: 22px; }
 
+/* FIX: Force the gradient to start bright white, then fade to theme color */
 .hdr__logo-text {
     font-size: 17px;
     font-weight: 700;
     letter-spacing: -0.01em;
-    background: linear-gradient(120deg, #fff 30%, var(--primary-light) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* Force pure white so it's always readable on the dark glass */
+    color: #ffffff !important; 
 }
 
 /* ---------- Links ---------- */
@@ -507,8 +505,8 @@ main > section {
 .site-footer {
     position: relative;
     width: 100%;
-    /* CHANGED: Uses dark theme background, or keeps fallback */
-    background: var(--bg-primary, #07030E);
+    /* Keep the footer dark for contrast */
+    background: #0d0b12; 
     color: #fff;
     overflow: hidden;
     margin-top: 0;
@@ -523,11 +521,11 @@ main > section {
     left: 0;
     right: 0;
     height: 1px;
-    /* CHANGED: Uses theme primary for accent line */
+    /* Dynamic Accent Line */
     background: linear-gradient(
         90deg,
         transparent 0%,
-        var(--primary, rgba(168, 85, 247, 0.6)) 50%,
+        var(--primary) 50%,
         transparent 100%
     );
     pointer-events: none;
@@ -570,7 +568,7 @@ main > section {
     margin-bottom: 20px;
     font-size: 17px;
     font-weight: 700;
-    color: #fff;
+    color: #fff !important; /* Force white for brand */
     letter-spacing: -0.01em;
 }
 
@@ -581,18 +579,17 @@ main > section {
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    /* CHANGED: Uses theme gradient */
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-hover) 100%);
+    /* Dynamic Gradient */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     flex-shrink: 0;
-    box-shadow:
-        0 0 12px var(--primary-light, rgba(168, 85, 247, 0.55)),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 12px var(--primary-light);
 }
 
+/* Force the description text to be a light gray */
 .site-footer .footer-desc {
     font-size: 14px;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.6);
+    color: #9ca3af !important; /* Force light gray */
     margin: 0 0 26px;
     max-width: 380px;
 }
@@ -612,19 +609,19 @@ main > section {
     align-items: center;
     gap: 10px;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.72);
+    color: #9ca3af !important; /* Force light gray */
     transition: color 0.2s ease;
 }
 
 .site-footer .footer-contact li svg {
     flex-shrink: 0;
-    color: var(--primary-light, #C4B5FD);
+    color: var(--primary); /* Dynamic Icon Color */
     opacity: 0.85;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .site-footer .footer-contact li:hover {
-    color: #fff;
+    color: #fff !important;
 }
 
 .site-footer .footer-contact li:hover svg {
@@ -637,7 +634,7 @@ main > section {
     position: relative;
     font-size: 15px;
     font-weight: 700;
-    color: #fff;
+    color: #fff !important; /* Force white heading */
     margin: 0 0 22px;
     padding-bottom: 12px;
     letter-spacing: 0.01em;
@@ -651,10 +648,10 @@ main > section {
     bottom: 0;
     width: 32px;
     height: 2px;
-    /* CHANGED: Uses theme primary gradient */
-    background: linear-gradient(90deg, var(--primary, #A855F7) 0%, var(--primary-light, #E879F9) 100%);
+    /* Dynamic Accent Line */
+    background: var(--primary);
     border-radius: 2px;
-    box-shadow: 0 0 12px var(--primary-light, rgba(168, 85, 247, 0.7));
+    box-shadow: 0 0 12px var(--primary);
 }
 
 /* ---------- Link lists ---------- */
@@ -675,7 +672,7 @@ main > section {
 .site-footer .footer-links-list a {
     position: relative;
     display: inline-block;
-    color: rgba(255, 255, 255, 0.62);
+    color: #9ca3af !important; /* Force light gray for links */
     text-decoration: none;
     font-size: 14px;
     transition: color 0.2s ease, padding-left 0.25s ease;
@@ -688,14 +685,13 @@ main > section {
     top: 50%;
     width: 0;
     height: 1px;
-    /* CHANGED: Uses theme primary */
-    background: var(--primary, #A855F7);
+    background: var(--primary);
     transform: translateY(-50%);
     transition: width 0.25s ease;
 }
 
 .site-footer .footer-links-list a:hover {
-    color: var(--primary-light, #C4B5FD);
+    color: var(--primary) !important; /* Dynamic Hover Color */
     padding-left: 14px;
 }
 
@@ -722,7 +718,7 @@ main > section {
     padding: 12px 16px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(196, 181, 253, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
     font-size: 14px;
     font-family: inherit;
@@ -731,27 +727,24 @@ main > section {
 }
 
 .site-footer .footer-form input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: #6b7280; /* Darker gray for placeholder */
 }
 
 .site-footer .footer-form input:hover {
-    border-color: rgba(196, 181, 253, 0.25);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .site-footer .footer-form input:focus {
-    /* CHANGED: Uses theme primary */
-    border-color: var(--primary, #A855F7);
+    border-color: var(--primary);
     background: rgba(255, 255, 255, 0.06);
-    box-shadow:
-        0 0 0 3px var(--primary-light, rgba(168, 85, 247, 0.15)),
-        0 0 16px var(--primary-light, rgba(168, 85, 247, 0.25));
+    box-shadow: 0 0 0 3px var(--primary-light);
 }
 
 .site-footer .footer-form button {
     padding: 12px 22px;
     border-radius: 10px;
-    /* CHANGED: Uses theme gradient */
-    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
+    /* Dynamic Button Gradient */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     color: #fff;
     font-size: 14px;
     font-weight: 600;
@@ -760,19 +753,12 @@ main > section {
     cursor: pointer;
     flex-shrink: 0;
     transition: transform 0.25s ease, box-shadow 0.35s ease;
-    box-shadow:
-        0 0 10px var(--primary-light, rgba(168, 85, 247, 0.5)),
-        0 0 22px var(--primary-light, rgba(124, 58, 237, 0.3)),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px var(--primary-light);
 }
 
 .site-footer .footer-form button:hover {
     transform: translateY(-1px);
-    box-shadow:
-        0 0 14px var(--primary, #A855F7),
-        0 0 30px var(--primary, #A855F7),
-        0 0 60px var(--primary-light, rgba(168, 85, 247, 0.5)),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 14px var(--primary), 0 0 30px var(--primary-light);
 }
 
 /* ---------- Bottom bar ---------- */
@@ -790,20 +776,13 @@ main > section {
     max-width: 900px;
     height: 1px;
     margin: 0 auto;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(196, 181, 253, 0.15) 20%,
-        var(--primary-light, rgba(168, 85, 247, 0.5)) 50%,
-        rgba(196, 181, 253, 0.15) 80%,
-        transparent 100%
-    );
-    box-shadow: 0 0 12px var(--primary-light, rgba(168, 85, 247, 0.2));
+    /* Dynamic Accent Line */
+    background: linear-gradient(90deg, transparent 0%, var(--primary-light) 50%, transparent 100%);
 }
 
 .site-footer .footer-copy {
     font-size: 13.5px;
-    color: rgba(255, 255, 255, 0.55);
+    color: #9ca3af !important; /* Force light gray */
     letter-spacing: 0.01em;
     margin: 0;
 }
@@ -817,14 +796,14 @@ main > section {
 
 .site-footer .footer-legal a {
     font-size: 13.5px;
-    color: rgba(255, 255, 255, 0.55);
+    color: #9ca3af !important; /* Force light gray */
     text-decoration: none;
     transition: color 0.2s ease, text-shadow 0.25s ease;
 }
 
 .site-footer .footer-legal a:hover {
-    color: var(--primary-light, #C4B5FD);
-    text-shadow: 0 0 12px var(--primary-light, rgba(168, 85, 247, 0.5));
+    color: var(--primary) !important;
+    text-shadow: 0 0 12px var(--primary);
 }
 
 /* ============================================================================
@@ -865,20 +844,5 @@ main > section {
 
     .site-footer .footer-legal {
         justify-content: center;
-    }
-}
-
-/* ============================================================================
-   FOOTER — Reduced motion
-   ============================================================================ */
-@media (prefers-reduced-motion: reduce) {
-    .site-footer .footer-links-list a,
-    .site-footer .footer-links-list a::before,
-    .site-footer .footer-form input,
-    .site-footer .footer-form button,
-    .site-footer .footer-legal a,
-    .site-footer .footer-contact li svg {
-        transition: none !important;
-        animation: none !important;
     }
 }
