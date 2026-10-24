@@ -11,13 +11,10 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: var(--bg-color, #F8F9FC);
+    background: var(--bg-color); 
     padding: 100px 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-[data-theme="dark"] .gallery-section {
-    background: #0B0B0D;
+    transition: background-color 0.3s ease;
 }
 
 .gallery-wrap {
@@ -53,7 +50,7 @@
 
 /* 1. Initial State */
 .gallery-item:nth-child(9) {
-    transform: translateX(-35vw); /* O is on the far left */
+    transform: translateX(-35vw); 
 }
 
 .gallery-item:not(:nth-child(9)) {
@@ -81,17 +78,10 @@
 .gallery-section.is-visible .gallery-item:nth-child(2) { transition-delay: 2.1s; }
 .gallery-section.is-visible .gallery-item:nth-child(1) { transition-delay: 2.25s; }
 
-
-/* ============================================
-   HOVER EXPAND BEHAVIOR
-   ============================================ */
-/* 
-   When hovering, we override the width to expand it, 
-   disable the mask so the full image shows, and bring it to the front.
-*/
+/* HOVER EXPAND BEHAVIOR */
 .gallery-item:hover {
-    width: 24vw !important; /* Expand the width */
-    transform: translateY(-6px) !important; /* Lift up */
+    width: 24vw !important; 
+    transform: translateY(-6px) !important; 
     z-index: 10;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), width 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
@@ -100,18 +90,9 @@
     -webkit-mask-image: none !important;
     mask-image: none !important;
     border-radius: 1.5rem;
-    filter: drop-shadow(0 24px 52px rgba(126, 107, 181, 0.4)) !important;
-    box-shadow:
-        0 24px 52px rgba(126, 107, 181, 0.25),
-        0 0 0 1px rgba(126, 107, 181, 0.15);
+    filter: drop-shadow(0 24px 52px var(--primary)) !important;
+    box-shadow: 0 24px 52px var(--shadow-color), 0 0 0 1px var(--primary);
     transition: border-radius 0.5s ease, box-shadow 0.4s ease, filter 0.4s ease !important;
-}
-
-[data-theme="dark"] .gallery-item:hover .gallery-clip-wrap {
-    filter: drop-shadow(0 0 34px rgba(139, 92, 246, 0.65)) !important;
-    box-shadow:
-        0 24px 52px rgba(0, 0, 0, 0.5),
-        0 0 48px rgba(168, 85, 247, 0.35);
 }
 
 .gallery-item:hover .gallery-img {
@@ -120,69 +101,54 @@
     transition: transform 0.7s ease, filter 0.4s ease !important;
 }
 
-
-/* ============================================
-   LETTER MASKS & SIZING
-   ============================================ */
-
-/* L */
+/* LETTER MASKS & SIZING */
 .gallery-item:nth-child(1) { width: 8vw; }
 .gallery-item:nth-child(1) .gallery-clip-wrap {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 92 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>L</text></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 92 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>L</text></svg>");
 }
-/* E */
 .gallery-item:nth-child(2) { width: 7.2vw; }
 .gallery-item:nth-child(2) .gallery-clip-wrap {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 82 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>E</text></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 82 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>E</text></svg>");
 }
-/* D */
 .gallery-item:nth-child(3) { width: 9vw; }
 .gallery-item:nth-child(3) .gallery-clip-wrap {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>D</text></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>D</text></svg>");
 }
-/* G */
 .gallery-item:nth-child(4) { width: 9.5vw; }
 .gallery-item:nth-child(4) .gallery-clip-wrap {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>G</text></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>G</text></svg>");
 }
-/* E */
 .gallery-item:nth-child(5) { width: 7.2vw; }
 .gallery-item:nth-child(5) .gallery-clip-wrap {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 82 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>E</text></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 82 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>E</text></svg>");
 }
-/* I */
 .gallery-item:nth-child(6) { width: 3.2vw; }
 .gallery-item:nth-child(6) .gallery-clip-wrap {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>I</text></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>I</text></svg>");
 }
-/* N */
 .gallery-item:nth-child(7) { width: 9vw; }
 .gallery-item:nth-child(7) .gallery-clip-wrap {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>N</text></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>N</text></svg>");
 }
-/* V */
 .gallery-item:nth-child(8) { width: 9vw; }
 .gallery-item:nth-child(8) .gallery-clip-wrap {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>V</text></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 105 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>V</text></svg>");
 }
-/* O */
 .gallery-item:nth-child(9) { width: 9.5vw; }
 .gallery-item:nth-child(9) .gallery-clip-wrap {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 115 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>O</text></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 115 130'><text x='0' y='110' font-family='Inter' font-size='140' font-weight='800' fill='black'>O</text></svg>");
 }
 
-/* ============================================
-   IMAGE STYLING
-   ============================================ */
+/* IMAGE STYLING */
 .gallery-clip-wrap {
     position: relative;
     width: 100%;
@@ -193,11 +159,7 @@
     mask-position: center center;
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
-    filter: drop-shadow(0 6px 18px rgba(126, 107, 181, 0.35));
-}
-
-[data-theme="dark"] .gallery-clip-wrap {
-    filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.5));
+    filter: drop-shadow(0 6px 18px var(--shadow-color));
 }
 
 .gallery-img {
@@ -212,4 +174,48 @@
 
 [data-theme="dark"] .gallery-img {
     filter: brightness(1.08) saturate(1.15);
+}
+
+/* ============================================================
+   FLASH SCREEN OVERLAY (STRICT OVERRIDES)
+   ============================================================ */
+#apex-flash-screen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 999999 !important;
+    background-color: #0d0b12 !important; 
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#apex-flash-screen.is-finished {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Force the internal gallery section to fill the overlay */
+#apex-flash-screen .gallery-section {
+    background-color: transparent !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#apex-flash-screen .gallery-row {
+    height: 30vh !important; 
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
