@@ -98,7 +98,7 @@ nav {
 }
 
 .nav-links a {
-    font-size: 14px;
+    font-size: 16px; /* CHANGED: Increased from 14px to 16px */
     font-weight: 500;
     color: var(--text-muted);
     transition: color 0.2s;
@@ -120,7 +120,7 @@ nav {
 }
 
 .btn-login {
-    font-size: 14px;
+    font-size: 16px; /* CHANGED: Increased from 14px to 16px */
     font-weight: 500;
     color: var(--text-muted);
     background: none;
@@ -139,7 +139,7 @@ nav {
 }
 
 .btn-login .caret {
-    font-size: 10px;
+    font-size: 12px; /* CHANGED: Slightly increased caret to match larger text */
     transition: transform 0.25s ease;
 }
 
@@ -179,7 +179,7 @@ nav {
     align-items: center;
     gap: 10px;
     padding: 10px 12px;
-    font-size: 14px;
+    font-size: 15px; /* CHANGED: Increased from 14px to 15px for dropdown items too */
     font-weight: 500;
     color: var(--text-main);
     border-radius: 8px;
@@ -202,9 +202,9 @@ nav {
     /* CHANGED: Uses dynamic theme variable */
     background-color: var(--primary);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px; /* CHANGED: Slightly larger padding to balance larger text */
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px; /* CHANGED: Increased from 14px to 16px */
     font-weight: 500;
     border: none;
     cursor: pointer;
@@ -537,4 +537,49 @@ img, video, iframe {
         width: 15px;
         height: 15px;
     }
+}
+
+/* ============================================================
+   FIX FOR LOGIN DROPDOWN THEME COLORS
+   ============================================================ */
+
+/* Ensure the dropdown menu itself uses the theme background and border */
+.dropdown-menu {
+    background: var(--white) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-menu a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 10px 14px !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: var(--text-main) !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Apply the custom theme color on hover */
+.dropdown-menu a:hover {
+    background-color: var(--primary-light) !important;
+    color: var(--primary) !important;
+    transform: translateX(4px); /* Slight movement for a professional feel */
+}
+
+/* Optional: If you want the icons back, ensure they use the primary color */
+.dropdown-menu a i {
+    color: var(--primary) !important;
+    font-size: 14px !important;
+    width: 18px !important;
+    text-align: center !important;
+}
+
+/* If you want the active/clicked state to also use the theme color */
+.dropdown-menu a:active {
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
 }
