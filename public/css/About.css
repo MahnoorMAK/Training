@@ -17,8 +17,9 @@
     transform: translateX(-50%);
     width: 900px;
     height: 900px;
-    /* CHANGED: Uses theme variable with transparency */
-    background: radial-gradient(circle, var(--primary-light, rgba(126, 107, 181, 0.18)) 0%, transparent 65%);
+    /* Dynamic Ambient Glow */
+    background: radial-gradient(circle, var(--primary-light) 0%, transparent 65%);
+    opacity: 0.5;
     pointer-events: none;
     z-index: 0;
 }
@@ -38,8 +39,7 @@
     text-transform: uppercase;
     border-radius: 999px;
     margin-bottom: 24px;
-    /* CHANGED: Uses theme primary for border */
-    border: 1px solid var(--primary); 
+    border: 1px solid var(--border-color);
     opacity: 0.8;
 }
 .hero-eyebrow i { font-size: 11px; }
@@ -51,10 +51,10 @@
     line-height: 1.1;
     color: var(--text-main);
     margin-bottom: 20px;
-    font-family: var(--app-font, inherit); /* ADDED: Theme Font */
+    font-family: var(--app-font, inherit);
 }
 .hero-title .accent {
-    /* CHANGED: Uses theme gradients dynamically */
+    /* Dynamic Gradient Text */
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 60%, var(--primary-hover) 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -66,7 +66,7 @@
     line-height: 1.7;
     max-width: 640px;
     margin: 0 auto;
-    font-family: var(--app-font, inherit); /* ADDED: Theme Font */
+    font-family: var(--app-font, inherit);
 }
 
 .hero-scene {
@@ -78,11 +78,11 @@
 }
 .cube {
     position: absolute;
-    /* CHANGED: Uses theme primary for cubes */
+    /* Dynamic Cube Gradient */
     background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--border-color);
     border-radius: 14px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 40px var(--shadow-color), inset 0 1px 1px rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(6px);
     opacity: 0.4;
 }
@@ -126,7 +126,7 @@
     font-family: var(--app-font, inherit);
 }
 .mission-text h2 .accent {
-    /* CHANGED: Uses theme gradients */
+    /* Dynamic Gradient Text */
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -151,9 +151,9 @@
     border: 1px solid var(--border-color);
     border-radius: 22px;
     padding: 28px;
-    /* CHANGED: Uses theme primary for shadow */
-    box-shadow: 0 30px 60px -25px rgba(126, 107, 181, 0.2),
-                0 0 0 1px rgba(126, 107, 181, 0.05);
+    /* Dynamic Shadow */
+    box-shadow: 0 30px 60px -25px var(--shadow-color),
+                0 0 0 1px var(--border-color);
     animation: floatMission 9s ease-in-out infinite;
     transform-style: preserve-3d;
 }
@@ -173,12 +173,12 @@
     top: 45%; left: 35%;
     width: 180px;
     transform: rotate(-2deg) translateZ(40px);
-    /* CHANGED: Uses theme primary/hover gradient */
+    /* Dynamic Gradient Card */
     background: linear-gradient(135deg, var(--primary), var(--primary-hover));
     color: white;
     border: none;
     animation-delay: 3s;
-    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 60px -20px var(--shadow-color);
 }
 @keyframes floatMission {
     0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
@@ -222,13 +222,13 @@
     padding: 0 32px;
 }
 .stats-inner {
-    /* CHANGED: Uses theme primary/hover gradient */
+    /* Dynamic Gradient Strip */
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     border-radius: 28px;
     padding: 56px 48px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 40px 80px -30px var(--shadow-color);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 40px;
@@ -316,7 +316,7 @@
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.3s;
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 6px 20px var(--shadow-color);
     overflow: hidden;
 }
 .value-card::before {
@@ -331,7 +331,7 @@
 }
 .value-card:hover {
     transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
-    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.15),
+    box-shadow: 0 30px 60px -20px var(--shadow-color),
                 0 0 0 1px var(--primary);
     border-color: var(--primary);
 }
@@ -340,7 +340,7 @@
     width: 58px;
     height: 58px;
     border-radius: 16px;
-    /* CHANGED: Uses theme primary/hover */
+    /* Dynamic Icon Gradient */
     background: linear-gradient(135deg, var(--primary), var(--primary-hover));
     display: flex;
     align-items: center;
@@ -348,7 +348,7 @@
     color: white;
     font-size: 22px;
     margin-bottom: 20px;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15),
+    box-shadow: 0 10px 24px var(--shadow-color),
                 inset 0 1px 1px rgba(255, 255, 255, 0.35);
     transform: translateZ(30px) rotate(-4deg);
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -399,18 +399,18 @@
     padding: 32px 24px;
     transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 6px 20px var(--shadow-color);
 }
 .team-card:hover {
     transform: translateY(-8px) rotateX(2deg);
-    box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 30px 60px -25px var(--shadow-color);
 }
 .team-avatar {
     width: 84px;
     height: 84px;
     border-radius: 50%;
     margin: 0 auto 18px;
-    /* CHANGED: Uses theme primary/hover */
+    /* Dynamic Avatar Gradient */
     background: linear-gradient(135deg, var(--primary), var(--primary-hover));
     display: flex;
     align-items: center;
@@ -419,7 +419,7 @@
     font-size: 26px;
     font-weight: 700;
     letter-spacing: -0.02em;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15),
+    box-shadow: 0 12px 24px var(--shadow-color),
                 inset 0 1px 1px rgba(255, 255, 255, 0.35);
     position: relative;
     font-family: var(--app-font, inherit);
@@ -466,7 +466,7 @@
     padding: 60px 48px;
     text-align: center;
     overflow: hidden;
-    box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 30px 60px -25px var(--shadow-color);
 }
 .cta-card::before {
     content: '';
@@ -513,14 +513,14 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 28px -10px var(--shadow-color);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     font-family: var(--app-font, inherit);
 }
 .btn-primary-lg:hover {
     background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 18px 36px -12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 18px 36px -12px var(--shadow-color);
 }
 .btn-primary-lg i { transition: transform 0.3s; }
 .btn-primary-lg:hover i { transform: translateX(4px); }
