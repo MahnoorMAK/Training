@@ -32,9 +32,9 @@
     gap: 9px;
     padding: 8px 16px;
     border-radius: 999px;
-    background: rgba(126, 107, 181, 0.1);
-    border: 1px solid rgba(126, 107, 181, 0.2);
-    color: #7E6BB5;
+    background: var(--primary-light); /* Dynamic Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
+    color: var(--primary); /* Dynamic Text */
     font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -46,8 +46,8 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #7E6BB5;
-    box-shadow: 0 0 10px rgba(126, 107, 181, 0.8);
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
     animation: supDot 2.2s ease-in-out infinite;
 }
 
@@ -61,12 +61,13 @@
     font-weight: 700;
     letter-spacing: -0.025em;
     line-height: 1.15;
-    color: #0F172A;
+    color: var(--text-main); /* Dynamic Text */
     margin: 0 0 18px;
 }
 
 .sup__title-accent {
-    background: linear-gradient(115deg, #8E7AC7 0%, #7E6BB5 50%, #6A589D 100%);
+    /* Dynamic Gradient Text */
+    background: linear-gradient(115deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-hover) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -75,7 +76,7 @@
 .sup__subtitle {
     font-size: 1rem;
     line-height: 1.7;
-    color: #64748B;
+    color: var(--text-muted); /* Dynamic Muted Text */
     margin: 0;
 }
 
@@ -96,11 +97,11 @@
     position: relative;
     padding: 32px;
     border-radius: 20px;
-    background: #fff;
-    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: var(--white); /* Dynamic Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
     box-shadow:
-        0 4px 12px rgba(15, 23, 42, 0.04),
-        0 20px 40px -20px rgba(15, 23, 42, 0.08);
+        0 4px 12px var(--shadow-color),
+        0 20px 40px -20px var(--shadow-color);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -150,9 +151,9 @@
 .sup__card.is-visible:hover {
     transform: translateY(-8px) scale(1.01);
     box-shadow:
-        0 8px 20px rgba(15, 23, 42, 0.06),
-        0 32px 60px -24px rgba(126, 107, 181, 0.35);
-    border-color: rgba(126, 107, 181, 0.3);
+        0 8px 20px var(--shadow-color),
+        0 32px 60px -24px var(--shadow-color);
+    border-color: var(--primary); /* Dynamic Border Hover */
     transition:
         transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
         box-shadow 0.5s ease,
@@ -160,8 +161,9 @@
 }
 
 .sup__card--urgent {
-    background: linear-gradient(180deg, #FBF9FE 0%, #FFFFFF 40%);
-    border-color: rgba(126, 107, 181, 0.2);
+    /* Dynamic Featured Background */
+    background: linear-gradient(180deg, var(--primary-light) 0%, var(--white) 40%);
+    border-color: var(--primary);
 }
 
 .sup__card--urgent::before {
@@ -171,8 +173,9 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #A855F7 0%, #E879F9 100%);
-    box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+    /* Dynamic Top Accent Line */
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-hover) 100%);
+    box-shadow: 0 0 12px var(--primary);
 }
 
 /* ============================================
@@ -222,7 +225,7 @@
     margin-bottom: 20px;
     flex-shrink: 0;
     box-shadow:
-        0 8px 18px rgba(126, 107, 181, 0.3),
+        0 8px 18px var(--shadow-color),
         inset 0 1px 1px rgba(255, 255, 255, 0.3);
     position: relative;
     overflow: hidden;
@@ -242,6 +245,7 @@
 
 .sup__card-icon svg { position: relative; z-index: 1; }
 
+/* Semantic Icon Colors (Kept as-is for UX meaning) */
 .sup__card-icon--clock    { background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 100%); }
 .sup__card-icon--bolt     { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); }
 .sup__card-icon--calendar { background: linear-gradient(135deg, #10B981 0%, #059669 100%); }
@@ -257,7 +261,7 @@
 .sup__card-title {
     font-size: 1.125rem;
     font-weight: 700;
-    color: #0F172A;
+    color: var(--text-main);
     letter-spacing: -0.015em;
     margin: 0 0 6px;
 }
@@ -265,7 +269,7 @@
 .sup__card-desc {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #64748B;
+    color: var(--text-muted);
     margin: 0 0 22px;
 }
 
@@ -284,7 +288,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 8px 0;
-    border-bottom: 1px dashed rgba(15, 23, 42, 0.08);
+    border-bottom: 1px dashed var(--border-color);
     font-size: 0.9rem;
 }
 
@@ -292,11 +296,11 @@
 
 .sup__hours-day {
     font-weight: 600;
-    color: #0F172A;
+    color: var(--text-main);
 }
 
 .sup__hours-time {
-    color: #64748B;
+    color: var(--text-muted);
     font-variant-numeric: tabular-nums;
 }
 
@@ -311,8 +315,8 @@
     gap: 7px;
     padding: 8px 12px;
     border-radius: 999px;
-    background: rgba(126, 107, 181, 0.08);
-    color: #7E6BB5;
+    background: var(--primary-light);
+    color: var(--primary);
     font-size: 0.775rem;
     font-weight: 500;
     margin-top: auto;
@@ -338,12 +342,12 @@
     gap: 12px;
     padding: 10px 14px;
     border-radius: 12px;
-    background: rgba(15, 23, 42, 0.025);
+    background: var(--bg-color);
     transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .sup__resp li:hover {
-    background: rgba(126, 107, 181, 0.08);
+    background: var(--primary-light);
     transform: translateX(6px);
 }
 
@@ -354,6 +358,7 @@
     flex-shrink: 0;
 }
 
+/* Semantic Status Colors */
 .sup__resp-dot--green  { background: #10B981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.7); }
 .sup__resp-dot--blue   { background: #3B82F6; box-shadow: 0 0 8px rgba(59, 130, 246, 0.7); }
 .sup__resp-dot--amber  { background: #F59E0B; box-shadow: 0 0 8px rgba(245, 158, 11, 0.7); }
@@ -362,14 +367,14 @@
 .sup__resp-name {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #0F172A;
+    color: var(--text-main);
     flex: 1;
 }
 
 .sup__resp-time {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #7E6BB5;
+    color: var(--primary);
     white-space: nowrap;
 }
 
@@ -388,7 +393,7 @@
     align-items: center;
     gap: 14px;
     padding: 9px 0;
-    border-bottom: 1px dashed rgba(15, 23, 42, 0.08);
+    border-bottom: 1px dashed var(--border-color);
     font-size: 0.875rem;
 }
 
@@ -409,7 +414,7 @@
 }
 
 .sup__holiday-name {
-    color: #64748B;
+    color: var(--text-muted);
 }
 
 /* ---------- Urgent CTA ---------- */
@@ -420,13 +425,14 @@
     gap: 14px;
     padding: 16px 20px;
     border-radius: 14px;
-    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+    /* Dynamic Gradient Button */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     color: #fff;
     text-decoration: none;
     overflow: hidden;
     isolation: isolate;
     box-shadow:
-        0 10px 24px -10px rgba(124, 58, 237, 0.6),
+        0 10px 24px -10px var(--shadow-color),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.3s ease,
@@ -437,7 +443,7 @@
 .sup__urgent-btn:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow:
-        0 16px 32px -12px rgba(124, 58, 237, 0.75),
+        0 16px 32px -12px var(--shadow-color),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -536,57 +542,8 @@
 }
 
 /* ============================================
-   DARK THEME OVERRIDES
+   DARK THEME SPECIFIC FIXES (Only for Semantic Colors)
    ============================================ */
-[data-theme="dark"] .sup__title { color: #F1F5F9; }
-[data-theme="dark"] .sup__subtitle { color: #94A3B8; }
-
-[data-theme="dark"] .sup__card {
-    background: #1A1B2E;
-    border-color: rgba(168, 85, 247, 0.2);
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.25),
-        0 20px 40px -20px rgba(0, 0, 0, 0.4);
-}
-
-[data-theme="dark"] .sup__card.is-visible:hover {
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.3),
-        0 32px 60px -24px rgba(168, 85, 247, 0.35);
-}
-
-[data-theme="dark"] .sup__card--urgent {
-    background: linear-gradient(180deg, #241A33 0%, #1A1B2E 40%);
-    border-color: rgba(168, 85, 247, 0.35);
-}
-
-[data-theme="dark"] .sup__card-title { color: #F1F5F9; }
-[data-theme="dark"] .sup__card-desc  { color: #94A3B8; }
-
-[data-theme="dark"] .sup__hours li {
-    border-bottom-color: rgba(255, 255, 255, 0.06);
-}
-
-[data-theme="dark"] .sup__hours-day { color: #E2E8F0; }
-[data-theme="dark"] .sup__hours-time { color: #94A3B8; }
-[data-theme="dark"] .sup__hours-closed .sup__hours-time { color: #F87171; }
-
-[data-theme="dark"] .sup__tz {
-    background: rgba(168, 85, 247, 0.12);
-    color: #C4B5FD;
-}
-
-[data-theme="dark"] .sup__resp li { background: rgba(255, 255, 255, 0.03); }
-[data-theme="dark"] .sup__resp li:hover { background: rgba(168, 85, 247, 0.1); }
-[data-theme="dark"] .sup__resp-name { color: #E2E8F0; }
-[data-theme="dark"] .sup__resp-time { color: #C4B5FD; }
-
-[data-theme="dark"] .sup__holidays li {
-    border-bottom-color: rgba(255, 255, 255, 0.06);
-}
-
-[data-theme="dark"] .sup__holiday-name { color: #94A3B8; }
 [data-theme="dark"] .sup__holiday-date {
     background: rgba(16, 185, 129, 0.15);
     color: #34D399;
