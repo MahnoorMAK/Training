@@ -34,12 +34,13 @@
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.1;
-    color: #1E293B;
+    color: var(--text-main); /* Dynamic Text */
     margin: 0 0 18px;
 }
 
 .prc__title-accent {
-    background: linear-gradient(115deg, #8E7AC7 0%, #7E6BB5 50%, #6A589D 100%);
+    /* Dynamic Gradient */
+    background: linear-gradient(115deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-hover) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -48,7 +49,7 @@
 .prc__subtitle {
     font-size: 1rem;
     line-height: 1.7;
-    color: #64748B;
+    color: var(--text-muted); /* Dynamic Muted Text */
     margin: 0;
 }
 
@@ -62,10 +63,9 @@
     gap: 4px;
     padding: 5px;
     border-radius: 999px;
-    background: #F0EDF7;
-    border: 1px solid rgba(126, 107, 181, 0.15);
+    background: var(--bg-secondary); /* Dynamic Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
     margin: 0 auto 52px;
-    /* No left/transform — flex parent centers it */
 }
 
 .prc__toggle-btn {
@@ -81,14 +81,14 @@
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
-    color: #64748B;
+    color: var(--text-muted);
     cursor: pointer;
     transition: color 0.25s ease;
     white-space: nowrap;
 }
 
 .prc__toggle-btn.is-active {
-    color: #7E6BB5;
+    color: var(--primary);
 }
 
 .prc__toggle-save {
@@ -96,8 +96,8 @@
     font-weight: 700;
     padding: 3px 8px;
     border-radius: 999px;
-    background: rgba(126, 107, 181, 0.18);
-    color: #7E6BB5;
+    background: var(--primary-light);
+    color: var(--primary);
     letter-spacing: 0.02em;
 }
 
@@ -107,9 +107,9 @@
     left: 5px;
     height: calc(100% - 10px);
     border-radius: 999px;
-    background: #ffffff;
+    background: var(--white); /* Dynamic White Background */
     box-shadow:
-        0 2px 8px rgba(126, 107, 181, 0.12),
+        0 2px 8px var(--shadow-color),
         0 1px 2px rgba(15, 23, 42, 0.04);
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                 width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -136,11 +136,11 @@
     flex-direction: column;
     padding: 32px 28px;
     border-radius: 20px;
-    background: #ffffff;
-    border: 1px solid rgba(126, 107, 181, 0.12);
+    background: var(--white); /* Dynamic Card Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
     box-shadow:
-        0 4px 12px rgba(126, 107, 181, 0.06),
-        0 20px 40px -20px rgba(126, 107, 181, 0.15);
+        0 4px 12px var(--shadow-color),
+        0 20px 40px -20px var(--shadow-color);
     opacity: 0;
     will-change: opacity, transform;
     transform-style: preserve-3d;
@@ -207,11 +207,12 @@
    FEATURED (CENTER) CARD
    ============================================ */
 .prc__card--featured {
-    background: linear-gradient(180deg, #F0EDF7 0%, #FAF8FD 100%);
-    border-color: rgba(126, 107, 181, 0.3);
+    /* Dynamic Featured Background */
+    background: linear-gradient(180deg, var(--primary-light) 0%, var(--bg-primary) 100%);
+    border-color: var(--primary);
     box-shadow:
-        0 4px 12px rgba(126, 107, 181, 0.1),
-        0 24px 48px -20px rgba(126, 107, 181, 0.32);
+        0 4px 12px var(--shadow-color),
+        0 24px 48px -20px var(--shadow-color);
 }
 
 /* ============================================
@@ -224,7 +225,7 @@
 .prc__card-name {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #1E293B;
+    color: var(--text-main);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin: 0 0 10px;
@@ -233,7 +234,7 @@
 .prc__card-desc {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #64748B;
+    color: var(--text-muted);
     margin: 0;
 }
 
@@ -244,18 +245,18 @@
     gap: 3px;
     padding: 18px 22px;
     border-radius: 14px;
-    background: #F8F9FC;
+    background: var(--bg-color); /* Dynamic Background */
     margin-bottom: 26px;
 }
 
 .prc__card--featured .prc__price {
-    background: rgba(126, 107, 181, 0.12);
+    background: var(--primary-light); /* Dynamic Featured Background */
 }
 
 .prc__price-symbol {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1E293B;
+    color: var(--text-main);
     align-self: flex-start;
     line-height: 1.3;
 }
@@ -263,7 +264,7 @@
 .prc__price-amount {
     font-size: 2.75rem;
     font-weight: 700;
-    color: #1E293B;
+    color: var(--text-main);
     letter-spacing: -0.03em;
     line-height: 1;
     font-variant-numeric: tabular-nums;
@@ -272,7 +273,7 @@
 .prc__price-period {
     font-size: 0.9rem;
     font-weight: 500;
-    color: #64748B;
+    color: var(--text-muted);
     margin-left: 4px;
 }
 
@@ -285,7 +286,7 @@
 .prc__features-title {
     font-size: 0.875rem;
     font-weight: 700;
-    color: #1E293B;
+    color: var(--text-main);
     margin: 0 0 14px;
     letter-spacing: 0.01em;
 }
@@ -304,7 +305,7 @@
     align-items: flex-start;
     gap: 10px;
     font-size: 0.875rem;
-    color: #334155;
+    color: var(--text-muted);
     line-height: 1.5;
 }
 
@@ -315,15 +316,15 @@
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #7E6BB5;
+    background: var(--primary); /* Dynamic Theme Color */
     color: #ffffff;
     flex-shrink: 0;
     margin-top: 1px;
 }
 
 .prc__card--featured .prc__check {
-    background: #6A589D;
-    box-shadow: 0 0 0 3px rgba(126, 107, 181, 0.15);
+    background: var(--primary-hover);
+    box-shadow: 0 0 0 3px var(--primary-light);
 }
 
 /* ---------- CTA ---------- */
@@ -340,27 +341,28 @@
 }
 
 .prc__cta--ghost {
-    background: #ffffff;
-    border: 1.5px solid rgba(126, 107, 181, 0.25);
-    color: #7E6BB5;
+    background: var(--white);
+    border: 1.5px solid var(--border-color);
+    color: var(--primary);
 }
 
 .prc__cta--ghost:hover {
-    background: #F0EDF7;
-    border-color: rgba(126, 107, 181, 0.5);
+    background: var(--primary-light);
+    border-color: var(--primary);
     transform: translateY(-1px);
 }
 
 .prc__cta--primary {
-    background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 100%);
+    /* Dynamic Gradient Button */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     color: #ffffff;
-    box-shadow: 0 10px 24px -10px rgba(126, 107, 181, 0.6);
+    box-shadow: 0 10px 24px -10px var(--shadow-color);
 }
 
 .prc__cta--primary:hover {
-    background: linear-gradient(135deg, #7E6BB5 0%, #6A589D 100%);
+    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
     transform: translateY(-2px);
-    box-shadow: 0 18px 36px -12px rgba(126, 107, 181, 0.75);
+    box-shadow: 0 18px 36px -12px var(--shadow-color);
 }
 
 /* ============================================
@@ -369,17 +371,17 @@
 .prc__card.is-visible:hover {
     transform: translateY(-6px);
     box-shadow:
-        0 8px 20px rgba(126, 107, 181, 0.1),
-        0 32px 60px -24px rgba(126, 107, 181, 0.35);
-    border-color: rgba(126, 107, 181, 0.35);
+        0 8px 20px var(--shadow-color),
+        0 32px 60px -24px var(--shadow-color);
+    border-color: var(--primary);
 }
 
 .prc__card--featured.is-visible:hover {
     transform: translateY(-6px);
     box-shadow:
-        0 8px 20px rgba(126, 107, 181, 0.15),
-        0 36px 72px -24px rgba(126, 107, 181, 0.45);
-    border-color: rgba(126, 107, 181, 0.5);
+        0 8px 20px var(--shadow-color),
+        0 36px 72px -24px var(--shadow-color);
+    border-color: var(--primary-hover);
 }
 
 /* ============================================
@@ -396,106 +398,6 @@
 [data-prc-reveal].is-visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* ============================================
-   DARK THEME OVERRIDES
-   ============================================ */
-[data-theme="dark"] .prc__title {
-    color: #F1F5F9;
-}
-
-[data-theme="dark"] .prc__subtitle {
-    color: #94A3B8;
-}
-
-/* ---------- Billing toggle ---------- */
-[data-theme="dark"] .prc__toggle {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(168, 85, 247, 0.2);
-}
-
-[data-theme="dark"] .prc__toggle-btn {
-    color: #94A3B8;
-}
-
-[data-theme="dark"] .prc__toggle-btn.is-active {
-    color: #C4B5FD;
-}
-
-[data-theme="dark"] .prc__toggle-pill {
-    background: rgba(168, 85, 247, 0.25);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .prc__toggle-save {
-    background: rgba(168, 85, 247, 0.25);
-    color: #C4B5FD;
-}
-
-/* ---------- Cards ---------- */
-[data-theme="dark"] .prc__card {
-    background: #1A1B2E;
-    border-color: rgba(168, 85, 247, 0.2);
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.25),
-        0 20px 40px -20px rgba(0, 0, 0, 0.4);
-}
-
-[data-theme="dark"] .prc__card--featured {
-    background: linear-gradient(180deg, #241A33 0%, #1E1B33 100%);
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.3),
-        0 24px 48px -20px rgba(168, 85, 247, 0.35);
-}
-
-[data-theme="dark"] .prc__card-name {
-    color: #F1F5F9;
-}
-
-[data-theme="dark"] .prc__card-desc {
-    color: #94A3B8;
-}
-
-/* ---------- Price block ---------- */
-[data-theme="dark"] .prc__price {
-    background: rgba(255, 255, 255, 0.04);
-}
-
-[data-theme="dark"] .prc__card--featured .prc__price {
-    background: rgba(168, 85, 247, 0.18);
-}
-
-[data-theme="dark"] .prc__price-symbol,
-[data-theme="dark"] .prc__price-amount {
-    color: #F1F5F9;
-}
-
-[data-theme="dark"] .prc__price-period {
-    color: #94A3B8;
-}
-
-/* ---------- Features ---------- */
-[data-theme="dark"] .prc__features-title {
-    color: #F1F5F9;
-}
-
-[data-theme="dark"] .prc__features-list li {
-    color: #CBD5E1;
-}
-
-/* ---------- CTAs ---------- */
-[data-theme="dark"] .prc__cta--ghost {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(168, 85, 247, 0.3);
-    color: #C4B5FD;
-}
-
-[data-theme="dark"] .prc__cta--ghost:hover {
-    background: rgba(168, 85, 247, 0.15);
-    border-color: rgba(168, 85, 247, 0.5);
-    color: #A855F7;
 }
 
 /* ============================================
