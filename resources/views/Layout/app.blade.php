@@ -24,11 +24,14 @@
 </head>
 <body class="app-body">
 
+ 
+
     <!-- HEADER / NAVBAR -->
     <nav>
         <div class="nav-container">
             <div class="logo">
                 <div class="logo-icon">
+                    
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2L21 7.5L12 13L3 7.5L12 2Z" fill="#FFFFFF" fill-opacity="0.95"/>
                         <path d="M3 7.5V16.5L12 22V13L3 7.5Z" fill="#FFFFFF" fill-opacity="0.65"/>
@@ -36,7 +39,7 @@
                         <path d="M12 13V22" stroke="#7E6BB5" stroke-opacity="0.4" stroke-width="0.5" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                Apexbooks
+                <span class="site-logo-text">Apexbooks</span>
             </div>
             
             <div class="nav-links">
