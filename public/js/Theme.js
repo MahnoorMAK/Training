@@ -87,5 +87,19 @@
         if (toggleBtn) {
             toggleBtn.addEventListener('click', window.toggleSiteTheme);
         }
+                // ==========================================
+        // Load Custom Site Title
+        // ==========================================
+        const savedTitle = localStorage.getItem('apexbooks-title');
+        if (savedTitle) {
+            // Update all elements with the class 'site-logo-text'
+            document.querySelectorAll('.site-logo-text').forEach(el => {
+                el.textContent = savedTitle;
+            });
+            // Also update the browser tab title
+            if (document.title.includes('Apexbooks')) {
+                document.title = document.title.replace('Apexbooks', savedTitle);
+            }
+        }
     });
 })();
