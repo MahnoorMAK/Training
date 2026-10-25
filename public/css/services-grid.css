@@ -11,19 +11,13 @@
        400vh = 4 screens worth of scroll for 6 slides. */
     height: 400vh;
 
-    /* ---------- LIGHT THEME (default) ---------- */
-    background: #F5F4F3;
-    color: #1E293B;
+    /* Dynamic Theme Background */
+    background: var(--bg-color);
+    color: var(--text-main);
 
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     perspective: 1800px;
     transition: background 0.4s ease, color 0.4s ease;
-}
-
-/* ---------- DARK THEME ---------- */
-[data-theme="dark"] .svc-grid-section {
-    background: #0B0B0D;
-    color: #ffffff;
 }
 
 /* ============================================
@@ -61,18 +55,13 @@
     line-height: 1;
     letter-spacing: -0.05em;
     color: transparent;
-    /* Light theme default — subtle dark stroke */
-    -webkit-text-stroke: 1px rgba(15, 23, 42, 0.06);
+    /* Dynamic Watermark Stroke */
+    -webkit-text-stroke: 1px var(--border-color);
     white-space: nowrap;
     transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
                 -webkit-text-stroke 0.4s ease;
     will-change: transform;
     user-select: none;
-}
-
-/* Dark theme — light stroke */
-[data-theme="dark"] .svc-stage__watermark span {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
 }
 
 /* ============================================
@@ -141,11 +130,11 @@
     flex-direction: column;
 }
 
-/* ---------- FRONT FACE — LIGHT THEME ---------- */
+/* ---------- FRONT FACE ---------- */
 .svc-card__face--front {
-    background: #ffffff;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+    background: var(--white); /* Dynamic Card Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
+    box-shadow: 0 6px 20px var(--shadow-color);
     transition:
         background 0.4s ease,
         border-color 0.3s ease,
@@ -153,32 +142,17 @@
         transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ---------- FRONT FACE — DARK THEME ---------- */
-[data-theme="dark"] .svc-card__face--front {
-    background: #1A1B2E;
-    border-color: rgba(168, 85, 247, 0.2);
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.25),
-        0 20px 40px -20px rgba(0, 0, 0, 0.4);
-}
-
-/* ---------- BACK FACE — LIGHT THEME (purple gradient) ---------- */
+/* ---------- BACK FACE ---------- */
 .svc-card__face--back {
     transform: rotateY(180deg);
-    background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 50%, #6A589D 100%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 6px 20px rgba(126, 107, 181, 0.25);
+    /* Dynamic Gradient Back */
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-hover) 100%);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 6px 20px var(--shadow-color);
     align-items: center;
     justify-content: center;
     color: #ffffff;
     position: relative;
-}
-
-/* ---------- BACK FACE — DARK THEME ---------- */
-[data-theme="dark"] .svc-card__face--back {
-    background: linear-gradient(135deg, #241A33 0%, #1E1B33 100%);
-    border-color: rgba(168, 85, 247, 0.3);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
 .svc-card__face--back::before {
@@ -218,16 +192,9 @@
 .svc-card.is-visible:hover .svc-card__face--front {
     transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
     box-shadow:
-        0 30px 60px -20px rgba(126, 107, 181, 0.35),
-        0 0 0 1px rgba(126, 107, 181, 0.15);
-    border-color: rgba(126, 107, 181, 0.3);
-}
-
-[data-theme="dark"] .svc-card.is-visible:hover .svc-card__face--front {
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.3),
-        0 32px 60px -24px rgba(168, 85, 247, 0.35);
+        0 30px 60px -20px var(--shadow-color),
+        0 0 0 1px var(--primary);
+    border-color: var(--primary); /* Dynamic Border Hover */
 }
 
 /* ============================================
@@ -237,14 +204,15 @@
     width: 64px;
     height: 64px;
     border-radius: 18px;
-    background: linear-gradient(135deg, #8E7AC7 0%, #7E6BB5 100%);
+    /* Dynamic Icon Gradient */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
     margin-bottom: 24px;
     box-shadow:
-        0 10px 24px rgba(126, 107, 181, 0.35),
+        0 10px 24px var(--shadow-color),
         inset 0 1px 1px rgba(255, 255, 255, 0.35);
     transform: rotate(-4deg);
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -277,12 +245,12 @@
 }
 
 /* ============================================
-   CONTENT — LIGHT THEME
+   CONTENT
    ============================================ */
 .svc-card__title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1E293B;
+    color: var(--text-main); /* Dynamic Text */
     margin-bottom: 12px;
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
@@ -290,7 +258,7 @@
 
 .svc-card__desc {
     font-size: 0.95rem;
-    color: #64748B;
+    color: var(--text-muted); /* Dynamic Muted Text */
     line-height: 1.65;
     margin-bottom: 22px;
     transition: color 0.3s ease;
@@ -311,12 +279,12 @@
     align-items: center;
     gap: 10px;
     font-size: 0.875rem;
-    color: #64748B;
+    color: var(--text-muted);
     transition: color 0.3s ease;
 }
 
 .svc-card__features li i {
-    color: #7E6BB5;
+    color: var(--primary); /* Dynamic Theme Color */
     font-size: 12px;
     width: 16px;
     text-align: center;
@@ -330,13 +298,16 @@
     gap: 8px;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #7E6BB5;
+    color: var(--primary); /* Dynamic Theme Color */
     text-decoration: none;
     transition: gap 0.3s ease, color 0.3s ease;
     margin-top: auto;
 }
 
-.svc-card__link:hover { gap: 14px; }
+.svc-card__link:hover { 
+    gap: 14px; 
+    color: var(--primary-hover);
+}
 
 .svc-card__link svg {
     transition: transform 0.3s ease;
@@ -346,16 +317,6 @@
 .svc-card__link:hover svg {
     transform: translateX(4px);
 }
-
-/* ============================================
-   CONTENT — DARK THEME
-   ============================================ */
-[data-theme="dark"] .svc-card__title { color: #F1F5F9; }
-[data-theme="dark"] .svc-card__desc { color: #94A3B8; }
-[data-theme="dark"] .svc-card__features li { color: #94A3B8; }
-[data-theme="dark"] .svc-card__features li i { color: #C4B5FD; }
-[data-theme="dark"] .svc-card__link { color: #C4B5FD; }
-[data-theme="dark"] .svc-card__link:hover { color: #A855F7; }
 
 /* ============================================
    CONTENT STAGGER — after flip
