@@ -1,45 +1,65 @@
-{{-- ============================================================
-     resources/views/Component/gallery.blade.php
-     "LEDGEINVO" — Viewport-triggered reveal
-     ============================================================ --}}
+{{-- resources/views/Component/gallery.blade.php --}}
 
-@once
-    @push('styles')
-        <link rel="stylesheet" href="{{ asset('css/gallery.css') }}">
-    @endpush
-@endonce
+<link rel="stylesheet" href="{{ asset('css/flash.css') }}?v={{ time() }}">
 
-@php
-    // Correct order: L is first, O is last.
-    $letters = [
-        ['char' => 'L', 'src' => 'Assets/img6.jpeg',  'alt' => 'Financial planning session'],
-        ['char' => 'E', 'src' => 'Assets/img7.jpeg',  'alt' => 'Tax documents review'],
-        ['char' => 'D', 'src' => 'Assets/img8.jpeg',  'alt' => 'Bookkeeping ledger'],
-        ['char' => 'G', 'src' => 'Assets/img9.jpeg',  'alt' => 'Team reviewing cash flow'],
-        ['char' => 'E', 'src' => 'Assets/img10.jpeg', 'alt' => 'Client tax consultation'],
-        ['char' => 'I', 'src' => 'Assets/img11.jpeg', 'alt' => 'Invoicing on laptop'],
-        ['char' => 'N', 'src' => 'Assets/img12.jpeg', 'alt' => 'VAT filing preparation'],
-        ['char' => 'V', 'src' => 'Assets/img13.jpeg', 'alt' => 'Year-end audit checklist'],
-        ['char' => 'O', 'src' => 'Assets/Poster.jpg', 'alt' => 'Business accounts spreadsheet'],
-    ];
-@endphp
+<div id="apex-flash-screen" style="display: flex;">
+    
+    <div class="flash-particles">
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+    </div>
 
-<section class="gallery-section" id="gallery">
-    <div class="gallery-wrap">
-        <div class="gallery-row">
+    {{-- ✅ ADD THE SPARKLES HERE ✅ --}}
+    <div class="flash-sparkles">
+        <span class="sparkle s1"></span>
+        <span class="sparkle s2"></span>
+        <span class="sparkle s3"></span>
+        <span class="sparkle s4"></span>
+        <span class="sparkle s5"></span>
+        <span class="sparkle s6"></span>
+    </div>
+
+    <div class="flash-content-wrapper">
+        
+        {{-- The Logo Image --}}
+        <div class="flash-logo">
+            <img src="{{ asset('Assets/img15.jpeg') }}" alt="Ledgeinvo Logo" class="flash-logo-img">
+        </div>
+
+        {{-- The Letters (L comes first) --}}
+        <div class="flash-row">
+            @php
+                $letters = [
+                    ['src' => 'Assets/img6.jpeg'],  // L
+                    ['src' => 'Assets/img7.jpeg'],  // E
+                    ['src' => 'Assets/img8.jpeg'],  // D
+                    ['src' => 'Assets/img9.jpeg'],  // G
+                    ['src' => 'Assets/img10.jpeg'], // E
+                    ['src' => 'Assets/img11.jpeg'], // I
+                    ['src' => 'Assets/img12.jpeg'], // N
+                    ['src' => 'Assets/img13.jpeg'], // V
+                    ['src' => 'Assets/Poster.jpg'], // O
+                ];
+            @endphp
+
             @foreach ($letters as $index => $item)
-                <div class="gallery-item" role="button" tabindex="0" aria-label="View image: {{ $item['alt'] }}">
-                    <div class="gallery-clip-wrap">
-                        <img src="{{ asset($item['src']) }}" alt="{{ $item['alt'] }}" class="gallery-img" loading="lazy">
+                <div class="flash-item">
+                    <div class="flash-clip">
+                        <img src="{{ asset($item['src']) }}" alt="Flash Image" class="flash-img">
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
-</section>
+</div>
 
-@once
-    @push('scripts')
-        <script src="{{ asset('js/gallery.js') }}" defer></script>
-    @endpush
-@endonce
+<script src="{{ asset('js/flash.js') }}?v={{ time() }}" defer></script>
