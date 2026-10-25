@@ -76,14 +76,24 @@ body.db-body {
 
 .db-btn-logout {
     background-color: var(--primary);
-    color: white;
+     color: #ffffff !important;
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
+   transition: background-color 0.2s ease, transform 0.2s ease; 
+    /* Added transition for smooth floating */
+    transition: all 0.3s ease;
+    /* Default subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+/* Hover state: lifts the button and increases shadow */
+.db-btn-logout:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px); /* Lifts the button up */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Creates the floating shadow effect */
+}
 /* ============================================================
    LAYOUT WRAPPER
    ============================================================ */
