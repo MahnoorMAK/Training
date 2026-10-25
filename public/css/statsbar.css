@@ -2,87 +2,6 @@
    APEXBOOKS — "BLOCK BY BLOCK" STATS NAVBAR (themed)
    ============================================================ */
 
-/* ---------- THEME TOKENS ---------- */
-:root {
-    /* Light theme defaults */
-    --sn-bar-bg-1:    rgba(255, 255, 255, 0.92);
-    --sn-bar-bg-2:    rgba(248, 249, 252, 0.96);
-    --sn-bar-border:  rgba(15, 23, 42, 0.10);
-    --sn-bar-divider: rgba(15, 23, 42, 0.08);
-    --sn-bar-shadow:  0 24px 50px -20px rgba(15, 23, 42, 0.18);
-    --sn-bar-inset:   inset 0 1px 1px rgba(255, 255, 255, 0.9);
-
-    --sn-topline:     linear-gradient(90deg, transparent, #7e6bb5, transparent);
-
-    --sn-number-from: #1e293b;
-    --sn-number-to:   #4c3d8a;
-    --sn-number-glow: rgba(126, 107, 181, 0.25);
-
-    --sn-suffix:      #7e6bb5;
-    --sn-label:       #64748b;
-
-    --sn-glow-1:      rgba(126, 107, 181, 0.18);
-    --sn-glow-2:      rgba(167, 139, 250, 0.10);
-}
-
-/* Dark overrides — class-based */
-html.dark,
-body.dark,
-.dark {
-    --sn-bar-bg-1:    rgba(30, 24, 48, 0.95);
-    --sn-bar-bg-2:    rgba(20, 16, 32, 0.98);
-    --sn-bar-border:  rgba(255, 255, 255, 0.10);
-    --sn-bar-divider: rgba(255, 255, 255, 0.15);
-    --sn-bar-shadow:  0 30px 60px -20px rgba(0, 0, 0, 0.60);
-    --sn-bar-inset:   inset 0 1px 1px rgba(255, 255, 255, 0.10);
-
-    --sn-number-from: #ffffff;
-    --sn-number-to:   #e2daff;
-    --sn-number-glow: rgba(126, 107, 181, 0.30);
-
-    --sn-suffix:      #a78bfa;
-    --sn-label:       #9ca3af;
-
-    --sn-glow-1:      rgba(126, 107, 181, 0.25);
-    --sn-glow-2:      rgba(167, 139, 250, 0.15);
-}
-
-/* Dark overrides — attribute-based (data-theme) */
-[data-theme="dark"] {
-    --sn-bar-bg-1:    rgba(30, 24, 48, 0.95);
-    --sn-bar-bg-2:    rgba(20, 16, 32, 0.98);
-    --sn-bar-border:  rgba(255, 255, 255, 0.10);
-    --sn-bar-divider: rgba(255, 255, 255, 0.15);
-    --sn-bar-shadow:  0 30px 60px -20px rgba(0, 0, 0, 0.60);
-    --sn-bar-inset:   inset 0 1px 1px rgba(255, 255, 255, 0.10);
-    --sn-number-from: #ffffff;
-    --sn-number-to:   #e2daff;
-    --sn-number-glow: rgba(126, 107, 181, 0.30);
-    --sn-suffix:      #a78bfa;
-    --sn-label:       #9ca3af;
-    --sn-glow-1:      rgba(126, 107, 181, 0.25);
-    --sn-glow-2:      rgba(167, 139, 250, 0.15);
-}
-
-/* System preference fallback (only when no explicit theme is set) */
-@media (prefers-color-scheme: dark) {
-    :root:not(.light):not([data-theme="light"]) {
-        --sn-bar-bg-1:    rgba(30, 24, 48, 0.95);
-        --sn-bar-bg-2:    rgba(20, 16, 32, 0.98);
-        --sn-bar-border:  rgba(255, 255, 255, 0.10);
-        --sn-bar-divider: rgba(255, 255, 255, 0.15);
-        --sn-bar-shadow:  0 30px 60px -20px rgba(0, 0, 0, 0.60);
-        --sn-bar-inset:   inset 0 1px 1px rgba(255, 255, 255, 0.10);
-        --sn-number-from: #ffffff;
-        --sn-number-to:   #e2daff;
-        --sn-number-glow: rgba(126, 107, 181, 0.30);
-        --sn-suffix:      #a78bfa;
-        --sn-label:       #9ca3af;
-        --sn-glow-1:      rgba(126, 107, 181, 0.25);
-        --sn-glow-2:      rgba(167, 139, 250, 0.15);
-    }
-}
-
 /* ============================================================
    SECTION
    ============================================================ */
@@ -119,7 +38,9 @@ body.dark,
     right: 30%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, var(--sn-glow-1), transparent 70%);
+    /* Uses dynamic primary color with transparency */
+    background: radial-gradient(circle, var(--primary-light), transparent 70%);
+    opacity: 0.5;
 }
 
 .glow-2 {
@@ -127,7 +48,8 @@ body.dark,
     left: 20%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, var(--sn-glow-2), transparent 70%);
+    background: radial-gradient(circle, var(--primary-light), transparent 70%);
+    opacity: 0.3;
 }
 
 /* ============================================================
@@ -142,16 +64,19 @@ body.dark,
     max-width: 1200px;
     height: 160px;
 
+    /* Dynamic Theme Background */
     background: linear-gradient(
         135deg,
-        var(--sn-bar-bg-1) 0%,
-        var(--sn-bar-bg-2) 100%
+        var(--bg-primary) 0%,
+        var(--bg-secondary) 100%
     );
-    border: 1px solid var(--sn-bar-border);
+    border: 1px solid var(--border-color);
     border-radius: 24px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: var(--sn-bar-shadow), var(--sn-bar-inset);
+    
+    /* Dynamic Theme Shadow */
+    box-shadow: 0 24px 50px -20px var(--shadow-color);
     overflow: hidden;
 
     /* Hide the bar by clipping it to a 140px strip on the right */
@@ -172,7 +97,7 @@ body.dark,
     /* Reveal the full bar */
     clip-path: inset(0 0 0 0 round 20px);
     border-radius: 20px;
-    box-shadow: var(--sn-bar-shadow), var(--sn-bar-inset);
+    box-shadow: 0 30px 60px -20px var(--shadow-color);
 }
 
 .stats-nav-block::before {
@@ -182,7 +107,8 @@ body.dark,
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--sn-topline);
+    /* Dynamic Top Line using primary color */
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
     opacity: 0;
     transition: opacity 0.5s ease 1s;
 }
@@ -223,10 +149,11 @@ body.dark,
     transform: translateY(-50%);
     height: 60px;
     width: 1px;
+    /* Dynamic Divider */
     background: linear-gradient(
         180deg,
         transparent,
-        var(--sn-bar-divider),
+        var(--border-color),
         transparent
     );
 }
@@ -270,19 +197,20 @@ body.dark,
 
 .stats-nav-number {
     font-variant-numeric: tabular-nums;
+    /* Dynamic Number Gradient using Theme Colors */
     background: linear-gradient(
         180deg,
-        var(--sn-number-from) 0%,
-        var(--sn-number-to) 100%
+        var(--text-main) 0%,
+        var(--primary) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 10px var(--sn-number-glow));
+    filter: drop-shadow(0 2px 10px var(--shadow-color));
 }
 
 .stats-nav-suffix {
-    color: var(--sn-suffix);
+    color: var(--primary);
     font-weight: 700;
     font-size: 0.8em;
 }
@@ -291,7 +219,7 @@ body.dark,
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--sn-label);
+    color: var(--text-muted);
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
