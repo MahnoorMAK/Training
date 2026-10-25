@@ -5,7 +5,7 @@
     position: relative;
     width: 100%;
     padding: 120px 64px 100px;
-    background: var(--bg-color, #F8F9FC);
+    background: var(--bg-color); /* Dynamic Background */
 }
 
 /* ---------- Header ---------- */
@@ -21,7 +21,7 @@
     font-weight: 600;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--text-muted, #64748B);
+    color: var(--text-muted); /* Dynamic Muted Text */
     margin-bottom: 40px;
     opacity: 0;
     transform: translateY(20px);
@@ -42,20 +42,20 @@
     font-weight: 500;
     line-height: 1.18;
     letter-spacing: -0.02em;
-    color: var(--text-main, #1E293B);
+    color: var(--text-main);
     margin: 0;
 }
 
 /* Each word starts faded, becomes dark when .is-active */
 .om-word {
     display: inline-block;
-    color: var(--text-muted, #94a3b8);
+    color: var(--text-muted); /* Dynamic Inactive Color */
     transition: color 2.4s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: color;
 }
 
 .om-word.is-active {
-    color: var(--text-main, #1E293B);
+    color: var(--text-main); /* Dynamic Active Color */
 }
 
 /* ---------- Grid ---------- */
@@ -92,22 +92,23 @@
 
 /* ---------- Stat card ---------- */
 .om-card-stat {
-    background: var(--white, #ffffff);
-    border: 1px solid var(--border-color, #E2E8F0);
+    background: var(--white); /* Dynamic Card Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
     padding: 40px 36px 32px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* Dynamic Shadow */
     box-shadow:
-        0 1px 2px rgba(15, 23, 42, 0.04),
-        0 12px 32px -20px rgba(15, 23, 42, 0.08);
+        0 1px 2px var(--shadow-color),
+        0 12px 32px -20px var(--shadow-color);
 }
 
 .om-card-stat:hover {
     transform: translateY(-6px);
     box-shadow:
-        0 2px 4px rgba(15, 23, 42, 0.05),
-        0 30px 60px -25px rgba(126, 107, 181, 0.25);
+        0 2px 4px var(--shadow-color),
+        0 30px 60px -25px var(--shadow-color);
 }
 
 /* Stat value row */
@@ -126,12 +127,12 @@
     font-weight: 500;
     line-height: 0.9;
     letter-spacing: -0.04em;
-    color: var(--text-main, #1E293B);
+    color: var(--text-main); /* Dynamic Text */
     font-variant-numeric: tabular-nums;
 }
 
 .om-stat-suffix {
-    color: var(--accent-color, #7E6BB5);
+    color: var(--primary); /* Dynamic Theme Color */
     font-size: 0.65em;
     font-weight: 400;
 }
@@ -140,7 +141,7 @@
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--text-main, #1E293B);
+    color: var(--text-main);
     letter-spacing: -0.01em;
     line-height: 1.35;
     max-width: 240px;
@@ -151,7 +152,7 @@
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 0.9rem;
     line-height: 1.7;
-    color: var(--text-muted, #64748B);
+    color: var(--text-muted);
     margin: 24px 0 auto;
     max-width: 280px;
 }
@@ -168,10 +169,10 @@
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.05em;
-    color: var(--accent-color, #7E6BB5);
+    color: var(--primary); /* Dynamic Theme Color */
 
-    background: rgba(126, 107, 181, 0.08);
-    border: 1px solid rgba(126, 107, 181, 0.15);
+    background: var(--primary-light); /* Dynamic Light Background */
+    border: 1px solid var(--border-color); /* Dynamic Border */
     border-radius: 999px;
 
     transition:
@@ -181,8 +182,9 @@
 }
 
 .om-card-stat:hover .om-stat-tag {
-    background: rgba(126, 107, 181, 0.15);
-    border-color: rgba(126, 107, 181, 0.3);
+    background: var(--primary); /* Dynamic Hover Background */
+    border-color: var(--primary);
+    color: #ffffff; /* Keep white for contrast */
 }
 
 /* ---------- CTA card ---------- */
@@ -190,7 +192,7 @@
     position: relative;
     cursor: pointer;
     box-shadow:
-        0 12px 32px -20px rgba(15, 23, 42, 0.35);
+        0 12px 32px -20px var(--shadow-color);
 }
 
 .om-card-cta img {
@@ -270,78 +272,8 @@
 
 .om-card-cta:hover .om-cta-arrow {
     background: #ffffff;
-    color: var(--accent-color, #7E6BB5);
+    color: var(--primary); /* Dynamic Theme Color */
     transform: scale(1.1) rotate(-45deg);
-}
-
-/* ============================================================
-   DARK MODE
-   ============================================================ */
-[data-theme="dark"] .om-section {
-    background: #121212;
-}
-
-[data-theme="dark"] .om-eyebrow {
-    color: #9ca3af;
-}
-
-[data-theme="dark"] .om-title {
-    color: #f9fafb;
-}
-
-[data-theme="dark"] .om-word {
-    color: #4b5563;
-}
-
-[data-theme="dark"] .om-word.is-active {
-    color: #f9fafb;
-}
-
-[data-theme="dark"] .om-card-stat {
-    background: #1a1a1a;
-    border-color: #2d2d2d;
-    box-shadow:
-        0 1px 2px rgba(0, 0, 0, 0.3),
-        0 12px 32px -20px rgba(0, 0, 0, 0.5);
-}
-
-[data-theme="dark"] .om-card-stat:hover {
-    box-shadow:
-        0 2px 4px rgba(0, 0, 0, 0.4),
-        0 30px 60px -25px rgba(139, 92, 246, 0.18);
-}
-
-[data-theme="dark"] .om-stat-value {
-    color: #f9fafb;
-}
-
-[data-theme="dark"] .om-stat-suffix {
-    color: #a78bfa;
-}
-
-[data-theme="dark"] .om-stat-title {
-    color: #e5e7eb;
-}
-
-[data-theme="dark"] .om-stat-desc {
-    color: #9ca3af;
-}
-
-[data-theme="dark"] .om-stat-tag {
-    background: rgba(167, 139, 250, 0.1);
-    border-color: rgba(167, 139, 250, 0.2);
-    color: #a78bfa;
-}
-
-[data-theme="dark"] .om-card-stat:hover .om-stat-tag {
-    background: rgba(167, 139, 250, 0.18);
-    border-color: rgba(167, 139, 250, 0.35);
-    color: #e9e3ff;
-}
-
-[data-theme="dark"] .om-card-cta:hover .om-cta-arrow {
-    background: #ffffff;
-    color: #a78bfa;
 }
 
 /* ============================================================
@@ -396,9 +328,6 @@
         opacity: 1 !important;
     }
     .om-word {
-        color: var(--text-main, #1E293B) !important;
-    }
-    [data-theme="dark"] .om-word {
-        color: #f9fafb !important;
+        color: var(--text-main) !important;
     }
 }
