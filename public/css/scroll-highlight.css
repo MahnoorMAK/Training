@@ -5,7 +5,8 @@
     position: relative;
     width: 100%;
     padding: 140px 64px 120px;
-    background: #F4EBE1; /* warm cream like Zeneth */
+    background: var(--bg-color); /* Dynamic Theme Background */
+    transition: background-color 0.3s ease;
 }
 
 .scroll-highlight-inner {
@@ -20,7 +21,7 @@
     font-weight: 600;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--text-muted, #8a6f5a);
+    color: var(--text-muted); /* Dynamic Muted Text */
     margin-bottom: 40px;
     opacity: 0;
     transform: translateY(20px);
@@ -41,43 +42,22 @@
     font-weight: 500;
     line-height: 1.18;
     letter-spacing: -0.02em;
-    color: #1E293B;
+    color: var(--text-main); /* Dynamic Text Color */
     margin: 0;
     /* Disable word-break inside words for cleaner line breaks */
     word-spacing: 0.05em;
 }
 
-/* Each word starts gray/faded, becomes dark when .is-active */
+/* Each word starts faded, becomes active on scroll */
 .sh-word {
     display: inline-block;
-    color: #c2b3a0; /* warm light gray */
+    color: var(--text-muted); /* Dynamic Inactive Color */
     transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: color;
 }
 
 .sh-word.is-active {
-    color: #1E293B;
-}
-
-/* ------------------ Dark mode ------------------ */
-[data-theme="dark"] .scroll-highlight-section {
-    background: #121212;
-}
-
-[data-theme="dark"] .scroll-highlight-eyebrow {
-    color: #9ca3af;
-}
-
-[data-theme="dark"] .scroll-highlight-heading {
-    color: #f9fafb;
-}
-
-[data-theme="dark"] .sh-word {
-    color: #4b5563;
-}
-
-[data-theme="dark"] .sh-word.is-active {
-    color: #f9fafb;
+    color: var(--text-main); /* Dynamic Active Color */
 }
 
 /* ------------------ Responsive ------------------ */
@@ -95,11 +75,8 @@
 /* ------------------ Reduced motion ------------------ */
 @media (prefers-reduced-motion: reduce) {
     .sh-word {
-        color: #1E293B !important;
+        color: var(--text-main) !important;
         transition: none !important;
-    }
-    [data-theme="dark"] .sh-word {
-        color: #f9fafb !important;
     }
     .scroll-highlight-eyebrow {
         opacity: 1 !important;
