@@ -9,6 +9,9 @@
 
 @section('content')
 
+    @include('Component.gallery')
+
+
    {{-- ✅ Hero Slider (full-screen image carousel) --}}
    @include('Component.cloud-shader-hero')
 
