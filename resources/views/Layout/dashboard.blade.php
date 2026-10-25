@@ -34,12 +34,12 @@
                         <path d="M12 2L21 7.5L12 13L3 7.5L12 2Z" fill="#FFFFFF"/>
                     </svg>
                 </div>
-                Apexbooks
+                <span class="site-logo-text">Apexbooks</span>
             </a>
             
             <div class="db-nav-actions">
-                <a href="/" class="db-btn-back">Back to Website</a>
-                <a href="/logout" class="db-btn-logout">Logout</a>
+                <a href="/" class="db-btn-back">Back to Home</a>
+                <a href="/" class="db-btn-logout">Logout</a>
             </div>
         </div>
     </nav>
