@@ -180,14 +180,16 @@ main > section {
     transition: color 0.2s ease, background 0.2s ease;
 }
 
+/* HOVER STATE: Uses primary color for text to ensure contrast */
 .hdr__links a:hover {
-    color: #fff;
-    background: var(--primary-light, rgba(168, 85, 247, 0.1));
+    color: var(--primary) !important; /* Dynamic theme color */
+    background: var(--primary-light);
 }
 
+/* ACTIVE STATE: Uses primary color for text to ensure contrast */
 .hdr__links a.is-active {
-    color: #fff;
-    background: var(--primary-light, rgba(168, 85, 247, 0.15));
+    color: var(--primary) !important; /* Dynamic theme color */
+    background: var(--primary-light);
 }
 
 .hdr__links a.is-active::after {
@@ -199,9 +201,9 @@ main > section {
     width: 14px;
     height: 2px;
     border-radius: 2px;
-    /* CHANGED: Uses theme primary */
-    background: linear-gradient(90deg, var(--primary), var(--primary-light));
-    box-shadow: 0 0 10px var(--primary, rgba(168, 85, 247, 0.9));
+    /* Dynamic accent bar */
+    background: linear-gradient(90deg, var(--primary), var(--primary-hover));
+    box-shadow: 0 0 10px var(--primary);
 }
 
 /* ---------- Theme toggle ---------- */
