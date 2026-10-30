@@ -23,7 +23,7 @@
 
     @yield('styles')
 </head>
-<body class="db-body">
+<body class="db-body" >
 
     {{-- DASHBOARD NAVBAR --}}
     <nav class="db-nav">
