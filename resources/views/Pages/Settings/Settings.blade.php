@@ -91,7 +91,7 @@
                             <p class="settings-small">Select the main brand color for the whole site.</p>
                             
                             <div class="color-grid">
-                                <button class="color-box active" data-theme="purple"><span class="color-dot dot-purple"></span><span class="color-name">Purple</span></button>
+                                <button class="color-box active" data-theme="purple"><span class="color-dot dot-purple"></span><span class="color-name">Default</span></button>
                                 <button class="color-box" data-theme="ocean"><span class="color-dot dot-ocean"></span><span class="color-name">Ocean</span></button>
                                 <button class="color-box" data-theme="emerald"><span class="color-dot dot-emerald"></span><span class="color-name">Emerald</span></button>
                                 <button class="color-box" data-theme="sunset"><span class="color-dot dot-sunset"></span><span class="color-name">Sunset</span></button>
@@ -104,10 +104,10 @@
                             <label class="label">Custom Color</label>
                             <p class="settings-small">Enter a HEX code (e.g. #FF0000) to apply a custom theme.</p>
                             <div class="custom-color-row">
-    <div class="custom-color-preview" id="colorPreview"></div>
-    <input type="text" class="custom-color-input" value="#7E6BB5" placeholder="#000000">
-    <button class="btn-primary">Apply</button>
-</div>
+                                    <div class="custom-color-preview" id="colorPreview"></div>
+                                    <input type="text" class="custom-color-input" value="" placeholder="#000000">
+                                    <button class="btn-primary">Apply</button>
+                            </div>
                         </div>
 
                         <div class="form-group form-divider">
