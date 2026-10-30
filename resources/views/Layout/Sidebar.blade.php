@@ -73,7 +73,7 @@
             <ul class="submenu">
                 <li class="sub-item {{ request()->is('purchase-invoice') ? 'active' : '' }}"><a href="{{ url('/purchase-invoice') }}">Purchase Invoice</a></li>
                 <li class="sub-item {{ request()->is('purchase-returns') ? 'active' : '' }}"><a href="{{ url('/purchase-returns') }}">Purchase Returns</a></li>
-                <li class="sub-item {{ request()->is('warehouses') ? 'active' : '' }}"><a href="{{ url('/warehouses') }}">Warehouses</a></li>
+                <li class="sub-item {{ request()->is('Warehouse') ? 'active' : '' }}"><a href="{{ url('/Warehouse') }}">Warehouses</a></li>
                 <li class="sub-item {{ request()->is('transfers') ? 'active' : '' }}"><a href="{{ url('/transfers') }}">Transfers</a></li>
             </ul>
         </li>
