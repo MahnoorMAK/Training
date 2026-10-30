@@ -4,12 +4,25 @@
     'use strict';
 
     document.addEventListener('DOMContentLoaded', function () {
+        
+        // 1. Handle Sticky Search Bar Shadow on Scroll
+        const sidebarContainer = document.querySelector('.sidebar-container');
+        if (sidebarContainer) {
+            sidebarContainer.addEventListener('scroll', function() {
+                if (this.scrollTop > 10) {
+                    this.classList.add('is-scrolled');
+                } else {
+                    this.classList.remove('is-scrolled');
+                }
+            });
+        }
+
+        // 2. Search Filter Functionality
         const searchInput = document.querySelector('.sidebar-search-box');
         const menuItems = document.querySelectorAll('.sidebar-menu-list li.menu-item');
         const subItems = document.querySelectorAll('.sidebar-menu-list li.sub-item');
         const allClickable = document.querySelectorAll('.sidebar-menu-list li.menu-item, .sidebar-menu-list li.sub-item');
 
-        // 1. Search Filter Functionality
         if (searchInput) {
             searchInput.addEventListener('input', function (e) {
                 const query = e.target.value.toLowerCase();
@@ -20,7 +33,6 @@
                     const text = item.textContent.toLowerCase();
                     if (text.includes(query)) {
                         item.style.display = 'flex';
-                        // Open dropdown automatically if a match is found inside
                         if (item.classList.contains('has-submenu')) {
                             item.classList.add('open');
                         }
@@ -39,28 +51,19 @@
             });
         }
 
-        // 2. Handle Clicks (Dropdowns + Active Highlighting)
+        // 3. Handle Clicks (Dropdowns + Active Highlighting)
         allClickable.forEach(function (item) {
             item.addEventListener('click', function (e) {
-                // If it has a submenu, toggle the dropdown
                 if (item.classList.contains('has-submenu')) {
-                    // Don't toggle if we are clicking a real link inside the sub-menu
                     if (e.target.tagName.toLowerCase() === 'a') {
                         return;
                     }
-                    
                     e.stopPropagation();
                     item.classList.toggle('open');
                 } else {
-                    // It's a regular item, make it active
-                    // REMOVED: e.preventDefault(); <-- This was blocking the page from loading
-                    
-                    // Remove active from everything
                     allClickable.forEach(function (i) {
                         i.classList.remove('active');
                     });
-                    
-                    // Add active to the one clicked
                     item.classList.add('active');
                 }
             });
