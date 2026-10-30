@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Added: Update custom color preview and input to match the selected preset
             const customText = document.querySelector('.custom-color-input');
             const customPreview = document.querySelector('.custom-color-preview');
-            if (customText) customText.value = selected.main;
+            if (customText) customText.value = "";
             if (customPreview) customPreview.style.backgroundColor = selected.main;
         });
     });
