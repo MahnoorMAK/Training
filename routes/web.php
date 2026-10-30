@@ -23,6 +23,10 @@ Route::get('/TopClients', function () {return view('Component.TopClients');})->n
 Route::get('/Settings', function () {return view('Pages.Settings.Settings');})->name('Settings');
 Route::get('/dashboard', function () {return view('Layout.dashboard');})->name('dashboard');
 Route::get('/Sidebar', function () {return view('Layout.Sidebar');})->name('Sidebar');
+Route::get('/retainer', function () {return view('Pages.Retainer.retainer');})->name('Retainer');
+Route::get('/purchase-invoice', function () {return view('Pages.Purchase.purchase-invoice');})->name('PurchaseInvoice');
+Route::get('/Warehouse', function () {return view('Pages.Purchase.Warehouse');})->name('Warehouse');
+
 
 Route::post('/register', function (\Illuminate\Http\Request $request) {
     $data = $request->validate([
