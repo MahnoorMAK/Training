@@ -34,12 +34,11 @@
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.1;
-    color: var(--text-main); /* Dynamic Text */
+    color: var(--text-main);
     margin: 0 0 18px;
 }
 
 .prc__title-accent {
-    /* Dynamic Gradient */
     background: linear-gradient(115deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-hover) 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -49,7 +48,7 @@
 .prc__subtitle {
     font-size: 1rem;
     line-height: 1.7;
-    color: var(--text-muted); /* Dynamic Muted Text */
+    color: var(--text-muted);
     margin: 0;
 }
 
@@ -63,8 +62,8 @@
     gap: 4px;
     padding: 5px;
     border-radius: 999px;
-    background: var(--bg-secondary); /* Dynamic Background */
-    border: 1px solid var(--border-color); /* Dynamic Border */
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     margin: 0 auto 52px;
 }
 
@@ -107,7 +106,7 @@
     left: 5px;
     height: calc(100% - 10px);
     border-radius: 999px;
-    background: var(--white); /* Dynamic White Background */
+    background: var(--white);
     box-shadow:
         0 2px 8px var(--shadow-color),
         0 1px 2px rgba(15, 23, 42, 0.04);
@@ -136,8 +135,8 @@
     flex-direction: column;
     padding: 32px 28px;
     border-radius: 20px;
-    background: var(--white); /* Dynamic Card Background */
-    border: 1px solid var(--border-color); /* Dynamic Border */
+    background: var(--white);
+    border: 1px solid var(--border-color);
     box-shadow:
         0 4px 12px var(--shadow-color),
         0 20px 40px -20px var(--shadow-color);
@@ -204,15 +203,27 @@
 }
 
 /* ============================================
-   FEATURED (CENTER) CARD
+   FEATURED (CENTER) CARD - FIXED CONTRAST
    ============================================ */
 .prc__card--featured {
-    /* Dynamic Featured Background */
     background: linear-gradient(180deg, var(--primary-light) 0%, var(--bg-primary) 100%);
     border-color: var(--primary);
     box-shadow:
         0 4px 12px var(--shadow-color),
         0 24px 48px -20px var(--shadow-color);
+    /* Force dark text on the light featured card */
+    color: #1E293B !important; 
+}
+
+/* Force all text inside the featured card to be dark */
+.prc__card--featured .prc__card-name,
+.prc__card--featured .prc__card-desc,
+.prc__card--featured .prc__price-amount,
+.prc__card--featured .prc__price-symbol,
+.prc__card--featured .prc__price-period,
+.prc__card--featured .prc__features-title,
+.prc__card--featured .prc__features-list li {
+    color: #1E293B !important;
 }
 
 /* ============================================
@@ -245,12 +256,12 @@
     gap: 3px;
     padding: 18px 22px;
     border-radius: 14px;
-    background: var(--bg-color); /* Dynamic Background */
+    background: var(--bg-color);
     margin-bottom: 26px;
 }
 
 .prc__card--featured .prc__price {
-    background: var(--primary-light); /* Dynamic Featured Background */
+    background: rgba(255, 255, 255, 0.5) !important; /* Semi-transparent white to contrast with dark text */
 }
 
 .prc__price-symbol {
@@ -316,7 +327,7 @@
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: var(--primary); /* Dynamic Theme Color */
+    background: var(--primary);
     color: #ffffff;
     flex-shrink: 0;
     margin-top: 1px;
@@ -324,7 +335,8 @@
 
 .prc__card--featured .prc__check {
     background: var(--primary-hover);
-    box-shadow: 0 0 0 3px var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+    color: #ffffff !important;
 }
 
 /* ---------- CTA ---------- */
@@ -353,7 +365,6 @@
 }
 
 .prc__cta--primary {
-    /* Dynamic Gradient Button */
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     color: #ffffff;
     box-shadow: 0 10px 24px -10px var(--shadow-color);
