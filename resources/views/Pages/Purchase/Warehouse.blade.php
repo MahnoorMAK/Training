@@ -119,115 +119,125 @@
                 <thead>
                     <tr>
                         <th>Name <span class="sort-icon">↕</span></th>
-                        <th>Address</th>
+                        <th>
+                            <div class="th-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                Address
+                            </div>
+                        </th>
                         <th>City <span class="sort-icon">↕</span></th>
                         <th>Zip Code</th>
-                        <th>Phone</th>
+                        <th>
+                            <div class="th-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                Phone
+                            </div>
+                        </th>
                         <th>Status <span class="sort-icon">↕</span></th>
                         <th class="text-right">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-    <!-- Row 1 -->
-    <tr>
-        <td>
-            <div class="wh-user-cell">
-                <div class="wh-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                </div>
-                <div class="wh-user-info">
-                    <span class="wh-user-name">Central Distribution Center</span>
-                    <span class="wh-user-email">central@warehouse.com</span>
-                </div>
-            </div>
-        </td>
-        <td><span class="wh-text-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 1250 Industrial Blvd</span></td>
-        <td>Los Angeles</td>
-        <td>90021</td>
-        <td><span class="wh-text-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +12135550101</span></td>
-        <td><span class="wh-status wh-status-active">Active</span></td>
-        <td class="wh-actions-cell">
-            <button class="wh-action-menu-btn" title="Actions">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-            </button>
-        </td>
-    </tr>
+                    <!-- Row 1 -->
+                    <tr>
+                        <td>
+                            <div class="wh-user-cell">
+                                <div class="wh-icon-box">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                </div>
+                                <div class="wh-user-info">
+                                    <span class="wh-user-name">Central Distribution Center</span>
+                                    <span class="wh-user-email">central@warehouse.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>1250 Industrial Blvd</td>
+                        <td>Los Angeles</td>
+                        <td>90021</td>
+                        <td>+12135550101</td>
+                        <td><span class="wh-status wh-status-active">Active</span></td>
+                        <td class="wh-actions-cell">
+                            <button class="wh-action-menu-btn" title="Actions">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                            </button>
+                        </td>
+                    </tr>
 
-    <!-- Row 2 -->
-    <tr>
-        <td>
-            <div class="wh-user-cell">
-                <div class="wh-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                </div>
-                <div class="wh-user-info">
-                    <span class="wh-user-name">East Coast Logistics Hub</span>
-                    <span class="wh-user-email">eastcoast@warehouse.com</span>
-                </div>
-            </div>
-        </td>
-        <td><span class="wh-text-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 875 Commerce Drive</span></td>
-        <td>Atlanta</td>
-        <td>30309</td>
-        <td><span class="wh-text-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +14045550102</span></td>
-        <td><span class="wh-status wh-status-active">Active</span></td>
-        <td class="wh-actions-cell">
-            <button class="wh-action-menu-btn" title="Actions">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-            </button>
-        </td>
-    </tr>
+                    <!-- Row 2 -->
+                    <tr>
+                        <td>
+                            <div class="wh-user-cell">
+                                <div class="wh-icon-box">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                </div>
+                                <div class="wh-user-info">
+                                    <span class="wh-user-name">East Coast Logistics Hub</span>
+                                    <span class="wh-user-email">eastcoast@warehouse.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>875 Commerce Drive</td>
+                        <td>Atlanta</td>
+                        <td>30309</td>
+                        <td>+14045550102</td>
+                        <td><span class="wh-status wh-status-active">Active</span></td>
+                        <td class="wh-actions-cell">
+                            <button class="wh-action-menu-btn" title="Actions">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                            </button>
+                        </td>
+                    </tr>
 
-    <!-- Row 3 -->
-    <tr>
-        <td>
-            <div class="wh-user-cell">
-                <div class="wh-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                </div>
-                <div class="wh-user-info">
-                    <span class="wh-user-name">West Coast Storage Facility</span>
-                    <span class="wh-user-email">westcoast@warehouse.com</span>
-                </div>
-            </div>
-        </td>
-        <td><span class="wh-text-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 2100 Pacific Avenue</span></td>
-        <td>Seattle</td>
-        <td>98101</td>
-        <td><span class="wh-text-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +12065550103</span></td>
-        <td><span class="wh-status wh-status-active">Active</span></td>
-        <td class="wh-actions-cell">
-            <button class="wh-action-menu-btn" title="Actions">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-            </button>
-        </td>
-    </tr>
+                    <!-- Row 3 -->
+                    <tr>
+                        <td>
+                            <div class="wh-user-cell">
+                                <div class="wh-icon-box">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                </div>
+                                <div class="wh-user-info">
+                                    <span class="wh-user-name">West Coast Storage Facility</span>
+                                    <span class="wh-user-email">westcoast@warehouse.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>2100 Pacific Avenue</td>
+                        <td>Seattle</td>
+                        <td>98101</td>
+                        <td>+12065550103</td>
+                        <td><span class="wh-status wh-status-active">Active</span></td>
+                        <td class="wh-actions-cell">
+                            <button class="wh-action-menu-btn" title="Actions">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                            </button>
+                        </td>
+                    </tr>
 
-    <!-- Row 4 -->
-    <tr>
-        <td>
-            <div class="wh-user-cell">
-                <div class="wh-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                </div>
-                <div class="wh-user-info">
-                    <span class="wh-user-name">Midwest Regional Warehouse</span>
-                    <span class="wh-user-email">midwest@warehouse.com</span>
-                </div>
-            </div>
-        </td>
-        <td><span class="wh-text-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 3456 Manufacturing Way</span></td>
-        <td>Chicago</td>
-        <td>60601</td>
-        <td><span class="wh-text-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +13125550104</span></td>
-        <td><span class="wh-status wh-status-active">Active</span></td>
-        <td class="wh-actions-cell">
-            <button class="wh-action-menu-btn" title="Actions">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-            </button>
-        </td>
-    </tr>
-</tbody>
+                    <!-- Row 4 -->
+                    <tr>
+                        <td>
+                            <div class="wh-user-cell">
+                                <div class="wh-icon-box">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                </div>
+                                <div class="wh-user-info">
+                                    <span class="wh-user-name">Midwest Regional Warehouse</span>
+                                    <span class="wh-user-email">midwest@warehouse.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>3456 Manufacturing Way</td>
+                        <td>Chicago</td>
+                        <td>60601</td>
+                        <td>+13125550104</td>
+                        <td><span class="wh-status wh-status-active">Active</span></td>
+                        <td class="wh-actions-cell">
+                            <button class="wh-action-menu-btn" title="Actions">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 
