@@ -22,6 +22,10 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
                 Brand Settings
             </a>
+                        <a href="#" class="settings-link" data-section="section-product">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
+                Product Settings
+            </a>
             <a href="#" class="settings-link" data-section="section-system">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                 System Settings
@@ -144,6 +148,262 @@
                 </div>
             </div>
 
+                        <!-- NEW: PRODUCT SETTINGS -->
+            <div class="section" id="section-product">
+                <div class="settings-card">
+                    <div class="settings-top">
+                        <div>
+                            <h3 class="settings-heading" id="productHeading">Product Settings</h3>
+                            <p class="settings-small">Configure how your products are displayed and managed.</p>
+                        </div>
+                        <button class="save-btn" id="productSaveBtn">Save Changes</button>
+                    </div>
+
+                    <div class="brand-settings-layout">
+                        <!-- Vertical Tabs -->
+                        <div class="brand-tabs">
+                            <button class="brand-tab-btn active" data-tab="tab-category">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                                Category
+                            </button>
+                            
+                            <button class="brand-tab-btn" data-tab="tab-taxes">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                                Taxes
+                            </button>
+                            
+                            <button class="brand-tab-btn" data-tab="tab-units">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16h16V4H4zm2 2h12v12H6V6zm0 3h12M6 14h12M10 6v12M14 6v12"/></svg>
+                                Units
+                            </button>
+
+                            
+                            
+                            <button class="brand-tab-btn" data-tab="tab-stock-warning">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                                Stock Warning
+                            </button>
+                        </div>
+
+                        <!-- Tab Content Area (The line you were looking for) -->
+                        <div class="brand-tab-content">
+                            
+                            <!-- Tab: Category -->
+                            <div class="tab-panel active" id="tab-category">
+                                <div class="settings-top" style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color);">
+                                    <div>
+                                        <h3 class="settings-heading" style="font-size: 18px;">Category</h3>
+                                    </div>
+                                    <button type="button" class="btn-primary" id="addCategoryBtn" style="padding: 8px 12px; border-radius: 6px;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 2px;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </button>
+                                </div>
+
+                                <div class="category-table-wrapper">
+                                    <table class="category-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th class="text-right">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Fashion & Apparel</td>
+                                                <td class="text-right action-cell">
+                                                    <button class="action-menu-btn">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Books & Stationery</td>
+                                                <td class="text-right action-cell">
+                                                    <button class="action-menu-btn">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jewelry & Accessories</td>
+                                                <td class="text-right action-cell">
+                                                    <button class="action-menu-btn">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Health & Beauty</td>
+                                                <td class="text-right action-cell">
+                                                    <button class="action-menu-btn">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                                                <!-- Add Category Modal -->
+                                <div class="category-modal-overlay" id="categoryModal">
+                                    <div class="category-modal-content">
+                                        <h3 class="settings-heading" style="font-size: 18px; margin-bottom: 12px;">Add New Category</h3>
+                                        <div class="form-group">
+                                            <label class="label">Category Name</label>
+                                            <input type="text" class="text-input" id="newCategoryName" placeholder="e.g. Electronics">
+                                        </div>
+                                        <div class="modal-actions">
+                                            <button type="button" class="btn-secondary" id="cancelCategoryBtn">Cancel</button>
+                                            <button type="button" class="btn-primary" id="saveCategoryBtn">Add Category</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                                        <!-- Tab: Taxes -->
+                            <div class="tab-panel" id="tab-taxes">
+                                <div class="settings-top" style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color);">
+                                    <div>
+                                        <h3 class="settings-heading" style="font-size: 18px;">Taxes</h3>
+                                    </div>
+                                    <button type="button" class="btn-primary" id="addTaxBtn" style="padding: 8px 12px; border-radius: 6px;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 2px;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </button>
+                                </div>
+
+                                <div class="category-table-wrapper">
+                                    <table class="category-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Tax Name</th>
+                                                <th>Rate (%)</th>
+                                                <th class="text-right">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="taxTableBody">
+                                            <tr>
+                                                <td>GST</td>
+                                                <td><span class="tax-badge">18.00</span></td>
+                                                <td class="text-right action-cell">
+                                                    <button class="action-menu-btn">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>VAT</td>
+                                                <td><span class="tax-badge">12.00</span></td>
+                                                <td class="text-right action-cell">
+                                                    <button class="action-menu-btn">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Service Tax</td>
+                                                <td><span class="tax-badge">15.00</span></td>
+                                                <td class="text-right action-cell">
+                                                    <button class="action-menu-btn">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sales Tax</td>
+                                                <td><span class="tax-badge">8.50</span></td>
+                                                <td class="text-right action-cell">
+                                                    <button class="action-menu-btn">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Add Tax Modal -->
+                                <div class="category-modal-overlay" id="taxModal">
+                                    <div class="category-modal-content">
+                                        <h3 class="settings-heading" style="font-size: 18px; margin-bottom: 12px;">Add New Tax</h3>
+                                        <div class="form-group">
+                                            <label class="label">Tax Name</label>
+                                            <input type="text" class="text-input" id="newTaxName" placeholder="e.g. GST">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="label">Rate (%)</label>
+                                            <input type="number" class="text-input" id="newTaxRate" placeholder="e.g. 18.00">
+                                        </div>
+                                        <div class="modal-actions">
+                                            <button type="button" class="btn-secondary" id="cancelTaxBtn">Cancel</button>
+                                            <button type="button" class="btn-primary" id="saveTaxBtn">Add Tax</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab: Units -->
+<!-- Tab: Units -->
+<div class="tab-panel" id="tab-units">
+    <div class="settings-top" style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color);">
+        <div>
+            <h3 class="settings-heading" style="font-size: 18px;">Units</h3>
+        </div>
+        <!-- Plus Button -->
+        <button type="button" class="btn-primary" id="addUnitBtn" style="padding: 8px 12px; border-radius: 6px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 2px;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+    </div>
+
+    <!-- Units Table -->
+    <div class="category-table-wrapper">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>Unit Name</th>
+                    <th class="text-right">Action</th>
+                </tr>
+            </thead>
+            <tbody id="unitTableBody">
+                <!-- Rendered via JS -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Add New Unit Modal -->
+<div class="category-modal-overlay" id="unitModal">
+    <div class="category-modal-content">
+        <h3 class="settings-heading" style="font-size: 18px; margin-bottom: 12px;">Add New Unit</h3>
+        
+        <div class="form-group">
+            <label class="label">Unit Name</label>
+            <input type="text" class="text-input" id="newUnitName" placeholder="e.g. Kilogram">
+        </div>
+        
+        <div class="modal-actions">
+            <!-- Buttons named exactly as requested -->
+            <button type="button" class="btn-secondary" id="cancelUnitBtn">Cancel</button>
+            <button type="button" class="btn-primary" id="addUnitSubmitBtn">Add</button>
+        </div>
+    </div>
+</div>
+
+
+                            <!-- Tab: Stock Warning -->
+                            <div class="tab-panel" id="tab-stock-warning">
+                                <div class="form-group">
+                                    <label class="label">Stock Warning Level</label>
+                                    <p class="settings-small">Set a threshold to receive alerts when stock is low.</p>
+                                    <input type="number" class="text-input" id="stockWarningLevel" value="10" placeholder="e.g. 10">
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- End of Tab Content Area -->
+                    </div>
+                </div>
+            </div>
+            <!-- END NEW: PRODUCT SETTINGS -->
+            
             <!-- 2. SYSTEM SETTINGS -->
             <div class="section" id="section-system">
                 <div class="settings-card">
