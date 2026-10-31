@@ -1,4 +1,4 @@
-/* public/js/Warehouse/warehouse.js */
+/* public/js/Purchase/Warehouse.js */
 
 document.addEventListener('DOMContentLoaded', function () {
     
@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     `;
     
-    // Inject the menu into every row
     document.querySelectorAll('.wh-action-menu-btn').forEach(btn => {
         btn.insertAdjacentHTML('afterend', dropdownHTML);
     });
@@ -100,14 +99,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 dropdown.classList.toggle('open');
                 if (dropdown.classList.contains('open')) {
-                    // Focus active item for keyboard nav
                     const activeItem = menu.querySelector('.wh-custom-dropdown-item.active') || items[0];
                     if(activeItem) activeItem.focus();
                 }
             });
         }
 
-        // Keyboard navigation inside the menu
         if(menu) {
             menu.addEventListener('keydown', (e) => {
                 const focusedItem = document.activeElement;
@@ -130,9 +127,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Handle selection
         items.forEach(item => {
-            item.tabIndex = 0; // Make items focusable
+            item.tabIndex = 0;
             item.addEventListener('click', (e) => {
                 e.preventDefault();
                 items.forEach(i => i.classList.remove('active'));
@@ -143,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Close dropdowns when clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.wh-custom-dropdown')) {
             document.querySelectorAll('.wh-custom-dropdown').forEach(d => d.classList.remove('open'));
