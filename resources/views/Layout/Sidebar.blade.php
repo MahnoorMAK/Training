@@ -96,9 +96,9 @@
             <svg class="arrow-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             <ul class="submenu">
                 <li class="sub-item {{ request()->is('accounting/customers') ? 'active' : '' }}"><a href="{{ url('/accounting/customers') }}">Customers</a></li>
-                <li class="sub-item {{ request()->is('accounting/vendors') ? 'active' : '' }}"><a href="{{ url('/accounting/vendors') }}">Vendors</a></li>
+                <li class="sub-item {{ request()->is('Vendors') ? 'active' : '' }}"><a href="{{ url('/Vendors') }}">Vendors</a></li>
                 <li class="sub-item {{ request()->is('accounting/revenue') ? 'active' : '' }}"><a href="{{ url('/accounting/revenue') }}">Revenue</a></li>
-                <li class="sub-item {{ request()->is('accounting/expense') ? 'active' : '' }}"><a href="{{ url('/accounting/expense') }}">Expense</a></li>
+                <li class="sub-item {{ request()->is('Expense') ? 'active' : '' }}"><a href="{{ url('/Expense') }}">Expense</a></li>
             </ul>
         </li>
 
