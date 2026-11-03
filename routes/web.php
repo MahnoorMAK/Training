@@ -26,6 +26,8 @@ Route::get('/Sidebar', function () {return view('Layout.Sidebar');})->name('Side
 Route::get('/retainer', function () {return view('Pages.Retainer.retainer');})->name('Retainer');
 Route::get('/purchase-invoice', function () {return view('Pages.Purchase.purchase-invoice');})->name('PurchaseInvoice');
 Route::get('/Warehouse', function () {return view('Pages.Purchase.Warehouse');})->name('Warehouse');
+Route::get('/Vendors', function () {return view('Pages.Accounting.Vendors');})->name('Vendors');
+Route::get('/Expense', function () {return view('Pages.Accounting.Expense');})->name('Expense');
 
 
 Route::post('/register', function (\Illuminate\Http\Request $request) {
