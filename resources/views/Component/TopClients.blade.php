@@ -18,20 +18,20 @@
         <div class="marquee-row marquee-row-1">
             <div class="marquee-track">
                 {{-- original set --}}
-                @include('Component.TopClientCard', ['name' => 'chase2k25',      'initial' => 'CH', 'color' => '#8E7AC7', 'posts' => '151', 'views' => '358,920'])
-                @include('Component.TopClientCard', ['name' => 'vinodjangid07',  'initial' => 'VD', 'color' => '#5a9de0', 'posts' => '157', 'views' => '899,480'])
-                @include('Component.TopClientCard', ['name' => 'Yayal2085',      'initial' => 'YA', 'color' => '#e0a85a', 'posts' => '142', 'views' => '485,580'])
-                @include('Component.TopClientCard', ['name' => 'Praashoo7',      'initial' => 'PR', 'color' => '#5ac9a8', 'posts' => '48',  'views' => '462,880'])
-                @include('Component.TopClientCard', ['name' => 'Smit-Prajapati', 'initial' => 'SP', 'color' => '#e05a8e', 'posts' => '29',  'views' => '318,720'])
-                @include('Component.TopClientCard', ['name' => 'alexruix',       'initial' => 'AX', 'color' => '#8E7AC7', 'posts' => '40',  'views' => '308,640'])
+                @include('Component.TopClientCard', ['name' => 'SystemsLtd',      'initial' => 'SL', 'color' => '#8E7AC7', 'posts' => '151', 'views' => '358,920'])
+                @include('Component.TopClientCard', ['name' => 'TechVision',      'initial' => 'TV', 'color' => '#5a9de0', 'posts' => '157', 'views' => '899,480'])
+                @include('Component.TopClientCard', ['name' => 'NexGen',          'initial' => 'NG', 'color' => '#e0a85a', 'posts' => '142', 'views' => '485,580'])
+                @include('Component.TopClientCard', ['name' => 'AlphaCorp',       'initial' => 'AC', 'color' => '#5ac9a8', 'posts' => '48',  'views' => '462,880'])
+                @include('Component.TopClientCard', ['name' => 'GlobalTex',       'initial' => 'GT', 'color' => '#e05a8e', 'posts' => '29',  'views' => '318,720'])
+                @include('Component.TopClientCard', ['name' => 'PrimeTrade',      'initial' => 'PT', 'color' => '#8E7AC7', 'posts' => '40',  'views' => '308,640'])
 
                 {{-- duplicate set for seamless loop --}}
-                @include('Component.TopClientCard', ['name' => 'chase2k25',      'initial' => 'CH', 'color' => '#8E7AC7', 'posts' => '151', 'views' => '358,920'])
-                @include('Component.TopClientCard', ['name' => 'vinodjangid07',  'initial' => 'VD', 'color' => '#5a9de0', 'posts' => '157', 'views' => '899,480'])
-                @include('Component.TopClientCard', ['name' => 'Yayal2085',      'initial' => 'YA', 'color' => '#e0a85a', 'posts' => '142', 'views' => '485,580'])
-                @include('Component.TopClientCard', ['name' => 'Praashoo7',      'initial' => 'PR', 'color' => '#5ac9a8', 'posts' => '48',  'views' => '462,880'])
-                @include('Component.TopClientCard', ['name' => 'Smit-Prajapati', 'initial' => 'SP', 'color' => '#e05a8e', 'posts' => '29',  'views' => '318,720'])
-                @include('Component.TopClientCard', ['name' => 'alexruix',       'initial' => 'AX', 'color' => '#8E7AC7', 'posts' => '40',  'views' => '308,640'])
+                @include('Component.TopClientCard', ['name' => 'SystemsLtd',      'initial' => 'SL', 'color' => '#8E7AC7', 'posts' => '151', 'views' => '358,920'])
+                @include('Component.TopClientCard', ['name' => 'TechVision',      'initial' => 'TV', 'color' => '#5a9de0', 'posts' => '157', 'views' => '899,480'])
+                @include('Component.TopClientCard', ['name' => 'NexGen',          'initial' => 'NG', 'color' => '#e0a85a', 'posts' => '142', 'views' => '485,580'])
+                @include('Component.TopClientCard', ['name' => 'AlphaCorp',       'initial' => 'AC', 'color' => '#5ac9a8', 'posts' => '48',  'views' => '462,880'])
+                @include('Component.TopClientCard', ['name' => 'GlobalTex',       'initial' => 'GT', 'color' => '#e05a8e', 'posts' => '29',  'views' => '318,720'])
+                @include('Component.TopClientCard', ['name' => 'PrimeTrade',      'initial' => 'PT', 'color' => '#8E7AC7', 'posts' => '40',  'views' => '308,640'])
             </div>
         </div>
 
@@ -39,20 +39,20 @@
         <div class="marquee-row marquee-row-2">
             <div class="marquee-track">
                 {{-- original set --}}
-                @include('Component.TopClientCard', ['name' => 'satyamchaudhary', 'initial' => 'SC', 'color' => '#5a9de0', 'posts' => '36',  'views' => '300,080'])
-                @include('Component.TopClientCard', ['name' => 'adamgiebl',       'initial' => 'AG', 'color' => '#e05a8e', 'posts' => '89',  'views' => '295,320'])
-                @include('Component.TopClientCard', ['name' => 'mrhyddenn',       'initial' => 'MR', 'color' => '#5ac9a8', 'posts' => '49',  'views' => '288,110'])
-                @include('Component.TopClientCard', ['name' => 'SelfMadeSystem',  'initial' => 'SM', 'color' => '#e0a85a', 'posts' => '80',  'views' => '254,550'])
-                @include('Component.TopClientCard', ['name' => 'Galahhad',        'initial' => 'GH', 'color' => '#8E7AC7', 'posts' => '22',  'views' => '236,130'])
-                @include('Component.TopClientCard', ['name' => 'Javierrocadev',   'initial' => 'JR', 'color' => '#5a9de0', 'posts' => '67',  'views' => '230,450'])
+                @include('Component.TopClientCard', ['name' => 'InnovateCo',      'initial' => 'IC', 'color' => '#5a9de0', 'posts' => '36',  'views' => '300,080'])
+                @include('Component.TopClientCard', ['name' => 'CloudNine',       'initial' => 'CN', 'color' => '#e05a8e', 'posts' => '89',  'views' => '295,320'])
+                @include('Component.TopClientCard', ['name' => 'DataFlow',        'initial' => 'DF', 'color' => '#5ac9a8', 'posts' => '49',  'views' => '288,110'])
+                @include('Component.TopClientCard', ['name' => 'SmartBiz',        'initial' => 'SB', 'color' => '#e0a85a', 'posts' => '80',  'views' => '254,550'])
+                @include('Component.TopClientCard', ['name' => 'VertexLogic',     'initial' => 'VL', 'color' => '#8E7AC7', 'posts' => '22',  'views' => '236,130'])
+                @include('Component.TopClientCard', ['name' => 'OmniGroup',       'initial' => 'OG', 'color' => '#5a9de0', 'posts' => '67',  'views' => '230,450'])
 
                 {{-- duplicate set for seamless loop --}}
-                @include('Component.TopClientCard', ['name' => 'satyamchaudhary', 'initial' => 'SC', 'color' => '#5a9de0', 'posts' => '36',  'views' => '300,080'])
-                @include('Component.TopClientCard', ['name' => 'adamgiebl',       'initial' => 'AG', 'color' => '#e05a8e', 'posts' => '89',  'views' => '295,320'])
-                @include('Component.TopClientCard', ['name' => 'mrhyddenn',       'initial' => 'MR', 'color' => '#5ac9a8', 'posts' => '49',  'views' => '288,110'])
-                @include('Component.TopClientCard', ['name' => 'SelfMadeSystem',  'initial' => 'SM', 'color' => '#e0a85a', 'posts' => '80',  'views' => '254,550'])
-                @include('Component.TopClientCard', ['name' => 'Galahhad',        'initial' => 'GH', 'color' => '#8E7AC7', 'posts' => '22',  'views' => '236,130'])
-                @include('Component.TopClientCard', ['name' => 'Javierrocadev',   'initial' => 'JR', 'color' => '#5a9de0', 'posts' => '67',  'views' => '230,450'])
+                @include('Component.TopClientCard', ['name' => 'InnovateCo',      'initial' => 'IC', 'color' => '#5a9de0', 'posts' => '36',  'views' => '300,080'])
+                @include('Component.TopClientCard', ['name' => 'CloudNine',       'initial' => 'CN', 'color' => '#e05a8e', 'posts' => '89',  'views' => '295,320'])
+                @include('Component.TopClientCard', ['name' => 'DataFlow',        'initial' => 'DF', 'color' => '#5ac9a8', 'posts' => '49',  'views' => '288,110'])
+                @include('Component.TopClientCard', ['name' => 'SmartBiz',        'initial' => 'SB', 'color' => '#e0a85a', 'posts' => '80',  'views' => '254,550'])
+                @include('Component.TopClientCard', ['name' => 'VertexLogic',     'initial' => 'VL', 'color' => '#8E7AC7', 'posts' => '22',  'views' => '236,130'])
+                @include('Component.TopClientCard', ['name' => 'OmniGroup',       'initial' => 'OG', 'color' => '#5a9de0', 'posts' => '67',  'views' => '230,450'])
             </div>
         </div>
 
@@ -60,20 +60,20 @@
         <div class="marquee-row marquee-row-3">
             <div class="marquee-track">
                 {{-- original set --}}
-                @include('Component.TopClientCard', ['name' => 'JkHuger',       'initial' => 'JK', 'color' => '#e0a85a', 'posts' => '51', 'views' => '214,820'])
-                @include('Component.TopClientCard', ['name' => 'cloudstream',   'initial' => 'CS', 'color' => '#5ac9a8', 'posts' => '72', 'views' => '208,440'])
-                @include('Component.TopClientCard', ['name' => 'nordwoodinc',   'initial' => 'NW', 'color' => '#e05a8e', 'posts' => '38', 'views' => '198,900'])
-                @include('Component.TopClientCard', ['name' => 'quantumleap',   'initial' => 'QL', 'color' => '#8E7AC7', 'posts' => '64', 'views' => '185,320'])
-                @include('Component.TopClientCard', ['name' => 'vertexlabs',    'initial' => 'VL', 'color' => '#5a9de0', 'posts' => '94', 'views' => '172,600'])
-                @include('Component.TopClientCard', ['name' => 'nimbuswave',    'initial' => 'NB', 'color' => '#e0a85a', 'posts' => '55', 'views' => '160,410'])
+                @include('Component.TopClientCard', ['name' => 'ApexTrade',       'initial' => 'AT', 'color' => '#e0a85a', 'posts' => '51', 'views' => '214,820'])
+                @include('Component.TopClientCard', ['name' => 'BlueChip',        'initial' => 'BC', 'color' => '#5ac9a8', 'posts' => '72', 'views' => '208,440'])
+                @include('Component.TopClientCard', ['name' => 'Starlight',       'initial' => 'SL', 'color' => '#e05a8e', 'posts' => '38', 'views' => '198,900'])
+                @include('Component.TopClientCard', ['name' => 'SynergyTech',     'initial' => 'ST', 'color' => '#8E7AC7', 'posts' => '64', 'views' => '185,320'])
+                @include('Component.TopClientCard', ['name' => 'NextWave',        'initial' => 'NW', 'color' => '#5a9de0', 'posts' => '94', 'views' => '172,600'])
+                @include('Component.TopClientCard', ['name' => 'CoreFinance',     'initial' => 'CF', 'color' => '#e0a85a', 'posts' => '55', 'views' => '160,410'])
 
                 {{-- duplicate set for seamless loop --}}
-                @include('Component.TopClientCard', ['name' => 'JkHuger',       'initial' => 'JK', 'color' => '#e0a85a', 'posts' => '51', 'views' => '214,820'])
-                @include('Component.TopClientCard', ['name' => 'cloudstream',   'initial' => 'CS', 'color' => '#5ac9a8', 'posts' => '72', 'views' => '208,440'])
-                @include('Component.TopClientCard', ['name' => 'nordwoodinc',   'initial' => 'NW', 'color' => '#e05a8e', 'posts' => '38', 'views' => '198,900'])
-                @include('Component.TopClientCard', ['name' => 'quantumleap',   'initial' => 'QL', 'color' => '#8E7AC7', 'posts' => '64', 'views' => '185,320'])
-                @include('Component.TopClientCard', ['name' => 'vertexlabs',    'initial' => 'VL', 'color' => '#5a9de0', 'posts' => '94', 'views' => '172,600'])
-                @include('Component.TopClientCard', ['name' => 'nimbuswave',    'initial' => 'NB', 'color' => '#e0a85a', 'posts' => '55', 'views' => '160,410'])
+                @include('Component.TopClientCard', ['name' => 'ApexTrade',       'initial' => 'AT', 'color' => '#e0a85a', 'posts' => '51', 'views' => '214,820'])
+                @include('Component.TopClientCard', ['name' => 'BlueChip',        'initial' => 'BC', 'color' => '#5ac9a8', 'posts' => '72', 'views' => '208,440'])
+                @include('Component.TopClientCard', ['name' => 'Starlight',       'initial' => 'SL', 'color' => '#e05a8e', 'posts' => '38', 'views' => '198,900'])
+                @include('Component.TopClientCard', ['name' => 'SynergyTech',     'initial' => 'ST', 'color' => '#8E7AC7', 'posts' => '64', 'views' => '185,320'])
+                @include('Component.TopClientCard', ['name' => 'NextWave',        'initial' => 'NW', 'color' => '#5a9de0', 'posts' => '94', 'views' => '172,600'])
+                @include('Component.TopClientCard', ['name' => 'CoreFinance',     'initial' => 'CF', 'color' => '#e0a85a', 'posts' => '55', 'views' => '160,410'])
             </div>
         </div>
 
