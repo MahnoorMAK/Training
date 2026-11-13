@@ -168,7 +168,7 @@
             <ul class="submenu">
                 <li class="sub-item {{ request()->is('budget/periods') ? 'active' : '' }}"><a href="{{ url('/budget/periods') }}">Budget Periods</a></li>
                 <li class="sub-item {{ request()->is('budget/budget') ? 'active' : '' }}"><a href="{{ url('/budget/budget') }}">Budget</a></li>
-                <li class="sub-item {{ request()->is('budget/allocations') ? 'active' : '' }}"><a href="{{ url('/budget/allocations') }}">Budget Allocations</a></li>
+                <li class="sub-item {{ request()->is('Budget-Allocations') ? 'active' : '' }}"><a href="{{ url('/Budget-Allocations') }}">Budget Allocations</a></li>
                 <li class="sub-item {{ request()->is('budget/monitoring') ? 'active' : '' }}"><a href="{{ url('/budget/monitoring') }}">Budget Monitoring</a></li>
             </ul>
         </li>
