@@ -76,12 +76,10 @@
 }
 
 .modules-tab.is-active {
-    /* Dynamic Gradient Background */
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-    color: #ffffff;
-    box-shadow:
-        0 8px 20px -8px var(--shadow-color),
-        inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    /* CHANGED: Use a transparent tint of the primary color */
+    background: rgba(59, 130, 246, 0.1) !important; 
+    color: var(--primary);
+    box-shadow: none;
 }
 
 /* ---------- Panels container ---------- */
