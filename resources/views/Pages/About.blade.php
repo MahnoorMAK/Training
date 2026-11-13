@@ -1,4 +1,4 @@
-@extends('Layout.app')
+@extends('Layout.app1')
 
 @section('title', 'About - Apexbooks')
 
