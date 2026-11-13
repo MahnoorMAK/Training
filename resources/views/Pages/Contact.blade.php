@@ -1,5 +1,5 @@
 {{-- resources/views/Pages/Contact.blade.php --}}
-@extends('Layout.app')
+@extends('Layout.app1')
 
 @section('title', 'Contact Us - Apexbooks')
 
