@@ -12,7 +12,6 @@
 @section('content')
 
 
-
 @include('Component.service-hero')
 @include('Component.pricing')
 @include('Component.services-grid')
