@@ -29,6 +29,7 @@ Route::get('/Warehouse', function () {return view('Pages.Purchase.Warehouse');})
 Route::get('/Vendors', function () {return view('Pages.Accounting.Vendors');})->name('Vendors');
 Route::get('/Expense', function () {return view('Pages.Accounting.Expense');})->name('Expense');
 Route::get('/Budget-Allocations', function () {return view('Pages.Budget-Allocations.Budget-Allocations');})->name('Budget-Allocations');
+Route::get('/Budget-Monitoring', function () {return view('Pages.Budget-Planner.Budget-Monitoring');})->name('Budget-Monitoring');
 
 Route::post('/register', function (\Illuminate\Http\Request $request) {
     $data = $request->validate([
