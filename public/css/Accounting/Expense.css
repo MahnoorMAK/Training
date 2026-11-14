@@ -3,7 +3,7 @@
    ============================================ */
 
 .expense-page-wrapper {
-    padding: 10px 24px 24px 24px; /* Reduced top padding to 10px */
+    padding: -10px 24px 24px 24px; /* Reduced top padding to 10px */
     background-color: var(--bg-color);
     min-height: 100vh;
 }
