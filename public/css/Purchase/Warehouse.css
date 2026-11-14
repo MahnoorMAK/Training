@@ -2,7 +2,7 @@
 
     .warehouse-page-wrapper {
         margin-top: -20px; 
-        padding: 16px 20px 24px 20px;  
+        padding: -10px 24px 24px 24px;  
         font-family: var(--app-font, 'Inter', sans-serif);
         background-color: var(--bg-color);
         min-height: calc(100vh - 80px);
